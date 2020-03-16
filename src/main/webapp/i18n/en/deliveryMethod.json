@@ -1,0 +1,31 @@
+{
+  "crmwebApp": {
+    "deliveryMethod": {
+      "home": {
+        "title": "Delivery Methods",
+        "createLabel": "Create a new Delivery Method",
+        "createOrEditLabel": "Create or edit a Delivery Method",
+        "notFound": "No Delivery Methods found"
+      },
+      "created": "A new Delivery Method is created with identifier {{ param }}",
+      "updated": "A Delivery Method is updated with identifier {{ param }}",
+      "deleted": "A Delivery Method is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Delivery Method {{ id }}?"
+      },
+      "detail": {
+        "title": "Delivery Method"
+      },
+      "deliveryMethodId": "Delivery Method Id",
+      "deliveryMethod": "Delivery Method",
+      "deliveryMethodDesc": "Delivery Method Desc",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

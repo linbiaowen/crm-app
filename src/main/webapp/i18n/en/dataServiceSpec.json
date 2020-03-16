@@ -1,0 +1,38 @@
+{
+  "crmwebApp": {
+    "dataServiceSpec": {
+      "home": {
+        "title": "Data Service Specs",
+        "createLabel": "Create a new Data Service Spec",
+        "createOrEditLabel": "Create or edit a Data Service Spec",
+        "notFound": "No Data Service Specs found"
+      },
+      "created": "A new Data Service Spec is created with identifier {{ param }}",
+      "updated": "A Data Service Spec is updated with identifier {{ param }}",
+      "deleted": "A Data Service Spec is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Data Service Spec {{ id }}?"
+      },
+      "detail": {
+        "title": "Data Service Spec"
+      },
+      "dataSpecId": "Data Spec Id",
+      "serviceSpecId": "Service Spec Id",
+      "maxEntitlement": "Max Entitlement",
+      "maxAccessSpeed": "Max Access Speed",
+      "throttledSpeed": "Throttled Speed",
+      "upstreamSpeed": "Upstream Speed",
+      "downstreamSpeed": "Downstream Speed",
+      "socialSites": "Social Sites",
+      "entertainmentPackOptions": "Entertainment Pack Options",
+      "roamingDataSpeed": "Roaming Data Speed",
+      "roamingDataVolume": "Roaming Data Volume",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "cfsServices": "Cfs Services"
+    }
+  }
+}

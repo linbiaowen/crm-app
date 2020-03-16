@@ -1,0 +1,29 @@
+{
+  "crmwebApp": {
+    "cfsServices": {
+      "home": {
+        "title": "Cfs Services",
+        "createLabel": "Create a new Cfs Services",
+        "createOrEditLabel": "Create or edit a Cfs Services",
+        "notFound": "No Cfs Services found"
+      },
+      "created": "A new Cfs Services is created with identifier {{ param }}",
+      "updated": "A Cfs Services is updated with identifier {{ param }}",
+      "deleted": "A Cfs Services is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cfs Services {{ id }}?"
+      },
+      "detail": {
+        "title": "Cfs Services"
+      },
+      "serviceId": "Service Id",
+      "serviceName": "Service Name",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "cfsServiceSpec": "Cfs Service Spec"
+    }
+  }
+}

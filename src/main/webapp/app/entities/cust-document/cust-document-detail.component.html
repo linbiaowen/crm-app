@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="custDocument">
+            <h2><span jhiTranslate="crmwebApp.custDocument.detail.title">Cust Document</span> {{ custDocument.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.custDocument.custDocId">Cust Doc Id</span></dt>
+                <dd>
+                    <span>{{ custDocument.custDocId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.custAcctId">Cust Acct Id</span></dt>
+                <dd>
+                    <span>{{ custDocument.custAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ custDocument.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.docType">Doc Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.DocType.' + custDocument.docType }}">{{ custDocument.docType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.docIdNumber">Doc Id Number</span></dt>
+                <dd>
+                    <span>{{ custDocument.docIdNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.docDataStoreId">Doc Data Store Id</span></dt>
+                <dd>
+                    <span>{{ custDocument.docDataStoreId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ custDocument.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ custDocument.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ custDocument.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ custDocument.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ custDocument.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.docDataStore">Doc Data Store</span></dt>
+                <dd>
+                    <div *ngIf="custDocument.docDataStore">
+                        <a [routerLink]="['/cust-doc-data-store', custDocument.docDataStore?.id, 'view']">{{ custDocument.docDataStore?.docDataStoreId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="custDocument.customer">
+                        <a [routerLink]="['/customer', custDocument.customer?.id, 'view']">{{ custDocument.customer?.custAcctId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocument.custSubscription">Cust Subscription</span></dt>
+                <dd>
+                    <div *ngIf="custDocument.custSubscription">
+                        <a [routerLink]="['/cust-subscription', custDocument.custSubscription?.id, 'view']">{{ custDocument.custSubscription?.subscriptionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cust-document', custDocument.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

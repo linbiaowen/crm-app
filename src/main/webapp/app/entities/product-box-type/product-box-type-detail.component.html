@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productBoxType">
+            <h2><span jhiTranslate="crmwebApp.productBoxType.detail.title">Product Box Type</span> {{ productBoxType.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.productBoxType.boxType">Box Type</span></dt>
+                <dd>
+                    <span>{{ productBoxType.boxType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productBoxType.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ productBoxType.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productBoxType.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ productBoxType.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productBoxType.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ productBoxType.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productBoxType.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ productBoxType.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productBoxType.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ productBoxType.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-box-type', productBoxType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

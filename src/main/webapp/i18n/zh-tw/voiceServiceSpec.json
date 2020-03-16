@@ -1,0 +1,42 @@
+{
+  "crmwebApp": {
+    "voiceServiceSpec": {
+      "home": {
+        "title": "Voice Service Specs",
+        "createLabel": "建立一筆新的 Voice Service Spec",
+        "createOrEditLabel": "建立或編輯 Voice Service Spec",
+        "notFound": "No Voice Service Specs found"
+      },
+      "created": "新的 Voice Service Spec 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Voice Service Spec 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Voice Service Spec 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Voice Service Spec {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Voice Service Spec"
+      },
+      "voiceSpecId": "Voice Spec Id",
+      "serviceSpecId": "Service Spec Id",
+      "roamingIncomingEnabled": "Roaming Incoming Enabled",
+      "roamingOutgoingEnabled": "Roaming Outgoing Enabled",
+      "iddEnabled": "Idd Enabled",
+      "iddOptions": "Idd Options",
+      "callForwardEnabled": "Call Forward Enabled",
+      "callWaitingEnabled": "Call Waiting Enabled",
+      "clipEnabled": "Clip Enabled",
+      "callBarringEnabled": "Call Barring Enabled",
+      "mvrsEnabled": "Mvrs Enabled",
+      "specialCallServices": "Special Call Services",
+      "callRoutingSupported": "Call Routing Supported",
+      "prbtSupported": "Prbt Supported",
+      "hrbtSupported": "Hrbt Supported",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "cfsServices": "Cfs Services"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="custSubscription">
+            <h2><span jhiTranslate="crmwebApp.custSubscription.detail.title">Cust Subscription</span> {{ custSubscription.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.custSubscription.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ custSubscription.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.activationDate">Activation Date</span></dt>
+                <dd>
+                    <span>{{ custSubscription.activationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.subsEndDate">Subs End Date</span></dt>
+                <dd>
+                    <span>{{ custSubscription.subsEndDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.subsPurchaseDate">Subs Purchase Date</span></dt>
+                <dd>
+                    <span>{{ custSubscription.subsPurchaseDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.origServiceStartDate">Orig Service Start Date</span></dt>
+                <dd>
+                    <span>{{ custSubscription.origServiceStartDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.SubscriptionStatus.' + custSubscription.status }}">{{ custSubscription.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.primarySubsInd">Primary Subs Ind</span></dt>
+                <dd>
+                    <span>{{ custSubscription.primarySubsInd }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.subsLastStatusCode">Subs Last Status Code</span></dt>
+                <dd>
+                    <span>{{ custSubscription.subsLastStatusCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.lastStatusUpdatedDate">Last Status Updated Date</span></dt>
+                <dd>
+                    <span>{{ custSubscription.lastStatusUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.custAcctId">Cust Acct Id</span></dt>
+                <dd>
+                    <span>{{ custSubscription.custAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.billingAcctId">Billing Acct Id</span></dt>
+                <dd>
+                    <span>{{ custSubscription.billingAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.billCycleId">Bill Cycle Id</span></dt>
+                <dd>
+                    <span>{{ custSubscription.billCycleId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{ custSubscription.orderId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.matrixxObjectId">Matrixx Object Id</span></dt>
+                <dd>
+                    <span>{{ custSubscription.matrixxObjectId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.subscriberName">Subscriber Name</span></dt>
+                <dd>
+                    <span>{{ custSubscription.subscriberName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.subsDeptName">Subs Dept Name</span></dt>
+                <dd>
+                    <span>{{ custSubscription.subsDeptName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.selfCarePassword">Self Care Password</span></dt>
+                <dd>
+                    <span>{{ custSubscription.selfCarePassword }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.subsCategory">Subs Category</span></dt>
+                <dd>
+                    <span>{{ custSubscription.subsCategory }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ custSubscription.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ custSubscription.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ custSubscription.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ custSubscription.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ custSubscription.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custSubscription.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="custSubscription.customer">
+                        <a [routerLink]="['/customer', custSubscription.customer?.id, 'view']">{{ custSubscription.customer?.custAcctId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cust-subscription', custSubscription.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

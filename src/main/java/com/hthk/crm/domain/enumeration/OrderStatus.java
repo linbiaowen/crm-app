@@ -1,0 +1,8 @@
+package com.hthk.crm.domain.enumeration;
+
+/**
+ * The OrderStatus enumeration.
+ */
+public enum OrderStatus {
+    NEW, PAYMENT_CONFIRMED, DELIVERY_IN_PROGRESS, DELIVERY_COMPLETED, SIM_VERIFIED, IN_PROGRESS, MNP_REJECTED, PROV_IN_PROGRESS, PROV_COMPLETED, COMPLETED, COMPLETED_ERROR, REJECTED, CANCELLED
+}

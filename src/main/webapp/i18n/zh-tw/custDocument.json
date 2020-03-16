@@ -1,0 +1,35 @@
+{
+  "crmwebApp": {
+    "custDocument": {
+      "home": {
+        "title": "Cust Documents",
+        "createLabel": "建立一筆新的 Cust Document",
+        "createOrEditLabel": "建立或編輯 Cust Document",
+        "notFound": "No Cust Documents found"
+      },
+      "created": "新的 Cust Document 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Cust Document 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Cust Document 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Cust Document {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Cust Document"
+      },
+      "custDocId": "Cust Doc Id",
+      "custAcctId": "Cust Acct Id",
+      "subscriptionId": "Subscription Id",
+      "docType": "Doc Type",
+      "docIdNumber": "Doc Id Number",
+      "docDataStoreId": "Doc Data Store Id",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "docDataStore": "Doc Data Store",
+      "customer": "Customer",
+      "custSubscription": "Cust Subscription"
+    }
+  }
+}

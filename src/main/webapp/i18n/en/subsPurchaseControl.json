@@ -1,0 +1,32 @@
+{
+  "crmwebApp": {
+    "subsPurchaseControl": {
+      "home": {
+        "title": "Subs Purchase Controls",
+        "createLabel": "Create a new Subs Purchase Control",
+        "createOrEditLabel": "Create or edit a Subs Purchase Control",
+        "notFound": "No Subs Purchase Controls found"
+      },
+      "created": "A new Subs Purchase Control is created with identifier {{ param }}",
+      "updated": "A Subs Purchase Control is updated with identifier {{ param }}",
+      "deleted": "A Subs Purchase Control is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Subs Purchase Control {{ id }}?"
+      },
+      "detail": {
+        "title": "Subs Purchase Control"
+      },
+      "subscriptionId": "Subscription Id",
+      "serviceType": "Service Type",
+      "purchaseControlFlag": "Purchase Control Flag",
+      "status": "Status",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

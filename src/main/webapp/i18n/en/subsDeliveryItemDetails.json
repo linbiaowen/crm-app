@@ -1,0 +1,36 @@
+{
+  "crmwebApp": {
+    "subsDeliveryItemDetails": {
+      "home": {
+        "title": "Subs Delivery Item Details",
+        "createLabel": "Create a new Subs Delivery Item Details",
+        "createOrEditLabel": "Create or edit a Subs Delivery Item Details",
+        "notFound": "No Subs Delivery Item Details found"
+      },
+      "created": "A new Subs Delivery Item Details is created with identifier {{ param }}",
+      "updated": "A Subs Delivery Item Details is updated with identifier {{ param }}",
+      "deleted": "A Subs Delivery Item Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Subs Delivery Item Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Subs Delivery Item Details"
+      },
+      "subscriptionItemId": "Subscription Item Id",
+      "deliveryId": "Delivery Id",
+      "productId": "Product Id",
+      "productName": "Product Name",
+      "deviceType": "Device Type",
+      "deviceModel": "Device Model",
+      "deviceSerialNbr": "Device Serial Nbr",
+      "imei": "Imei",
+      "productTheme": "Product Theme",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "subsItemDelivery": "Subs Item Delivery"
+    }
+  }
+}

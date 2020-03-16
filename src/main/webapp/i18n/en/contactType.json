@@ -1,0 +1,13 @@
+{
+  "crmwebApp": {
+    "ContactType": {
+      "null": "",
+      "HOME": "HOME",
+      "OFFICE": "OFFICE",
+      "FAX": "FAX",
+      "MOBILE": "MOBILE",
+      "EMAIL": "EMAIL",
+      "INVOICE": "INVOICE"
+    }
+  }
+}

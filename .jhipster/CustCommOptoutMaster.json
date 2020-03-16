@@ -1,0 +1,114 @@
+{
+    "name": "CustCommOptoutMaster",
+    "fields": [
+        {
+            "fieldName": "optoutId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "custAcctId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subscriptionId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "primaryMobNbr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "optoutTypeId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "optoutMediaId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "optoutStatus",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "optoutStartDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "optoutEndDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "custCommOptouts",
+            "relationshipName": "customer",
+            "otherEntityField": "custAcctId"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "custSubscription",
+            "otherEntityRelationshipName": "custCommOptouts",
+            "relationshipName": "custSubscription",
+            "otherEntityField": "subscriptionId"
+        }
+    ],
+    "changelogDate": "20200307165400",
+    "entityTableName": "cust_comm_optout_master",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

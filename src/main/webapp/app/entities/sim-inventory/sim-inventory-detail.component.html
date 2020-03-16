@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="simInventory">
+            <h2><span jhiTranslate="crmwebApp.simInventory.detail.title">Sim Inventory</span> {{ simInventory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.simInventory.iccid">Iccid</span></dt>
+                <dd>
+                    <span>{{ simInventory.iccid }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.imsi">Imsi</span></dt>
+                <dd>
+                    <span>{{ simInventory.imsi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.ki">Ki</span></dt>
+                <dd>
+                    <span>{{ simInventory.ki }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.k4sno">K 4 Sno</span></dt>
+                <dd>
+                    <span>{{ simInventory.k4sno }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.opsno">Opsno</span></dt>
+                <dd>
+                    <span>{{ simInventory.opsno }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.offerId">Offer Id</span></dt>
+                <dd>
+                    <span>{{ simInventory.offerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.offerName">Offer Name</span></dt>
+                <dd>
+                    <span>{{ simInventory.offerName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.RecordStatus.' + simInventory.status }}">{{ simInventory.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.offerValidFromDate">Offer Valid From Date</span></dt>
+                <dd>
+                    <span>{{ simInventory.offerValidFromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.offerValidToDate">Offer Valid To Date</span></dt>
+                <dd>
+                    <span>{{ simInventory.offerValidToDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ simInventory.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ simInventory.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ simInventory.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ simInventory.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.simInventory.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ simInventory.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sim-inventory', simInventory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

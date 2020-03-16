@@ -1,0 +1,13 @@
+{
+  "crmwebApp": {
+    "SubscriptionStatus": {
+      "null": "",
+      "PREACTIVE": "PREACTIVE",
+      "ACTIVE": "ACTIVE",
+      "INACTIVE": "INACTIVE",
+      "TERMINATED": "TERMINATED",
+      "DEACTIVATED": "DEACTIVATED",
+      "SUBSPENDED": "SUBSPENDED"
+    }
+  }
+}

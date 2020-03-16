@@ -1,0 +1,65 @@
+{
+  "crmwebApp": {
+    "subsOrderDetails": {
+      "home": {
+        "title": "Subs Order Details",
+        "createLabel": "建立一筆新的 Subs Order Details",
+        "createOrEditLabel": "建立或編輯 Subs Order Details",
+        "notFound": "No Subs Order Details found"
+      },
+      "created": "新的 Subs Order Details 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Subs Order Details 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Subs Order Details 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Subs Order Details {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Subs Order Details"
+      },
+      "subsOrderSeqId": "Subs Order Seq Id",
+      "subscriptionId": "Subscription Id",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "orderId": "Order Id",
+      "ssaNbr": "Ssa Nbr",
+      "primaryMsisdn": "Primary Msisdn",
+      "iccid": "Iccid",
+      "imsi": "Imsi",
+      "simVerified": "Sim Verified",
+      "simVerifiedDate": "Sim Verified Date",
+      "billingAcctId": "Billing Acct Id",
+      "billCycleId": "Bill Cycle Id",
+      "mnpRequestedDate": "Mnp Requested Date",
+      "mnpTicket": "Mnp Ticket",
+      "mnpPortInSession": "Mnp Port In Session",
+      "mnpOriginalId": "Mnp Original Id",
+      "mnpCustName": "Mnp Cust Name",
+      "mnpIdNbr": "Mnp Id Nbr",
+      "mnpIdType": "Mnp Id Type",
+      "hthkMsisdn": "Hthk Msisdn",
+      "lang": "Lang",
+      "offerId": "Offer Id",
+      "offerName": "Offer Name",
+      "matrixxCatalogId": "Matrixx Catalog Id",
+      "matrixxResourceId": "Matrixx Resource Id",
+      "matrixxObjectId": "Matrixx Object Id",
+      "salesChannel": "Sales Channel",
+      "advancePaymentMonths": "Advance Payment Months",
+      "offerPrice": "Offer Price",
+      "networkType": "Network Type",
+      "servicetype": "Servicetype",
+      "offerPlanCode": "Offer Plan Code",
+      "serviceInPerson": "Service In Person",
+      "fcmToken": "Fcm Token",
+      "remarks": "Remarks",
+      "cdVersion": "Cd Version",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "custSubscription": "Cust Subscription",
+      "orderMaster": "Order Master"
+    }
+  }
+}

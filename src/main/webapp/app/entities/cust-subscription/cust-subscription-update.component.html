@@ -1,0 +1,235 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cust-subscription-heading" jhiTranslate="crmwebApp.custSubscription.home.createOrEditLabel">Create or edit a Cust Subscription</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.subscriptionId" for="field_subscriptionId">Subscription Id</label>
+                    <input type="text" class="form-control" name="subscriptionId" id="field_subscriptionId"
+                           formControlName="subscriptionId"/>
+                    <div *ngIf="editForm.get('subscriptionId')!.invalid && (editForm.get('subscriptionId')!.dirty || editForm.get('subscriptionId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('subscriptionId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.activationDate" for="field_activationDate">Activation Date</label>
+                    <div class="d-flex">
+                        <input id="field_activationDate" type="datetime-local" class="form-control" name="activationDate" formControlName="activationDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.subsEndDate" for="field_subsEndDate">Subs End Date</label>
+                    <div class="d-flex">
+                        <input id="field_subsEndDate" type="datetime-local" class="form-control" name="subsEndDate" formControlName="subsEndDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.subsPurchaseDate" for="field_subsPurchaseDate">Subs Purchase Date</label>
+                    <div class="d-flex">
+                        <input id="field_subsPurchaseDate" type="datetime-local" class="form-control" name="subsPurchaseDate" formControlName="subsPurchaseDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.origServiceStartDate" for="field_origServiceStartDate">Orig Service Start Date</label>
+                    <div class="d-flex">
+                        <input id="field_origServiceStartDate" type="datetime-local" class="form-control" name="origServiceStartDate" formControlName="origServiceStartDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="PREACTIVE">{{ 'crmwebApp.SubscriptionStatus.PREACTIVE' | translate }}</option>
+                        <option value="ACTIVE">{{ 'crmwebApp.SubscriptionStatus.ACTIVE' | translate }}</option>
+                        <option value="INACTIVE">{{ 'crmwebApp.SubscriptionStatus.INACTIVE' | translate }}</option>
+                        <option value="TERMINATED">{{ 'crmwebApp.SubscriptionStatus.TERMINATED' | translate }}</option>
+                        <option value="DEACTIVATED">{{ 'crmwebApp.SubscriptionStatus.DEACTIVATED' | translate }}</option>
+                        <option value="SUBSPENDED">{{ 'crmwebApp.SubscriptionStatus.SUBSPENDED' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.primarySubsInd" for="field_primarySubsInd">Primary Subs Ind</label>
+                    <input type="checkbox" class="form-control" name="primarySubsInd" id="field_primarySubsInd"
+                           formControlName="primarySubsInd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.subsLastStatusCode" for="field_subsLastStatusCode">Subs Last Status Code</label>
+                    <input type="text" class="form-control" name="subsLastStatusCode" id="field_subsLastStatusCode"
+                           formControlName="subsLastStatusCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.lastStatusUpdatedDate" for="field_lastStatusUpdatedDate">Last Status Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastStatusUpdatedDate" type="datetime-local" class="form-control" name="lastStatusUpdatedDate" formControlName="lastStatusUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.custAcctId" for="field_custAcctId">Cust Acct Id</label>
+                    <input type="text" class="form-control" name="custAcctId" id="field_custAcctId"
+                           formControlName="custAcctId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.billingAcctId" for="field_billingAcctId">Billing Acct Id</label>
+                    <input type="text" class="form-control" name="billingAcctId" id="field_billingAcctId"
+                           formControlName="billingAcctId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.billCycleId" for="field_billCycleId">Bill Cycle Id</label>
+                    <input type="number" class="form-control" name="billCycleId" id="field_billCycleId"
+                           formControlName="billCycleId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.orderId" for="field_orderId">Order Id</label>
+                    <input type="text" class="form-control" name="orderId" id="field_orderId"
+                           formControlName="orderId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.matrixxObjectId" for="field_matrixxObjectId">Matrixx Object Id</label>
+                    <input type="text" class="form-control" name="matrixxObjectId" id="field_matrixxObjectId"
+                           formControlName="matrixxObjectId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.subscriberName" for="field_subscriberName">Subscriber Name</label>
+                    <input type="text" class="form-control" name="subscriberName" id="field_subscriberName"
+                           formControlName="subscriberName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.subsDeptName" for="field_subsDeptName">Subs Dept Name</label>
+                    <input type="text" class="form-control" name="subsDeptName" id="field_subsDeptName"
+                           formControlName="subsDeptName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.selfCarePassword" for="field_selfCarePassword">Self Care Password</label>
+                    <input type="text" class="form-control" name="selfCarePassword" id="field_selfCarePassword"
+                           formControlName="selfCarePassword"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.subsCategory" for="field_subsCategory">Subs Category</label>
+                    <input type="text" class="form-control" name="subsCategory" id="field_subsCategory"
+                           formControlName="subsCategory"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custSubscription.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption" *ngFor="let customerOption of customers; trackBy: trackById">{{ customerOption.custAcctId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

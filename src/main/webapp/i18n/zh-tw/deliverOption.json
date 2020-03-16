@@ -1,0 +1,9 @@
+{
+  "crmwebApp": {
+    "DeliverOption": {
+      "null": "",
+      "EFLOCKER": "EFLOCKER",
+      "POST": "POST"
+    }
+  }
+}

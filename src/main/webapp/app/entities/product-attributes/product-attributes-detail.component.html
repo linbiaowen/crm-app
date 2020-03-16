@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productAttributes">
+            <h2><span jhiTranslate="crmwebApp.productAttributes.detail.title">Product Attributes</span> {{ productAttributes.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.productAttributes.skuType">Sku Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.SkuType.' + productAttributes.skuType }}">{{ productAttributes.skuType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productAttributes.shippable">Shippable</span></dt>
+                <dd>
+                    <span>{{ productAttributes.shippable }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productAttributes.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ productAttributes.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productAttributes.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ productAttributes.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productAttributes.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ productAttributes.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productAttributes.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ productAttributes.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productAttributes.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ productAttributes.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-attributes', productAttributes.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

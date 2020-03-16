@@ -1,0 +1,33 @@
+{
+  "crmwebApp": {
+    "resourceSpecification": {
+      "home": {
+        "title": "Resource Specifications",
+        "createLabel": "建立一筆新的 Resource Specification",
+        "createOrEditLabel": "建立或編輯 Resource Specification",
+        "notFound": "No Resource Specifications found"
+      },
+      "created": "新的 Resource Specification 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Resource Specification 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Resource Specification 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Resource Specification {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Resource Specification"
+      },
+      "resourceSpecId": "Resource Spec Id",
+      "resourceType": "Resource Type",
+      "serviceSpecId": "Service Spec Id",
+      "rfs": "Rfs",
+      "rfsParms": "Rfs Parms",
+      "remarks": "Remarks",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "cfsServiceSpec": "Cfs Service Spec"
+    }
+  }
+}

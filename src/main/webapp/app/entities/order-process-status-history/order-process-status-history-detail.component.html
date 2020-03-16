@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderProcessStatusHistory">
+            <h2><span jhiTranslate="crmwebApp.orderProcessStatusHistory.detail.title">Order Process Status History</span> {{ orderProcessStatusHistory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatusHistory.orderId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.entryOrderStatus">Entry Order Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.OrderStatus.' + orderProcessStatusHistory.entryOrderStatus }}">{{ orderProcessStatusHistory.entryOrderStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.exitOrderStatus">Exit Order Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.OrderStatus.' + orderProcessStatusHistory.exitOrderStatus }}">{{ orderProcessStatusHistory.exitOrderStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.statusUpdatedDate">Status Updated Date</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatusHistory.statusUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.processName">Process Name</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatusHistory.processName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.ProcessStatus.' + orderProcessStatusHistory.status }}">{{ orderProcessStatusHistory.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatusHistory.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatusHistory.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatusHistory.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatusHistory.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatusHistory.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatusHistory.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatusHistory.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-process-status-history', orderProcessStatusHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

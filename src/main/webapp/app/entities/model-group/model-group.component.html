@@ -1,0 +1,135 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.modelGroup.home.title">Model Groups</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-model-group" [routerLink]="['/model-group/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.modelGroup.home.createLabel">
+            Create a new Model Group
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="modelGroups?.length === 0">
+        <span jhiTranslate="crmwebApp.modelGroup.home.notFound">No modelGroups found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="modelGroups?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modelGroup"><span jhiTranslate="crmwebApp.modelGroup.modelGroup">Model Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="groupDesc"><span jhiTranslate="crmwebApp.modelGroup.groupDesc">Group Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="listPrice"><span jhiTranslate="crmwebApp.modelGroup.listPrice">List Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="brand"><span jhiTranslate="crmwebApp.modelGroup.brand">Brand</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="model"><span jhiTranslate="crmwebApp.modelGroup.model">Model</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="origCountry"><span jhiTranslate="crmwebApp.modelGroup.origCountry">Orig Country</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="network"><span jhiTranslate="crmwebApp.modelGroup.network">Network</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="camera"><span jhiTranslate="crmwebApp.modelGroup.camera">Camera</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memCardSlot"><span jhiTranslate="crmwebApp.modelGroup.memCardSlot">Mem Card Slot</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dataTransfer"><span jhiTranslate="crmwebApp.modelGroup.dataTransfer">Data Transfer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="warranty"><span jhiTranslate="crmwebApp.modelGroup.warranty">Warranty</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="warrantyProvider"><span jhiTranslate="crmwebApp.modelGroup.warrantyProvider">Warranty Provider</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modelCate"><span jhiTranslate="crmwebApp.modelGroup.modelCate">Model Cate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarks"><span jhiTranslate="crmwebApp.modelGroup.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarksEndDate"><span jhiTranslate="crmwebApp.modelGroup.remarksEndDate">Remarks End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="brandChi"><span jhiTranslate="crmwebApp.modelGroup.brandChi">Brand Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modelChi"><span jhiTranslate="crmwebApp.modelGroup.modelChi">Model Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="origCountryChi"><span jhiTranslate="crmwebApp.modelGroup.origCountryChi">Orig Country Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="networkChi"><span jhiTranslate="crmwebApp.modelGroup.networkChi">Network Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cameraChi"><span jhiTranslate="crmwebApp.modelGroup.cameraChi">Camera Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memCardSlotChi"><span jhiTranslate="crmwebApp.modelGroup.memCardSlotChi">Mem Card Slot Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dataTransferChi"><span jhiTranslate="crmwebApp.modelGroup.dataTransferChi">Data Transfer Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="warrantyChi"><span jhiTranslate="crmwebApp.modelGroup.warrantyChi">Warranty Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="warrantyProviderChi"><span jhiTranslate="crmwebApp.modelGroup.warrantyProviderChi">Warranty Provider Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modelCateChi"><span jhiTranslate="crmwebApp.modelGroup.modelCateChi">Model Cate Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarksChi"><span jhiTranslate="crmwebApp.modelGroup.remarksChi">Remarks Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarksChiEndDate"><span jhiTranslate="crmwebApp.modelGroup.remarksChiEndDate">Remarks Chi End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="couponFlag"><span jhiTranslate="crmwebApp.modelGroup.couponFlag">Coupon Flag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.modelGroup.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.modelGroup.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.modelGroup.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.modelGroup.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.modelGroup.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let modelGroup of modelGroups ;trackBy: trackId">
+                    <td><a [routerLink]="['/model-group', modelGroup.id, 'view']">{{ modelGroup.id }}</a></td>
+                    <td>{{ modelGroup.modelGroup }}</td>
+                    <td>{{ modelGroup.groupDesc }}</td>
+                    <td>{{ modelGroup.listPrice }}</td>
+                    <td>{{ modelGroup.brand }}</td>
+                    <td>{{ modelGroup.model }}</td>
+                    <td>{{ modelGroup.origCountry }}</td>
+                    <td>{{ modelGroup.network }}</td>
+                    <td>{{ modelGroup.camera }}</td>
+                    <td>{{ modelGroup.memCardSlot }}</td>
+                    <td>{{ modelGroup.dataTransfer }}</td>
+                    <td>{{ modelGroup.warranty }}</td>
+                    <td>{{ modelGroup.warrantyProvider }}</td>
+                    <td>{{ modelGroup.modelCate }}</td>
+                    <td>{{ modelGroup.remarks }}</td>
+                    <td>{{ modelGroup.remarksEndDate }}</td>
+                    <td>{{ modelGroup.brandChi }}</td>
+                    <td>{{ modelGroup.modelChi }}</td>
+                    <td>{{ modelGroup.origCountryChi }}</td>
+                    <td>{{ modelGroup.networkChi }}</td>
+                    <td>{{ modelGroup.cameraChi }}</td>
+                    <td>{{ modelGroup.memCardSlotChi }}</td>
+                    <td>{{ modelGroup.dataTransferChi }}</td>
+                    <td>{{ modelGroup.warrantyChi }}</td>
+                    <td>{{ modelGroup.warrantyProviderChi }}</td>
+                    <td>{{ modelGroup.modelCateChi }}</td>
+                    <td>{{ modelGroup.remarksChi }}</td>
+                    <td>{{ modelGroup.remarksChiEndDate }}</td>
+                    <td>{{ modelGroup.couponFlag }}</td>
+                    <td>{{ modelGroup.createdDate | date:'medium' }}</td>
+                    <td>{{ modelGroup.createdBy }}</td>
+                    <td>{{ modelGroup.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ modelGroup.lastUpdatedBy }}</td>
+                    <td>{{ modelGroup.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/model-group', modelGroup.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/model-group', modelGroup.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(modelGroup)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="modelGroups?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

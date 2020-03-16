@@ -1,0 +1,109 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.orderMaster.home.title">Order Masters</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-master" [routerLink]="['/order-master/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.orderMaster.home.createLabel">
+            Create a new Order Master
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orderMasters?.length === 0">
+        <span jhiTranslate="crmwebApp.orderMaster.home.notFound">No orderMasters found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orderMasters?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderId"><span jhiTranslate="crmwebApp.orderMaster.orderId">Order Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custAcctId"><span jhiTranslate="crmwebApp.orderMaster.custAcctId">Cust Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriptionId"><span jhiTranslate="crmwebApp.orderMaster.subscriptionId">Subscription Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderType"><span jhiTranslate="crmwebApp.orderMaster.orderType">Order Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subOrderType"><span jhiTranslate="crmwebApp.orderMaster.subOrderType">Sub Order Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderNature"><span jhiTranslate="crmwebApp.orderMaster.orderNature">Order Nature</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isChangePlan"><span jhiTranslate="crmwebApp.orderMaster.isChangePlan">Is Change Plan</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderStatus"><span jhiTranslate="crmwebApp.orderMaster.orderStatus">Order Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarks"><span jhiTranslate="crmwebApp.orderMaster.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.orderMaster.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.orderMaster.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.orderMaster.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.orderMaster.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.orderMaster.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customer.custAcctId"><span jhiTranslate="crmwebApp.orderMaster.customer">Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custSubscription.subscriptionId"><span jhiTranslate="crmwebApp.orderMaster.custSubscription">Cust Subscription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let orderMaster of orderMasters ;trackBy: trackId">
+                    <td><a [routerLink]="['/order-master', orderMaster.id, 'view']">{{ orderMaster.id }}</a></td>
+                    <td>{{ orderMaster.orderId }}</td>
+                    <td>{{ orderMaster.custAcctId }}</td>
+                    <td>{{ orderMaster.subscriptionId }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.OrderType.' + orderMaster.orderType }}">{{ orderMaster.orderType }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.SubOrderType.' + orderMaster.subOrderType }}">{{ orderMaster.subOrderType }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.OrderNature.' + orderMaster.orderNature }}">{{ orderMaster.orderNature }}</td>
+                    <td>{{ orderMaster.isChangePlan }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.OrderStatus.' + orderMaster.orderStatus }}">{{ orderMaster.orderStatus }}</td>
+                    <td>{{ orderMaster.remarks }}</td>
+                    <td>{{ orderMaster.createdDate | date:'medium' }}</td>
+                    <td>{{ orderMaster.createdBy }}</td>
+                    <td>{{ orderMaster.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ orderMaster.lastUpdatedBy }}</td>
+                    <td>{{ orderMaster.tenantId }}</td>
+                    <td>
+                        <div *ngIf="orderMaster.customer">
+                            <a [routerLink]="['/customer', orderMaster.customer?.id, 'view']" >{{ orderMaster.customer?.custAcctId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderMaster.custSubscription">
+                            <a [routerLink]="['/cust-subscription', orderMaster.custSubscription?.id, 'view']" >{{ orderMaster.custSubscription?.subscriptionId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order-master', orderMaster.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order-master', orderMaster.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(orderMaster)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="orderMasters?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

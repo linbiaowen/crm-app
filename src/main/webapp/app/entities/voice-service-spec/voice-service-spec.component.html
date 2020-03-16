@@ -1,0 +1,109 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.voiceServiceSpec.home.title">Voice Service Specs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-voice-service-spec" [routerLink]="['/voice-service-spec/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.voiceServiceSpec.home.createLabel">
+            Create a new Voice Service Spec
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="voiceServiceSpecs?.length === 0">
+        <span jhiTranslate="crmwebApp.voiceServiceSpec.home.notFound">No voiceServiceSpecs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="voiceServiceSpecs?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="voiceSpecId"><span jhiTranslate="crmwebApp.voiceServiceSpec.voiceSpecId">Voice Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serviceSpecId"><span jhiTranslate="crmwebApp.voiceServiceSpec.serviceSpecId">Service Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingIncomingEnabled"><span jhiTranslate="crmwebApp.voiceServiceSpec.roamingIncomingEnabled">Roaming Incoming Enabled</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingOutgoingEnabled"><span jhiTranslate="crmwebApp.voiceServiceSpec.roamingOutgoingEnabled">Roaming Outgoing Enabled</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="iddEnabled"><span jhiTranslate="crmwebApp.voiceServiceSpec.iddEnabled">Idd Enabled</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="iddOptions"><span jhiTranslate="crmwebApp.voiceServiceSpec.iddOptions">Idd Options</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="callForwardEnabled"><span jhiTranslate="crmwebApp.voiceServiceSpec.callForwardEnabled">Call Forward Enabled</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="callWaitingEnabled"><span jhiTranslate="crmwebApp.voiceServiceSpec.callWaitingEnabled">Call Waiting Enabled</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="clipEnabled"><span jhiTranslate="crmwebApp.voiceServiceSpec.clipEnabled">Clip Enabled</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="callBarringEnabled"><span jhiTranslate="crmwebApp.voiceServiceSpec.callBarringEnabled">Call Barring Enabled</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mvrsEnabled"><span jhiTranslate="crmwebApp.voiceServiceSpec.mvrsEnabled">Mvrs Enabled</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="specialCallServices"><span jhiTranslate="crmwebApp.voiceServiceSpec.specialCallServices">Special Call Services</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="callRoutingSupported"><span jhiTranslate="crmwebApp.voiceServiceSpec.callRoutingSupported">Call Routing Supported</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prbtSupported"><span jhiTranslate="crmwebApp.voiceServiceSpec.prbtSupported">Prbt Supported</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="hrbtSupported"><span jhiTranslate="crmwebApp.voiceServiceSpec.hrbtSupported">Hrbt Supported</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.voiceServiceSpec.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.voiceServiceSpec.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.voiceServiceSpec.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.voiceServiceSpec.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.voiceServiceSpec.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let voiceServiceSpec of voiceServiceSpecs ;trackBy: trackId">
+                    <td><a [routerLink]="['/voice-service-spec', voiceServiceSpec.id, 'view']">{{ voiceServiceSpec.id }}</a></td>
+                    <td>{{ voiceServiceSpec.voiceSpecId }}</td>
+                    <td>{{ voiceServiceSpec.serviceSpecId }}</td>
+                    <td>{{ voiceServiceSpec.roamingIncomingEnabled }}</td>
+                    <td>{{ voiceServiceSpec.roamingOutgoingEnabled }}</td>
+                    <td>{{ voiceServiceSpec.iddEnabled }}</td>
+                    <td>{{ voiceServiceSpec.iddOptions }}</td>
+                    <td>{{ voiceServiceSpec.callForwardEnabled }}</td>
+                    <td>{{ voiceServiceSpec.callWaitingEnabled }}</td>
+                    <td>{{ voiceServiceSpec.clipEnabled }}</td>
+                    <td>{{ voiceServiceSpec.callBarringEnabled }}</td>
+                    <td>{{ voiceServiceSpec.mvrsEnabled }}</td>
+                    <td>{{ voiceServiceSpec.specialCallServices }}</td>
+                    <td>{{ voiceServiceSpec.callRoutingSupported }}</td>
+                    <td>{{ voiceServiceSpec.prbtSupported }}</td>
+                    <td>{{ voiceServiceSpec.hrbtSupported }}</td>
+                    <td>{{ voiceServiceSpec.createdDate | date:'medium' }}</td>
+                    <td>{{ voiceServiceSpec.createdBy }}</td>
+                    <td>{{ voiceServiceSpec.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ voiceServiceSpec.lastUpdatedBy }}</td>
+                    <td>{{ voiceServiceSpec.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/voice-service-spec', voiceServiceSpec.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/voice-service-spec', voiceServiceSpec.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(voiceServiceSpec)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="voiceServiceSpecs?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

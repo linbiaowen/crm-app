@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billCycle">
+            <h2><span jhiTranslate="crmwebApp.billCycle.detail.title">Bill Cycle</span> {{ billCycle.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.billCycle.billCycleId">Bill Cycle Id</span></dt>
+                <dd>
+                    <span>{{ billCycle.billCycleId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.billCycleDesc">Bill Cycle Desc</span></dt>
+                <dd>
+                    <span>{{ billCycle.billCycleDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.billCycle">Bill Cycle</span></dt>
+                <dd>
+                    <span>{{ billCycle.billCycle }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.billFrequency">Bill Frequency</span></dt>
+                <dd>
+                    <span>{{ billCycle.billFrequency }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.billCycleStartDate">Bill Cycle Start Date</span></dt>
+                <dd>
+                    <span>{{ billCycle.billCycleStartDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.billCycleEndDate">Bill Cycle End Date</span></dt>
+                <dd>
+                    <span>{{ billCycle.billCycleEndDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.dueDateOffset">Due Date Offset</span></dt>
+                <dd>
+                    <span>{{ billCycle.dueDateOffset }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.directDebitProcessDay">Direct Debit Process Day</span></dt>
+                <dd>
+                    <span>{{ billCycle.directDebitProcessDay }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ billCycle.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ billCycle.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ billCycle.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ billCycle.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.billCycle.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ billCycle.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bill-cycle', billCycle.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

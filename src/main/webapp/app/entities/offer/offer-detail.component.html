@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offer">
+            <h2><span jhiTranslate="crmwebApp.offer.detail.title">Offer</span> {{ offer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.offer.offerId">Offer Id</span></dt>
+                <dd>
+                    <span>{{ offer.offerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.offerExternalId">Offer External Id</span></dt>
+                <dd>
+                    <span>{{ offer.offerExternalId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.offerName">Offer Name</span></dt>
+                <dd>
+                    <span>{{ offer.offerName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.offerNameChi">Offer Name Chi</span></dt>
+                <dd>
+                    <span>{{ offer.offerNameChi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.offerType">Offer Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.OfferType.' + offer.offerType }}">{{ offer.offerType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.offerPrice">Offer Price</span></dt>
+                <dd>
+                    <span>{{ offer.offerPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.customerSegments">Customer Segments</span></dt>
+                <dd>
+                    <span>{{ offer.customerSegments }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.customerClasses">Customer Classes</span></dt>
+                <dd>
+                    <span>{{ offer.customerClasses }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.salesChannels">Sales Channels</span></dt>
+                <dd>
+                    <span>{{ offer.salesChannels }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ offer.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ offer.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.childOfferIds">Child Offer Ids</span></dt>
+                <dd>
+                    <span>{{ offer.childOfferIds }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.productSpecIds">Product Spec Ids</span></dt>
+                <dd>
+                    <span>{{ offer.productSpecIds }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.advancePaymentIds">Advance Payment Ids</span></dt>
+                <dd>
+                    <span>{{ offer.advancePaymentIds }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ offer.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ offer.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ offer.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ offer.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ offer.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.offerSpec">Offer Spec</span></dt>
+                <dd>
+                    <div *ngIf="offer.offerSpec">
+                        <a [routerLink]="['/offer-specification', offer.offerSpec?.id, 'view']">{{ offer.offerSpec?.offerSpecId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offer.parentOffer">Parent Offer</span></dt>
+                <dd>
+                    <span *ngFor="let parentOffer of offer.parentOffers; let last = last">
+                        <a [routerLink]="['/offer', parentOffer?.id, 'view']">{{ parentOffer.offerId }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer', offer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

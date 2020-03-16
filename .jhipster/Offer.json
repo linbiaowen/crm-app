@@ -1,0 +1,169 @@
+{
+    "name": "Offer",
+    "fields": [
+        {
+            "fieldName": "offerId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "offerExternalId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "offerName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "offerNameChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "offerType",
+            "fieldType": "OfferType",
+            "fieldValues": "BASE,ADDON,VAS,BUNDLE"
+        },
+        {
+            "fieldName": "offerPrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "customerSegments",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerClasses",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "salesChannels",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "childOfferIds",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productSpecIds",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "advancePaymentIds",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "offerSpecification",
+            "otherEntityRelationshipName": "offer",
+            "relationshipName": "offerSpec",
+            "otherEntityField": "offerSpecId",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "offerProduct",
+            "otherEntityRelationshipName": "offer",
+            "relationshipName": "offerProducts"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "productSpecification",
+            "otherEntityRelationshipName": "offer",
+            "relationshipName": "productSpecifications"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "offerAdvancePayment",
+            "otherEntityRelationshipName": "offer",
+            "relationshipName": "offerAdvancePayment"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "offerPromotion",
+            "otherEntityRelationshipName": "offer",
+            "relationshipName": "offerPromotions"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "offerDiscount",
+            "otherEntityRelationshipName": "offer",
+            "relationshipName": "offerDiscounts"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "offer",
+            "otherEntityRelationshipName": "childOffer",
+            "relationshipName": "parentOffer",
+            "otherEntityField": "offerId",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "offer",
+            "otherEntityRelationshipName": "parentOffer",
+            "relationshipName": "childOffer",
+            "otherEntityField": "offerId",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200307171700",
+    "entityTableName": "offer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,36 @@
+{
+  "crmwebApp": {
+    "cfsServiceSpec": {
+      "home": {
+        "title": "Cfs Service Specs",
+        "createLabel": "建立一筆新的 Cfs Service Spec",
+        "createOrEditLabel": "建立或編輯 Cfs Service Spec",
+        "notFound": "No Cfs Service Specs found"
+      },
+      "created": "新的 Cfs Service Spec 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Cfs Service Spec 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Cfs Service Spec 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Cfs Service Spec {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Cfs Service Spec"
+      },
+      "serviceSpecId": "Service Spec Id",
+      "serviceSpecDesc": "Service Spec Desc",
+      "serviceId": "Service Id",
+      "voiceSpecId": "Voice Spec Id",
+      "dataSpecId": "Data Spec Id",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "voiceServiceSpec": "Voice Service Spec",
+      "dataServiceSpec": "Data Service Spec",
+      "resourceSpecifications": "Resource Specifications",
+      "cfsServices": "Cfs Services",
+      "productSpecification": "Product Specification"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "crmwebApp": {
+    "subscriptionProvision": {
+      "home": {
+        "title": "Subscription Provisions",
+        "createLabel": "Create a new Subscription Provision",
+        "createOrEditLabel": "Create or edit a Subscription Provision",
+        "notFound": "No Subscription Provisions found"
+      },
+      "created": "A new Subscription Provision is created with identifier {{ param }}",
+      "updated": "A Subscription Provision is updated with identifier {{ param }}",
+      "deleted": "A Subscription Provision is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Subscription Provision {{ id }}?"
+      },
+      "detail": {
+        "title": "Subscription Provision"
+      },
+      "provisionSeqId": "Provision Seq Id",
+      "subscriptionId": "Subscription Id",
+      "orderId": "Order Id",
+      "productId": "Product Id",
+      "msisdn": "Msisdn",
+      "iccid": "Iccid",
+      "imsi": "Imsi",
+      "serviceSpecId": "Service Spec Id",
+      "resourceSpecId": "Resource Spec Id",
+      "rfs": "Rfs",
+      "provisionStatus": "Provision Status",
+      "provisionStatusDesc": "Provision Status Desc",
+      "provisionResponse": "Provision Response",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "orderMaster": "Order Master"
+    }
+  }
+}

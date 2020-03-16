@@ -1,0 +1,109 @@
+{
+    "name": "DataServiceSpec",
+    "fields": [
+        {
+            "fieldName": "dataSpecId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "serviceSpecId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "maxEntitlement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maxAccessSpeed",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "throttledSpeed",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "upstreamSpeed",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "downstreamSpeed",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "socialSites",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "entertainmentPackOptions",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "roamingDataSpeed",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "roamingDataVolume",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "cfsServiceSpec",
+            "otherEntityRelationshipName": "dataServiceSpec",
+            "relationshipName": "cfsServices",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200307173000",
+    "entityTableName": "data_service_spec",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

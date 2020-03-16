@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.custDocDataStore.home.title">Cust Doc Data Stores</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cust-doc-data-store" [routerLink]="['/cust-doc-data-store/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.custDocDataStore.home.createLabel">
+            Create a new Cust Doc Data Store
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="custDocDataStores?.length === 0">
+        <span jhiTranslate="crmwebApp.custDocDataStore.home.notFound">No custDocDataStores found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="custDocDataStores?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="docDataStoreId"><span jhiTranslate="crmwebApp.custDocDataStore.docDataStoreId">Doc Data Store Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="documentData"><span jhiTranslate="crmwebApp.custDocDataStore.documentData">Document Data</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.custDocDataStore.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.custDocDataStore.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.custDocDataStore.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.custDocDataStore.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.custDocDataStore.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let custDocDataStore of custDocDataStores ;trackBy: trackId">
+                    <td><a [routerLink]="['/cust-doc-data-store', custDocDataStore.id, 'view']">{{ custDocDataStore.id }}</a></td>
+                    <td>{{ custDocDataStore.docDataStoreId }}</td>
+                    <td>
+                        <a *ngIf="custDocDataStore.documentData" (click)="openFile(custDocDataStore.documentDataContentType, custDocDataStore.documentData)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="custDocDataStore.documentData">{{ custDocDataStore.documentDataContentType }}, {{ byteSize(custDocDataStore.documentData) }}</span>
+                    </td>
+                    <td>{{ custDocDataStore.createdDate | date:'medium' }}</td>
+                    <td>{{ custDocDataStore.createdBy }}</td>
+                    <td>{{ custDocDataStore.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ custDocDataStore.lastUpdatedBy }}</td>
+                    <td>{{ custDocDataStore.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cust-doc-data-store', custDocDataStore.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cust-doc-data-store', custDocDataStore.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(custDocDataStore)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="custDocDataStores?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

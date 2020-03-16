@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dataServiceSpec">
+            <h2><span jhiTranslate="crmwebApp.dataServiceSpec.detail.title">Data Service Spec</span> {{ dataServiceSpec.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.dataSpecId">Data Spec Id</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.dataSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.serviceSpecId">Service Spec Id</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.serviceSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.maxEntitlement">Max Entitlement</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.maxEntitlement }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.maxAccessSpeed">Max Access Speed</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.maxAccessSpeed }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.throttledSpeed">Throttled Speed</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.throttledSpeed }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.upstreamSpeed">Upstream Speed</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.upstreamSpeed }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.downstreamSpeed">Downstream Speed</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.downstreamSpeed }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.socialSites">Social Sites</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.socialSites }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.entertainmentPackOptions">Entertainment Pack Options</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.entertainmentPackOptions }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.roamingDataSpeed">Roaming Data Speed</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.roamingDataSpeed }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.roamingDataVolume">Roaming Data Volume</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.roamingDataVolume }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.dataServiceSpec.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ dataServiceSpec.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/data-service-spec', dataServiceSpec.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

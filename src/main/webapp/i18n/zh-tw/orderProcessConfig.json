@@ -1,0 +1,31 @@
+{
+  "crmwebApp": {
+    "orderProcessConfig": {
+      "home": {
+        "title": "Order Process Configs",
+        "createLabel": "建立一筆新的 Order Process Config",
+        "createOrEditLabel": "建立或編輯 Order Process Config",
+        "notFound": "No Order Process Configs found"
+      },
+      "created": "新的 Order Process Config 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Order Process Config 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Order Process Config 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Order Process Config {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Order Process Config"
+      },
+      "orderType": "Order Type",
+      "subOrderType": "Sub Order Type",
+      "orderNature": "Order Nature",
+      "processName": "Process Name",
+      "childProcessName": "Child Process Name",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

@@ -1,0 +1,160 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-resource-specification-heading" jhiTranslate="crmwebApp.resourceSpecification.home.createOrEditLabel">Create or edit a Resource Specification</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.resourceSpecId" for="field_resourceSpecId">Resource Spec Id</label>
+                    <input type="text" class="form-control" name="resourceSpecId" id="field_resourceSpecId"
+                           formControlName="resourceSpecId"/>
+                    <div *ngIf="editForm.get('resourceSpecId')!.invalid && (editForm.get('resourceSpecId')!.dirty || editForm.get('resourceSpecId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('resourceSpecId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.resourceType" for="field_resourceType">Resource Type</label>
+                    <select class="form-control" name="resourceType" formControlName="resourceType" id="field_resourceType">
+                        <option value="CORE_SUB">{{ 'crmwebApp.ResourceType.CORE_SUB' | translate }}</option>
+                        <option value="SERVICE">{{ 'crmwebApp.ResourceType.SERVICE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('resourceType')!.invalid && (editForm.get('resourceType')!.dirty || editForm.get('resourceType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('resourceType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.serviceSpecId" for="field_serviceSpecId">Service Spec Id</label>
+                    <input type="text" class="form-control" name="serviceSpecId" id="field_serviceSpecId"
+                           formControlName="serviceSpecId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.rfs" for="field_rfs">Rfs</label>
+                    <input type="text" class="form-control" name="rfs" id="field_rfs"
+                           formControlName="rfs"/>
+                    <div *ngIf="editForm.get('rfs')!.invalid && (editForm.get('rfs')!.dirty || editForm.get('rfs')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rfs')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.rfsParms" for="field_rfsParms">Rfs Parms</label>
+                    <input type="text" class="form-control" name="rfsParms" id="field_rfsParms"
+                           formControlName="rfsParms"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                           formControlName="remarks"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.resourceSpecification.cfsServiceSpec" for="field_cfsServiceSpec">Cfs Service Spec</label>
+                    <select class="form-control" id="field_cfsServiceSpec" name="cfsServiceSpec" formControlName="cfsServiceSpec">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cfsServiceSpecOption.id === editForm.get('cfsServiceSpec')!.value?.id ? editForm.get('cfsServiceSpec')!.value : cfsServiceSpecOption" *ngFor="let cfsServiceSpecOption of cfsservicespecs; trackBy: trackById">{{ cfsServiceSpecOption.serviceSpecId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

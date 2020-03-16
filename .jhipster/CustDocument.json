@@ -1,0 +1,105 @@
+{
+    "name": "CustDocument",
+    "fields": [
+        {
+            "fieldName": "custDocId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "custAcctId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subscriptionId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "docType",
+            "fieldType": "DocType",
+            "fieldValues": "HKID,PASSPORT,MNP,CMN,CONTRACT,SIM,BR_NBR,SSA,ADDRESS_PROOF,COP,ECOS",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "docIdNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "docDataStoreId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "custDocDataStore",
+            "otherEntityRelationshipName": "custDocument",
+            "relationshipName": "docDataStore",
+            "otherEntityField": "docDataStoreId",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "custDocuments",
+            "relationshipName": "customer",
+            "otherEntityField": "custAcctId"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "custSubscription",
+            "otherEntityRelationshipName": "custDocuments",
+            "relationshipName": "custSubscription",
+            "otherEntityField": "subscriptionId"
+        }
+    ],
+    "changelogDate": "20200307165200",
+    "entityTableName": "cust_document",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

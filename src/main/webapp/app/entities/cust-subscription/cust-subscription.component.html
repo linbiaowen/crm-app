@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.custSubscription.home.title">Cust Subscriptions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cust-subscription" [routerLink]="['/cust-subscription/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.custSubscription.home.createLabel">
+            Create a new Cust Subscription
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="custSubscriptions?.length === 0">
+        <span jhiTranslate="crmwebApp.custSubscription.home.notFound">No custSubscriptions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="custSubscriptions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriptionId"><span jhiTranslate="crmwebApp.custSubscription.subscriptionId">Subscription Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="activationDate"><span jhiTranslate="crmwebApp.custSubscription.activationDate">Activation Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subsEndDate"><span jhiTranslate="crmwebApp.custSubscription.subsEndDate">Subs End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subsPurchaseDate"><span jhiTranslate="crmwebApp.custSubscription.subsPurchaseDate">Subs Purchase Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="origServiceStartDate"><span jhiTranslate="crmwebApp.custSubscription.origServiceStartDate">Orig Service Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="crmwebApp.custSubscription.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primarySubsInd"><span jhiTranslate="crmwebApp.custSubscription.primarySubsInd">Primary Subs Ind</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subsLastStatusCode"><span jhiTranslate="crmwebApp.custSubscription.subsLastStatusCode">Subs Last Status Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastStatusUpdatedDate"><span jhiTranslate="crmwebApp.custSubscription.lastStatusUpdatedDate">Last Status Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custAcctId"><span jhiTranslate="crmwebApp.custSubscription.custAcctId">Cust Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billingAcctId"><span jhiTranslate="crmwebApp.custSubscription.billingAcctId">Billing Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billCycleId"><span jhiTranslate="crmwebApp.custSubscription.billCycleId">Bill Cycle Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderId"><span jhiTranslate="crmwebApp.custSubscription.orderId">Order Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matrixxObjectId"><span jhiTranslate="crmwebApp.custSubscription.matrixxObjectId">Matrixx Object Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriberName"><span jhiTranslate="crmwebApp.custSubscription.subscriberName">Subscriber Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subsDeptName"><span jhiTranslate="crmwebApp.custSubscription.subsDeptName">Subs Dept Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="selfCarePassword"><span jhiTranslate="crmwebApp.custSubscription.selfCarePassword">Self Care Password</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subsCategory"><span jhiTranslate="crmwebApp.custSubscription.subsCategory">Subs Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.custSubscription.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.custSubscription.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.custSubscription.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.custSubscription.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.custSubscription.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customer.custAcctId"><span jhiTranslate="crmwebApp.custSubscription.customer">Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let custSubscription of custSubscriptions ;trackBy: trackId">
+                    <td><a [routerLink]="['/cust-subscription', custSubscription.id, 'view']">{{ custSubscription.id }}</a></td>
+                    <td>{{ custSubscription.subscriptionId }}</td>
+                    <td>{{ custSubscription.activationDate | date:'medium' }}</td>
+                    <td>{{ custSubscription.subsEndDate | date:'medium' }}</td>
+                    <td>{{ custSubscription.subsPurchaseDate | date:'medium' }}</td>
+                    <td>{{ custSubscription.origServiceStartDate | date:'medium' }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.SubscriptionStatus.' + custSubscription.status }}">{{ custSubscription.status }}</td>
+                    <td>{{ custSubscription.primarySubsInd }}</td>
+                    <td>{{ custSubscription.subsLastStatusCode }}</td>
+                    <td>{{ custSubscription.lastStatusUpdatedDate | date:'medium' }}</td>
+                    <td>{{ custSubscription.custAcctId }}</td>
+                    <td>{{ custSubscription.billingAcctId }}</td>
+                    <td>{{ custSubscription.billCycleId }}</td>
+                    <td>{{ custSubscription.orderId }}</td>
+                    <td>{{ custSubscription.matrixxObjectId }}</td>
+                    <td>{{ custSubscription.subscriberName }}</td>
+                    <td>{{ custSubscription.subsDeptName }}</td>
+                    <td>{{ custSubscription.selfCarePassword }}</td>
+                    <td>{{ custSubscription.subsCategory }}</td>
+                    <td>{{ custSubscription.createdDate | date:'medium' }}</td>
+                    <td>{{ custSubscription.createdBy }}</td>
+                    <td>{{ custSubscription.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ custSubscription.lastUpdatedBy }}</td>
+                    <td>{{ custSubscription.tenantId }}</td>
+                    <td>
+                        <div *ngIf="custSubscription.customer">
+                            <a [routerLink]="['/customer', custSubscription.customer?.id, 'view']" >{{ custSubscription.customer?.custAcctId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cust-subscription', custSubscription.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cust-subscription', custSubscription.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(custSubscription)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="custSubscriptions?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

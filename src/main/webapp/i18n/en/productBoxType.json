@@ -1,0 +1,27 @@
+{
+  "crmwebApp": {
+    "productBoxType": {
+      "home": {
+        "title": "Product Box Types",
+        "createLabel": "Create a new Product Box Type",
+        "createOrEditLabel": "Create or edit a Product Box Type",
+        "notFound": "No Product Box Types found"
+      },
+      "created": "A new Product Box Type is created with identifier {{ param }}",
+      "updated": "A Product Box Type is updated with identifier {{ param }}",
+      "deleted": "A Product Box Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Box Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Box Type"
+      },
+      "boxType": "Box Type",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

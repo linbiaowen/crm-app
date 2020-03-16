@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="blackListMaster">
+            <h2><span jhiTranslate="crmwebApp.blackListMaster.detail.title">Black List Master</span> {{ blackListMaster.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.blackListMaster.blackListCode">Black List Code</span></dt>
+                <dd>
+                    <span>{{ blackListMaster.blackListCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.blackListMaster.blackListReason">Black List Reason</span></dt>
+                <dd>
+                    <span>{{ blackListMaster.blackListReason }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.blackListMaster.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ blackListMaster.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.blackListMaster.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ blackListMaster.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.blackListMaster.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ blackListMaster.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.blackListMaster.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ blackListMaster.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.blackListMaster.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ blackListMaster.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.blackListMaster.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ blackListMaster.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.blackListMaster.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ blackListMaster.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/black-list-master', blackListMaster.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

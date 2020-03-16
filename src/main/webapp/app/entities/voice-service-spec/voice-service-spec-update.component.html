@@ -1,0 +1,202 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-voice-service-spec-heading" jhiTranslate="crmwebApp.voiceServiceSpec.home.createOrEditLabel">Create or edit a Voice Service Spec</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.voiceSpecId" for="field_voiceSpecId">Voice Spec Id</label>
+                    <input type="number" class="form-control" name="voiceSpecId" id="field_voiceSpecId"
+                           formControlName="voiceSpecId"/>
+                    <div *ngIf="editForm.get('voiceSpecId')!.invalid && (editForm.get('voiceSpecId')!.dirty || editForm.get('voiceSpecId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('voiceSpecId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('voiceSpecId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.serviceSpecId" for="field_serviceSpecId">Service Spec Id</label>
+                    <input type="text" class="form-control" name="serviceSpecId" id="field_serviceSpecId"
+                           formControlName="serviceSpecId"/>
+                    <div *ngIf="editForm.get('serviceSpecId')!.invalid && (editForm.get('serviceSpecId')!.dirty || editForm.get('serviceSpecId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serviceSpecId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.roamingIncomingEnabled" for="field_roamingIncomingEnabled">Roaming Incoming Enabled</label>
+                    <input type="checkbox" class="form-control" name="roamingIncomingEnabled" id="field_roamingIncomingEnabled"
+                           formControlName="roamingIncomingEnabled"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.roamingOutgoingEnabled" for="field_roamingOutgoingEnabled">Roaming Outgoing Enabled</label>
+                    <input type="checkbox" class="form-control" name="roamingOutgoingEnabled" id="field_roamingOutgoingEnabled"
+                           formControlName="roamingOutgoingEnabled"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.iddEnabled" for="field_iddEnabled">Idd Enabled</label>
+                    <input type="checkbox" class="form-control" name="iddEnabled" id="field_iddEnabled"
+                           formControlName="iddEnabled"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.iddOptions" for="field_iddOptions">Idd Options</label>
+                    <input type="text" class="form-control" name="iddOptions" id="field_iddOptions"
+                           formControlName="iddOptions"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.callForwardEnabled" for="field_callForwardEnabled">Call Forward Enabled</label>
+                    <input type="checkbox" class="form-control" name="callForwardEnabled" id="field_callForwardEnabled"
+                           formControlName="callForwardEnabled"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.callWaitingEnabled" for="field_callWaitingEnabled">Call Waiting Enabled</label>
+                    <input type="checkbox" class="form-control" name="callWaitingEnabled" id="field_callWaitingEnabled"
+                           formControlName="callWaitingEnabled"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.clipEnabled" for="field_clipEnabled">Clip Enabled</label>
+                    <input type="checkbox" class="form-control" name="clipEnabled" id="field_clipEnabled"
+                           formControlName="clipEnabled"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.callBarringEnabled" for="field_callBarringEnabled">Call Barring Enabled</label>
+                    <input type="checkbox" class="form-control" name="callBarringEnabled" id="field_callBarringEnabled"
+                           formControlName="callBarringEnabled"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.mvrsEnabled" for="field_mvrsEnabled">Mvrs Enabled</label>
+                    <input type="checkbox" class="form-control" name="mvrsEnabled" id="field_mvrsEnabled"
+                           formControlName="mvrsEnabled"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.specialCallServices" for="field_specialCallServices">Special Call Services</label>
+                    <input type="text" class="form-control" name="specialCallServices" id="field_specialCallServices"
+                           formControlName="specialCallServices"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.callRoutingSupported" for="field_callRoutingSupported">Call Routing Supported</label>
+                    <input type="checkbox" class="form-control" name="callRoutingSupported" id="field_callRoutingSupported"
+                           formControlName="callRoutingSupported"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.prbtSupported" for="field_prbtSupported">Prbt Supported</label>
+                    <input type="checkbox" class="form-control" name="prbtSupported" id="field_prbtSupported"
+                           formControlName="prbtSupported"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.hrbtSupported" for="field_hrbtSupported">Hrbt Supported</label>
+                    <input type="checkbox" class="form-control" name="hrbtSupported" id="field_hrbtSupported"
+                           formControlName="hrbtSupported"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.voiceServiceSpec.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

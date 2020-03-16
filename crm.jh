@@ -1,0 +1,1144 @@
+entity Customer {
+	custAcctId String required
+    parentCustAcctId String
+    acctStatus AcctStatus required
+    acctStartDate Instant required
+    acctEndDate Instant
+    cabsAcctId String
+    title String
+    givenName String
+    familyName String
+    givenNameChi String
+    familyNameChi String
+    aliasName String
+    gender String
+    birthDate LocalDate
+    idType String
+    idNumber String
+    companyNameEng String
+    companyNameChi String
+    unlimitedCompany Boolean
+    lang Language required
+    selfCareUserId String
+    selfCarePassword String
+    ivrPin String
+    maritialStatus String
+    customerSegment CustomerSegment
+    customerClass String
+    billingAcctId String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum AcctStatus {
+	PREACTIVE, ACTIVE, INACTIVE
+}
+
+enum CustomerSegment {
+	MASS, CORP, VIP
+}
+
+//enum Tenant {
+//	MO, 3HK
+//}
+
+
+entity CustDocument {
+	custDocId String required
+    custAcctId String
+    subscriptionId String
+    docType DocType required
+    docIdNumber String
+    docDataStoreId Long
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum DocType {
+	HKID, PASSPORT, MNP, CMN, CONTRACT, SIM, BR_NBR, SSA, ADDRESS_PROOF, COP, ECOS
+}
+
+entity CustDocDataStore {
+	docDataStoreId Long required
+    documentData AnyBlob
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity CustCommOptoutMaster {
+	optoutId String required
+    custAcctId String
+    subscriptionId String
+    primaryMobNbr String
+    optoutTypeId String required
+    optoutMediaId String required
+    optoutStatus String required
+    optoutStartDate Instant
+    optoutEndDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity CommOptoutType {
+	optoutTypeId String required
+    optoutType String required
+    optoutTypeDesc String
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity CommMediaType {
+	optoutMediaId String required
+    mediaType String required
+    mediaTypeDesc String
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity CustAcctBlackList {
+	blackListId Long required
+    idType String required
+    idNumber String required
+    blackListCode String required
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity BlackListMaster {
+	blackListCode String required
+    blackListReason String required
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity CustContact {
+	contactId Long required
+    accountId String required
+    accountType AccountType required
+    contactType ContactType required
+    contactPerson String
+    contactPhone String
+    contactEmail String
+    status RecordStatus required
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum ContactType {
+    HOME, OFFICE, FAX, MOBILE, EMAIL, INVOICE
+}
+
+enum AccountType {
+    CUSTOMER, SUBSCRIPTION, BILLING
+}
+
+enum AddressType {
+    BILLING, DELIVERY
+}
+entity CustAddress {
+	addressId Long required
+    accountId String required
+    accountType AccountType required
+    addressType AddressType required
+    addressLang Language required
+    formattedAddress Boolean required
+    room String
+    floor String
+    block String
+    building String
+    streetEstate String
+    district String
+    region String
+    address1 String
+    address2 String
+    address3 String
+    address4 String
+    address5 String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity SubscriptionGroup {
+	groupId Long required
+    custAcctId String required
+    groupType String required
+    groupName String
+    status RecordStatus required
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity GroupType {
+	groupTypeId Long required
+    groupType String required
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity GroupMembers {
+	groupId Long required
+    subscriptionId String required
+    msisdn String required
+    groupRole GroupRole required
+    endReasonCode String
+    remarks String
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum GroupRole {
+    ADMIN, MEMBER
+}
+
+
+entity GroupEndReason {
+	endReasonCode String required
+    endReason String required
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity CustSubscription {
+	subscriptionId String required
+    activationDate Instant
+    subsEndDate Instant
+    subsPurchaseDate Instant
+    origServiceStartDate Instant
+    status SubscriptionStatus required
+    primarySubsInd Boolean
+    subsLastStatusCode String
+    lastStatusUpdatedDate Instant
+    custAcctId String
+    billingAcctId String
+    billCycleId Integer
+    orderId String
+    matrixxObjectId String
+    subscriberName String
+    subsDeptName String
+    selfCarePassword String
+    subsCategory String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum SubscriptionStatus {
+	PREACTIVE, ACTIVE, INACTIVE, TERMINATED, DEACTIVATED, SUBSPENDED
+}
+
+entity SubsPurchaseControl {
+	subscriptionId String required
+    serviceType String required
+    purchaseControlFlag String required
+    status RecordStatus required
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity SubscriptionDetails {
+	subsDetailId Long required
+    subscriptionId String required
+    startDate Instant
+    endDate Instant
+    orderId String
+    ssaNbr String
+    primaryMsisdn String
+    iccid String
+    imsi String
+    mnpRequestedDate Instant
+    lang Language required
+    baseOfferId String
+    baseOfferName String
+    matrixxCatalogId String
+    matrixxResourceId String
+    matrixxObjectId String
+    salesChannel String
+    advancePaymentMonths Integer
+    offerPrice BigDecimal
+    networkType String
+    serviceType String
+    offerPlanCode String
+    serviceInPerson String
+    fcmToken String
+    remarks String
+    cdVersion String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity SubsOrderDetails {
+	subsOrderSeqId Long required
+    subscriptionId String required
+    startDate Instant
+    endDate Instant
+    orderId String required
+    ssaNbr String
+    primaryMsisdn String
+    iccid String
+    imsi String
+    simVerified Boolean
+    simVerifiedDate Instant
+    billingAcctId String
+    billCycleId Integer
+    mnpRequestedDate Instant
+    mnpTicket String
+    mnpPortInSession String
+    mnpOriginalId String
+    mnpCustName String
+    mnpIdNbr String
+    mnpIdType String
+    hthkMsisdn Boolean
+    lang Language required
+    offerId String
+    offerName String
+    matrixxCatalogId String
+    matrixxResourceId String
+    matrixxObjectId String
+    salesChannel String
+    advancePaymentMonths Integer
+    offerPrice BigDecimal
+    networkType String
+    servicetype ServiceType
+    offerPlanCode String
+    serviceInPerson String
+    fcmToken String
+    remarks String
+    cdVersion String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+//enum NetworkType {
+    //'2G', '3G', 'LTE', '5G', 'NON TELCO'
+//}
+
+enum ServiceType {
+    PREPAID, POSTPAID, OTHERS
+}
+
+entity SubsItemDelivery {
+	deliveryId Long required
+    orderId String required
+    subscriptionId String required
+    subscriptionItemId String required
+    deliveryStatus String required
+    deliveryMethodId String required
+    deliveryRefCode String
+    fileGenerationDate Instant
+    fileReceivedDate Instant
+    deliveryDate Instant
+    remarks String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity SubsDeliveryItemDetails {
+	subscriptionItemId Long required
+    deliveryId Long required
+    productId String required
+    productName String
+    deviceType String
+    deviceModel String
+    deviceSerialNbr String
+    imei String
+    productTheme String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity DeliveryMethod {
+	deliveryMethodId Long required
+    deliveryMethod String required
+    deliveryMethodDesc String
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity SubscriptionProvision {
+	provisionSeqId String required
+    subscriptionId String required
+    orderId String required
+    productId String required
+    msisdn String required
+    iccid String required
+    imsi String
+    serviceSpecId String required
+    resourceSpecId String required
+    rfs String required
+    provisionStatus String required
+    provisionStatusDesc String
+    provisionResponse String
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity SubscriptionProduct {
+	productSubsriptionSeqId Long required
+    orderId String required
+    subscriptionId String required
+    productId String required
+    productName String
+    activationDate Instant
+    endDate Instant
+    secondMsisdn String
+    secondImsi String
+    quantity Integer
+    terminationReasonCode String
+    offerId String required
+    offerName String
+    offerType String
+    matrixxCatalogId String
+    matrixxResourceId String
+    matrixxObjectId String
+    salesChannel String
+    contractId String
+    autoRenewal Boolean
+    autoPay Boolean
+    remarks String
+    vendorProvisionInd Boolean
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity SalesChannelMaster {
+	salesChannel String required
+    salesChannelDesc String
+    startDate Instant
+    endDate Instant
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity SupremeMaster {
+	supremeSeqId Long required
+    subscriptionId String
+    msisdn String
+    startDate Instant
+    endDate Instant
+    membershipServiceType MemberShipServiceType
+    peCode String
+    personalExecDirectLine String
+    personalExecName String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum MemberShipServiceType {
+    VIP, GOLD, DIAMOND
+}
+
+entity BillCycle {
+	billCycleId Integer required
+    billCycleDesc String
+    billCycle Integer required
+    billFrequency String
+    billCycleStartDate Instant
+    billCycleEndDate Instant
+    dueDateOffset Integer
+    directDebitProcessDay Integer
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity Offer {
+	offerId String required
+    offerExternalId String
+    offerName String required
+    offerNameChi String
+    offerType OfferType
+    offerPrice BigDecimal
+    //advancePaymentId Long
+    customerSegments String
+    customerClasses String
+    salesChannels String
+    startDate Instant
+    endDate Instant
+    childOfferIds String
+    productSpecIds String // temp fields for create offer product spec durring offer creation.
+    advancePaymentIds String // temp fields for create offer advancePayments durring offer creation. 
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum OfferType {
+	BASE, ADDON, VAS, BUNDLE
+}
+
+entity OfferProduct {
+	recSeqId Long
+    productId String
+    offerId String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity OfferSpecification {
+	offerSpecId Long required
+    offerId String required
+    startDate Instant
+    endDate Instant
+    limitedActivationPeriod Boolean
+    allowedActivationStartDate Instant
+    allowedActivationEndDate Instant
+    isGroupSharingOffer Boolean
+    isMnpOffer Boolean
+    autoRenewal Boolean
+    transferAllowed Boolean
+    infoSharingAllowed Boolean
+    infoSharingOptions String
+    offerPeriod Integer
+    offerPeriodTerm String
+    paymentType String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity Product {
+	productId String required
+    productName String required
+    productNameChi String
+    productDesc String
+    productDescChi String
+    productCate ProductCate
+    productNature ProductNature
+    productFamily ProductFamily
+    productType ProductType
+    modelCode String
+    startDate Instant
+    endDate Instant
+    independentlyOrderable Boolean
+    networkProvisionRequired Boolean
+    changeEntitlementAllowed Boolean
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum ProductCate {
+    TELCO, NON_TELCO
+}
+
+enum ProductNature {
+    DEVICE, SERVICE, MECHANDISE
+}
+
+enum ProductFamily {
+    VOICE, DATA, SMS, BOX
+}
+
+enum ProductType {
+    BASE, VAS
+}
+
+entity ProductSpecification {
+	productSpecId Long required
+    productId String required
+    serviceSpecId String
+    productSpecType ProductSpecType
+    skuType SkuType
+    simType SimType
+    boxType BoxType
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum BoxType {
+	TRAVEL, BEAUTY, BOX_OF_MONTH
+}
+
+enum ProductSpecType {
+	DEVICE, ACCESSORY, SIM, VOICE, SMS, DATA, BOX
+}
+
+enum SimType {
+	PHYSICAL_SIM, ESIM, ONE_CARD_MULTI_NUMBER
+}
+
+entity ProductAttributes {
+	skuType SkuType
+    shippable Boolean
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity DeliveryOption {
+	deliveryOption DeliverOptions
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum SkuType {
+	DEVICE, ACCESSORY, SIM, BOX
+}
+
+enum DeliverOptions {
+    EFLOCKER, POST
+}
+
+entity ProductSimAttributes {
+	simType	SimType required
+    imsiRangeFrom String
+    imsiRangeTo String
+    simRepositoryRef String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity ProductVoice {
+    voiceId String
+	productSpecId Long required
+	unit String required
+    volume Integer required
+    roamingFlag Boolean
+    minTransferQuota BigDecimal
+    maxTransferQuota BigDecimal
+    minRetentionQuota BigDecimal
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity ProductData {
+    dataId String
+	productSpecId Long required
+    unit String required
+    volume Integer required
+    dataSlab String
+    dataSpeedCategory String
+    specicalPackType String
+    dataServiceType String
+    roamingRegions String
+    roamingCountries String
+    roamingDayPassType String
+    roamingPackValidPeriodType String
+    roamingPackPeriod Integer
+    roamingPackTerm String
+    minTransferQuota BigDecimal
+    maxTransferQuota BigDecimal
+    minRetentionQuota BigDecimal
+    minTpTransferQuota BigDecimal
+    maxTpTransferQuota BigDecimal
+    minTpRetentionQuota BigDecimal
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity ProductSms {
+    smsId String
+	productSpecId Long required
+    unit String required
+    volume Integer required
+    smsType SmsType
+    roamingAllowed Boolean
+    minTransferQuota BigDecimal
+    maxTransferQuota BigDecimal
+    minRetentionQuota BigDecimal
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+
+enum SmsType {
+	LOCAL, INTERNATIONAL
+}
+
+entity CfsServices {
+	serviceId String required
+    serviceName String required
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity CfsServiceSpec {
+    serviceSpecId String required
+    serviceSpecDesc String
+    serviceId String required
+    voiceSpecId Long
+    dataSpecId Long
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity VoiceServiceSpec {
+	voiceSpecId Long required
+    serviceSpecId String required
+    roamingIncomingEnabled Boolean
+    roamingOutgoingEnabled Boolean
+    iddEnabled Boolean
+    iddOptions String
+    callForwardEnabled Boolean
+    callWaitingEnabled Boolean
+    clipEnabled Boolean
+    callBarringEnabled Boolean
+    mvrsEnabled Boolean
+    specialCallServices String
+    callRoutingSupported Boolean
+    prbtSupported Boolean
+    hrbtSupported Boolean
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity DataServiceSpec {
+    dataSpecId Long required
+    serviceSpecId String required
+    maxEntitlement String
+    maxAccessSpeed String
+    throttledSpeed String
+    upstreamSpeed String
+    downstreamSpeed String
+    socialSites String
+    entertainmentPackOptions String
+    roamingDataSpeed String
+    roamingDataVolume String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity ResourceSpecification {
+    resourceSpecId String required
+    resourceType ResourceType required
+    serviceSpecId String
+    rfs String required
+    rfsParms String
+    remarks String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum ResourceType {
+   CORE_SUB, SERVICE
+}
+
+entity OfferAdvancePayment {
+    advancePaymentId Long required
+    offerId String required
+    advancePaymentMonths Integer required
+    offerPrice BigDecimal
+    offerDiscount BigDecimal
+    status RecordStatus required
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum RecordStatus {
+INACTIVE, ACTIVE
+}
+
+entity OfferPromotion {
+    promoCode String required
+    offerId String required
+    startDate Instant
+    endDate Instant
+    promoType String
+    offerPrice BigDecimal
+    offerDiscount BigDecimal
+    freeDataOfferId String
+    status RecordStatus
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity OfferDiscount {
+	discountCode String required
+    offerId String
+    startDate Instant
+    endDate Instant
+    discountType String
+    offerDiscount BigDecimal
+    status RecordStatus
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity SimInventory {
+    iccid String required
+    imsi String
+    ki String
+    k4sno String
+    opsno String
+    offerId String
+    offerName String
+    status RecordStatus
+    offerValidFromDate String
+    offerValidToDate String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity OrderMaster {
+    orderId String required
+    custAcctId String required
+    subscriptionId String required
+    orderType OrderType required
+    subOrderType SubOrderType required
+    orderNature OrderNature
+    isChangePlan Boolean
+    orderStatus OrderStatus required
+    remarks String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum OrderType {
+    PURCHASE_OFFER, CANCEL_OFFER, MODIFY_OFFER, CHANGE_SERVICE, SIM_REPLACEMENT, RESEND_SIM
+}
+
+enum SubOrderType {
+    OFFER, SERVICE, TRANSFER
+}
+
+enum OrderNature {
+    NORMAL, MNP
+}
+
+enum OrderStatus {
+   NEW, PAYMENT_CONFIRMED, DELIVERY_IN_PROGRESS, DELIVERY_COMPLETED, SIM_VERIFIED, IN_PROGRESS, MNP_REJECTED, PROV_IN_PROGRESS, PROV_COMPLETED, COMPLETED, COMPLETED_ERROR, REJECTED, CANCELLED
+}
+
+entity OrderProcessConfig {
+    orderType String required
+    subOrderType String required
+    orderNature String
+    processName String
+    childProcessName String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity OrderProcessStatus {
+    orderId String required
+    entryOrderStatus OrderStatus required
+    exitOrderStatus OrderStatus required
+    statusUpdatedDate Instant required
+    processName String
+    status ProcessStatus
+    remarks String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity OrderProcessStatusHistory {
+    orderId String required
+    entryOrderStatus OrderStatus required
+    exitOrderStatus OrderStatus required
+    statusUpdatedDate Instant required
+    processName String
+    status ProcessStatus
+    remarks String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum ProcessStatus {
+   NEW, PENDING, COMPLETED, COMPLETED_ERROR
+}
+
+
+entity ProductBoxType {
+	boxType String required
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+
+
+entity ModelCategory {
+	modelCate String
+    parentModelCate String
+    modelCateDesc String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity ModelGroup {
+	modelGroup String required
+    groupDesc String
+    listPrice BigDecimal
+    brand String
+    model String
+    origCountry String
+    network String
+    camera String
+    memCardSlot String
+    dataTransfer String
+    warranty String
+    warrantyProvider String
+    modelCate String
+    remarks String
+    remarksEndDate String
+    brandChi String
+    modelChi String
+    origCountryChi String
+    networkChi String
+    cameraChi String
+    memCardSlotChi String
+    dataTransferChi String
+    warrantyChi String
+    warrantyProviderChi String
+    modelCateChi String
+    remarksChi String
+    remarksChiEndDate String
+    couponFlag String
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+entity Model {
+	modelCode String required
+    modelGroup String
+    status RecordStatus
+    createdDate Instant required
+    createdBy String required
+    lastUpdatedDate Instant required
+    lastUpdatedBy String required
+    tenantId String required
+}
+
+enum Language {
+    CHINESE, ENGLISH
+}
+
+relationship OneToOne {
+	Customer{parentCustomer(custAcctId)} to Customer,
+	CustDocument{docDataStore(docDataStoreId)} to CustDocDataStore,
+	Offer{offerSpec(offerSpecId)} to OfferSpecification{offer(offerId)},
+	Product{productSpec(productSpecId)} to ProductSpecification{product(productId)},
+    ProductSpecification{voice(voiceId)} to ProductVoice{productSpec(productSpecId)},
+    ProductSpecification{data(dataId)} to ProductData{productSpec(productSpecId)},
+    ProductSpecification{sms(smsId)} to ProductSms{productSpec(productSpecId)},
+	CfsServices{cfsServiceSpec(serviceSpecId)} to CfsServiceSpec{cfsServices(serviceId)},
+	CfsServiceSpec{voiceServiceSpec(voiceSpecId)} to VoiceServiceSpec{cfsServices(serviceId)},
+    CfsServiceSpec{dataServiceSpec(dataSpecId)} to DataServiceSpec{cfsServices(serviceId)}
+}
+
+relationship ManyToMany {
+    Offer{parentOffer(offerId)} to Offer{childOffer(offerId)}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+    Customer{custDocuments(custDocId)} to CustDocument{customer(custAcctId)},
+    Offer{offerProducts(productId)} to OfferProduct{offer(offerId)},
+    Offer{productSpecifications(productSpecId)} to ProductSpecification{offer(offerId)},
+    Offer{OfferAdvancePayment} to OfferAdvancePayment{offer},
+    Offer{offerPromotions(promoCode)} to OfferPromotion{offer(offerId)},
+    Offer{offerDiscounts(discountCode)} to OfferDiscount{offer(offerId)},
+    ProductSpecification{cfsServiceSpec(serviceSpecId)} to CfsServiceSpec{productSpecification(productSpecId)},
+    CfsServiceSpec{resourceSpecifications(resourceSpecId)} to ResourceSpecification{cfsServiceSpec(serviceSpecId)},
+    CustSubscription{custDocuments(custDocId)} to CustDocument{custSubscription(subscriptionId)},
+    Customer{custCommOptouts(optoutId)} to CustCommOptoutMaster{customer(custAcctId)},
+    CustSubscription{custCommOptouts(optoutId)} to CustCommOptoutMaster{custSubscription(subscriptionId)},
+    Customer{custContacts(contactId)} to CustContact{customer(custAcctId)},
+    Customer{custAddresses(addressId)} to CustAddress{customer(custAcctId)},
+    Customer{subscriptionGroups(groupName)} to SubscriptionGroup{customer(custAcctId)},
+    SubscriptionGroup{groupMembers(msisdn)} to GroupMembers{subscriptionGroup(groupName)},
+    Customer{subscriptions(subscriptionId)} to CustSubscription{customer(custAcctId)},
+    CustSubscription{subscriptionDetails(primaryMsisdn)} to SubscriptionDetails{custSubscription(subscriptionId)},
+    CustSubscription{subsOrderDetails(orderId)} to SubsOrderDetails{custSubscription(subscriptionId)},
+    CustSubscription{subscriptionProducts(productId)} to SubscriptionProduct{custSubscription(subscriptionId)},
+    CustSubscription{supremeMasters(supremeSeqId)} to SupremeMaster{custSubscription(subscriptionId)},
+    Customer{orderMasters(orderId)} to OrderMaster{customer(custAcctId)},
+    CustSubscription{orderMasters(orderId)} to OrderMaster{custSubscription(subscriptionId)},
+    OrderMaster{subsOrderDetails(subsOrderSeqId)} to SubsOrderDetails{orderMaster(orderId)},
+    OrderMaster{subsItemDeliverys(deliveryId)} to SubsItemDelivery{orderMaster(orderId)},
+    OrderMaster{subscriptionProvisions(provisionSeqId)} to SubscriptionProvision{orderMaster(orderId)},
+    OrderMaster{orderProcessStatuses(orderId)} to OrderProcessStatus{orderMaster(orderId)},
+    SubsItemDelivery{subsDeliveryItemDetails(subscriptionItemId)} to SubsDeliveryItemDetails{SubsItemDelivery(deliveryId)}
+}
+
+// Set pagination options
+//paginate BlackListMaster with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except OfferDiscount, OfferPromotion
+service * with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
+//skipClient *
+
+

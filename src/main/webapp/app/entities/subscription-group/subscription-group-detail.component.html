@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subscriptionGroup">
+            <h2><span jhiTranslate="crmwebApp.subscriptionGroup.detail.title">Subscription Group</span> {{ subscriptionGroup.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.groupId">Group Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.groupId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.custAcctId">Cust Acct Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.custAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.groupType">Group Type</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.groupType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.groupName">Group Name</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.groupName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.RecordStatus.' + subscriptionGroup.status }}">{{ subscriptionGroup.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionGroup.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionGroup.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="subscriptionGroup.customer">
+                        <a [routerLink]="['/customer', subscriptionGroup.customer?.id, 'view']">{{ subscriptionGroup.customer?.custAcctId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subscription-group', subscriptionGroup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

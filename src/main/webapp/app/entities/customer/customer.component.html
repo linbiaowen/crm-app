@@ -1,0 +1,139 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.customer.home.title">Customers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer" [routerLink]="['/customer/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.customer.home.createLabel">
+            Create a new Customer
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="customers?.length === 0">
+        <span jhiTranslate="crmwebApp.customer.home.notFound">No customers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="customers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custAcctId"><span jhiTranslate="crmwebApp.customer.custAcctId">Cust Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="parentCustAcctId"><span jhiTranslate="crmwebApp.customer.parentCustAcctId">Parent Cust Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acctStatus"><span jhiTranslate="crmwebApp.customer.acctStatus">Acct Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acctStartDate"><span jhiTranslate="crmwebApp.customer.acctStartDate">Acct Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acctEndDate"><span jhiTranslate="crmwebApp.customer.acctEndDate">Acct End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cabsAcctId"><span jhiTranslate="crmwebApp.customer.cabsAcctId">Cabs Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span jhiTranslate="crmwebApp.customer.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="givenName"><span jhiTranslate="crmwebApp.customer.givenName">Given Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="familyName"><span jhiTranslate="crmwebApp.customer.familyName">Family Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="givenNameChi"><span jhiTranslate="crmwebApp.customer.givenNameChi">Given Name Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="familyNameChi"><span jhiTranslate="crmwebApp.customer.familyNameChi">Family Name Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="aliasName"><span jhiTranslate="crmwebApp.customer.aliasName">Alias Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gender"><span jhiTranslate="crmwebApp.customer.gender">Gender</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="birthDate"><span jhiTranslate="crmwebApp.customer.birthDate">Birth Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idType"><span jhiTranslate="crmwebApp.customer.idType">Id Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idNumber"><span jhiTranslate="crmwebApp.customer.idNumber">Id Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="companyNameEng"><span jhiTranslate="crmwebApp.customer.companyNameEng">Company Name Eng</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="companyNameChi"><span jhiTranslate="crmwebApp.customer.companyNameChi">Company Name Chi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unlimitedCompany"><span jhiTranslate="crmwebApp.customer.unlimitedCompany">Unlimited Company</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lang"><span jhiTranslate="crmwebApp.customer.lang">Lang</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="selfCareUserId"><span jhiTranslate="crmwebApp.customer.selfCareUserId">Self Care User Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="selfCarePassword"><span jhiTranslate="crmwebApp.customer.selfCarePassword">Self Care Password</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ivrPin"><span jhiTranslate="crmwebApp.customer.ivrPin">Ivr Pin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maritialStatus"><span jhiTranslate="crmwebApp.customer.maritialStatus">Maritial Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customerSegment"><span jhiTranslate="crmwebApp.customer.customerSegment">Customer Segment</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customerClass"><span jhiTranslate="crmwebApp.customer.customerClass">Customer Class</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billingAcctId"><span jhiTranslate="crmwebApp.customer.billingAcctId">Billing Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.customer.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.customer.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.customer.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.customer.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.customer.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="parentCustomer.custAcctId"><span jhiTranslate="crmwebApp.customer.parentCustomer">Parent Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers ;trackBy: trackId">
+                    <td><a [routerLink]="['/customer', customer.id, 'view']">{{ customer.id }}</a></td>
+                    <td>{{ customer.custAcctId }}</td>
+                    <td>{{ customer.parentCustAcctId }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.AcctStatus.' + customer.acctStatus }}">{{ customer.acctStatus }}</td>
+                    <td>{{ customer.acctStartDate | date:'medium' }}</td>
+                    <td>{{ customer.acctEndDate | date:'medium' }}</td>
+                    <td>{{ customer.cabsAcctId }}</td>
+                    <td>{{ customer.title }}</td>
+                    <td>{{ customer.givenName }}</td>
+                    <td>{{ customer.familyName }}</td>
+                    <td>{{ customer.givenNameChi }}</td>
+                    <td>{{ customer.familyNameChi }}</td>
+                    <td>{{ customer.aliasName }}</td>
+                    <td>{{ customer.gender }}</td>
+                    <td>{{ customer.birthDate | date:'mediumDate' }}</td>
+                    <td>{{ customer.idType }}</td>
+                    <td>{{ customer.idNumber }}</td>
+                    <td>{{ customer.companyNameEng }}</td>
+                    <td>{{ customer.companyNameChi }}</td>
+                    <td>{{ customer.unlimitedCompany }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.Language.' + customer.lang }}">{{ customer.lang }}</td>
+                    <td>{{ customer.selfCareUserId }}</td>
+                    <td>{{ customer.selfCarePassword }}</td>
+                    <td>{{ customer.ivrPin }}</td>
+                    <td>{{ customer.maritialStatus }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.CustomerSegment.' + customer.customerSegment }}">{{ customer.customerSegment }}</td>
+                    <td>{{ customer.customerClass }}</td>
+                    <td>{{ customer.billingAcctId }}</td>
+                    <td>{{ customer.createdDate | date:'medium' }}</td>
+                    <td>{{ customer.createdBy }}</td>
+                    <td>{{ customer.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ customer.lastUpdatedBy }}</td>
+                    <td>{{ customer.tenantId }}</td>
+                    <td>
+                        <div *ngIf="customer.parentCustomer">
+                            <a [routerLink]="['/customer', customer.parentCustomer?.id, 'view']" >{{ customer.parentCustomer?.custAcctId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/customer', customer.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/customer', customer.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(customer)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="customers?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+{
+  "crmwebApp": {
+    "offer": {
+      "home": {
+        "title": "Offers",
+        "createLabel": "Create a new Offer",
+        "createOrEditLabel": "Create or edit a Offer",
+        "notFound": "No Offers found"
+      },
+      "created": "A new Offer is created with identifier {{ param }}",
+      "updated": "A Offer is updated with identifier {{ param }}",
+      "deleted": "A Offer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Offer {{ id }}?"
+      },
+      "detail": {
+        "title": "Offer"
+      },
+      "offerId": "Offer Id",
+      "offerExternalId": "Offer External Id",
+      "offerName": "Offer Name",
+      "offerNameChi": "Offer Name Chi",
+      "offerType": "Offer Type",
+      "offerPrice": "Offer Price",
+      "customerSegments": "Customer Segments",
+      "customerClasses": "Customer Classes",
+      "salesChannels": "Sales Channels",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "childOfferIds": "Child Offer Ids",
+      "productSpecIds": "Product Spec Ids",
+      "advancePaymentIds": "Advance Payment Ids",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "offerSpec": "Offer Spec",
+      "offerProducts": "Offer Products",
+      "productSpecifications": "Product Specifications",
+      "offerAdvancePayment": "Offer Advance Payment",
+      "offerPromotions": "Offer Promotions",
+      "offerDiscounts": "Offer Discounts",
+      "parentOffer": "Parent Offer",
+      "childOffer": "Child Offer"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "crmwebApp": {
+    "custSubscription": {
+      "home": {
+        "title": "Cust Subscriptions",
+        "createLabel": "建立一筆新的 Cust Subscription",
+        "createOrEditLabel": "建立或編輯 Cust Subscription",
+        "notFound": "No Cust Subscriptions found"
+      },
+      "created": "新的 Cust Subscription 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Cust Subscription 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Cust Subscription 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Cust Subscription {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Cust Subscription"
+      },
+      "subscriptionId": "Subscription Id",
+      "activationDate": "Activation Date",
+      "subsEndDate": "Subs End Date",
+      "subsPurchaseDate": "Subs Purchase Date",
+      "origServiceStartDate": "Orig Service Start Date",
+      "status": "Status",
+      "primarySubsInd": "Primary Subs Ind",
+      "subsLastStatusCode": "Subs Last Status Code",
+      "lastStatusUpdatedDate": "Last Status Updated Date",
+      "custAcctId": "Cust Acct Id",
+      "billingAcctId": "Billing Acct Id",
+      "billCycleId": "Bill Cycle Id",
+      "orderId": "Order Id",
+      "matrixxObjectId": "Matrixx Object Id",
+      "subscriberName": "Subscriber Name",
+      "subsDeptName": "Subs Dept Name",
+      "selfCarePassword": "Self Care Password",
+      "subsCategory": "Subs Category",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "custDocuments": "Cust Documents",
+      "custCommOptouts": "Cust Comm Optouts",
+      "subscriptionDetails": "Subscription Details",
+      "subsOrderDetails": "Subs Order Details",
+      "subscriptionProducts": "Subscription Products",
+      "supremeMasters": "Supreme Masters",
+      "orderMasters": "Order Masters",
+      "customer": "Customer"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.productSpecification.home.title">Product Specifications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-specification" [routerLink]="['/product-specification/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.productSpecification.home.createLabel">
+            Create a new Product Specification
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productSpecifications?.length === 0">
+        <span jhiTranslate="crmwebApp.productSpecification.home.notFound">No productSpecifications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productSpecifications?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productSpecId"><span jhiTranslate="crmwebApp.productSpecification.productSpecId">Product Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productId"><span jhiTranslate="crmwebApp.productSpecification.productId">Product Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serviceSpecId"><span jhiTranslate="crmwebApp.productSpecification.serviceSpecId">Service Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productSpecType"><span jhiTranslate="crmwebApp.productSpecification.productSpecType">Product Spec Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="skuType"><span jhiTranslate="crmwebApp.productSpecification.skuType">Sku Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="simType"><span jhiTranslate="crmwebApp.productSpecification.simType">Sim Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="boxType"><span jhiTranslate="crmwebApp.productSpecification.boxType">Box Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.productSpecification.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.productSpecification.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.productSpecification.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.productSpecification.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.productSpecification.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="voice.voiceId"><span jhiTranslate="crmwebApp.productSpecification.voice">Voice</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="data.dataId"><span jhiTranslate="crmwebApp.productSpecification.data">Data</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sms.smsId"><span jhiTranslate="crmwebApp.productSpecification.sms">Sms</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offer.offerId"><span jhiTranslate="crmwebApp.productSpecification.offer">Offer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productSpecification of productSpecifications ;trackBy: trackId">
+                    <td><a [routerLink]="['/product-specification', productSpecification.id, 'view']">{{ productSpecification.id }}</a></td>
+                    <td>{{ productSpecification.productSpecId }}</td>
+                    <td>{{ productSpecification.productId }}</td>
+                    <td>{{ productSpecification.serviceSpecId }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.ProductSpecType.' + productSpecification.productSpecType }}">{{ productSpecification.productSpecType }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.SkuType.' + productSpecification.skuType }}">{{ productSpecification.skuType }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.SimType.' + productSpecification.simType }}">{{ productSpecification.simType }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.BoxType.' + productSpecification.boxType }}">{{ productSpecification.boxType }}</td>
+                    <td>{{ productSpecification.createdDate | date:'medium' }}</td>
+                    <td>{{ productSpecification.createdBy }}</td>
+                    <td>{{ productSpecification.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ productSpecification.lastUpdatedBy }}</td>
+                    <td>{{ productSpecification.tenantId }}</td>
+                    <td>
+                        <div *ngIf="productSpecification.voice">
+                            <a [routerLink]="['/product-voice', productSpecification.voice?.id, 'view']" >{{ productSpecification.voice?.voiceId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="productSpecification.data">
+                            <a [routerLink]="['/product-data', productSpecification.data?.id, 'view']" >{{ productSpecification.data?.dataId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="productSpecification.sms">
+                            <a [routerLink]="['/product-sms', productSpecification.sms?.id, 'view']" >{{ productSpecification.sms?.smsId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="productSpecification.offer">
+                            <a [routerLink]="['/offer', productSpecification.offer?.id, 'view']" >{{ productSpecification.offer?.offerId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product-specification', productSpecification.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product-specification', productSpecification.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productSpecification)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="productSpecifications?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

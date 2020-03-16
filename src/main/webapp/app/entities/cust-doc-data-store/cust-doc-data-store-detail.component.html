@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="custDocDataStore">
+            <h2><span jhiTranslate="crmwebApp.custDocDataStore.detail.title">Cust Doc Data Store</span> {{ custDocDataStore.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.custDocDataStore.docDataStoreId">Doc Data Store Id</span></dt>
+                <dd>
+                    <span>{{ custDocDataStore.docDataStoreId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocDataStore.documentData">Document Data</span></dt>
+                <dd>
+                    <div *ngIf="custDocDataStore.documentData">
+                        <a (click)="openFile(custDocDataStore.documentDataContentType!, custDocDataStore.documentData)" jhiTranslate="entity.action.open">open</a>
+                        {{ custDocDataStore.documentDataContentType }}, {{ byteSize(custDocDataStore.documentData) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocDataStore.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ custDocDataStore.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocDataStore.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ custDocDataStore.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocDataStore.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ custDocDataStore.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocDataStore.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ custDocDataStore.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custDocDataStore.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ custDocDataStore.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cust-doc-data-store', custDocDataStore.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

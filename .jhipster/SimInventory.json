@@ -1,0 +1,95 @@
+{
+    "name": "SimInventory",
+    "fields": [
+        {
+            "fieldName": "iccid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "imsi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ki",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "k4sno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "opsno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "offerId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "offerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "RecordStatus",
+            "fieldValues": "INACTIVE,ACTIVE"
+        },
+        {
+            "fieldName": "offerValidFromDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "offerValidToDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200307173500",
+    "entityTableName": "sim_inventory",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

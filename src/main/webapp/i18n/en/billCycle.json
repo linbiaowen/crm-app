@@ -1,0 +1,34 @@
+{
+  "crmwebApp": {
+    "billCycle": {
+      "home": {
+        "title": "Bill Cycles",
+        "createLabel": "Create a new Bill Cycle",
+        "createOrEditLabel": "Create or edit a Bill Cycle",
+        "notFound": "No Bill Cycles found"
+      },
+      "created": "A new Bill Cycle is created with identifier {{ param }}",
+      "updated": "A Bill Cycle is updated with identifier {{ param }}",
+      "deleted": "A Bill Cycle is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bill Cycle {{ id }}?"
+      },
+      "detail": {
+        "title": "Bill Cycle"
+      },
+      "billCycleId": "Bill Cycle Id",
+      "billCycleDesc": "Bill Cycle Desc",
+      "billCycle": "Bill Cycle",
+      "billFrequency": "Bill Frequency",
+      "billCycleStartDate": "Bill Cycle Start Date",
+      "billCycleEndDate": "Bill Cycle End Date",
+      "dueDateOffset": "Due Date Offset",
+      "directDebitProcessDay": "Direct Debit Process Day",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

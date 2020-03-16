@@ -1,0 +1,10 @@
+{
+  "crmwebApp": {
+    "MemberShipServiceType": {
+      "null": "",
+      "VIP": "VIP",
+      "GOLD": "GOLD",
+      "DIAMOND": "DIAMOND"
+    }
+  }
+}

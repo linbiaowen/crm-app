@@ -1,0 +1,30 @@
+{
+  "crmwebApp": {
+    "groupEndReason": {
+      "home": {
+        "title": "Group End Reasons",
+        "createLabel": "建立一筆新的 Group End Reason",
+        "createOrEditLabel": "建立或編輯 Group End Reason",
+        "notFound": "No Group End Reasons found"
+      },
+      "created": "新的 Group End Reason 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Group End Reason 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Group End Reason 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Group End Reason {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Group End Reason"
+      },
+      "endReasonCode": "End Reason Code",
+      "endReason": "End Reason",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

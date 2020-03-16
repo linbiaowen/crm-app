@@ -1,0 +1,31 @@
+{
+  "crmwebApp": {
+    "commOptoutType": {
+      "home": {
+        "title": "Comm Optout Types",
+        "createLabel": "建立一筆新的 Comm Optout Type",
+        "createOrEditLabel": "建立或編輯 Comm Optout Type",
+        "notFound": "No Comm Optout Types found"
+      },
+      "created": "新的 Comm Optout Type 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Comm Optout Type 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Comm Optout Type 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Comm Optout Type {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Comm Optout Type"
+      },
+      "optoutTypeId": "Optout Type Id",
+      "optoutType": "Optout Type",
+      "optoutTypeDesc": "Optout Type Desc",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

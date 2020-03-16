@@ -1,0 +1,54 @@
+{
+  "crmwebApp": {
+    "modelGroup": {
+      "home": {
+        "title": "Model Groups",
+        "createLabel": "Create a new Model Group",
+        "createOrEditLabel": "Create or edit a Model Group",
+        "notFound": "No Model Groups found"
+      },
+      "created": "A new Model Group is created with identifier {{ param }}",
+      "updated": "A Model Group is updated with identifier {{ param }}",
+      "deleted": "A Model Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Model Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Model Group"
+      },
+      "modelGroup": "Model Group",
+      "groupDesc": "Group Desc",
+      "listPrice": "List Price",
+      "brand": "Brand",
+      "model": "Model",
+      "origCountry": "Orig Country",
+      "network": "Network",
+      "camera": "Camera",
+      "memCardSlot": "Mem Card Slot",
+      "dataTransfer": "Data Transfer",
+      "warranty": "Warranty",
+      "warrantyProvider": "Warranty Provider",
+      "modelCate": "Model Cate",
+      "remarks": "Remarks",
+      "remarksEndDate": "Remarks End Date",
+      "brandChi": "Brand Chi",
+      "modelChi": "Model Chi",
+      "origCountryChi": "Orig Country Chi",
+      "networkChi": "Network Chi",
+      "cameraChi": "Camera Chi",
+      "memCardSlotChi": "Mem Card Slot Chi",
+      "dataTransferChi": "Data Transfer Chi",
+      "warrantyChi": "Warranty Chi",
+      "warrantyProviderChi": "Warranty Provider Chi",
+      "modelCateChi": "Model Cate Chi",
+      "remarksChi": "Remarks Chi",
+      "remarksChiEndDate": "Remarks Chi End Date",
+      "couponFlag": "Coupon Flag",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

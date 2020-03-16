@@ -1,0 +1,10 @@
+{
+  "crmwebApp": {
+    "AccountType": {
+      "null": "",
+      "CUSTOMER": "CUSTOMER",
+      "SUBSCRIPTION": "SUBSCRIPTION",
+      "BILLING": "BILLING"
+    }
+  }
+}

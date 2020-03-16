@@ -1,0 +1,259 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cust-address-heading" jhiTranslate="crmwebApp.custAddress.home.createOrEditLabel">Create or edit a Cust Address</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.addressId" for="field_addressId">Address Id</label>
+                    <input type="number" class="form-control" name="addressId" id="field_addressId"
+                           formControlName="addressId"/>
+                    <div *ngIf="editForm.get('addressId')!.invalid && (editForm.get('addressId')!.dirty || editForm.get('addressId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('addressId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('addressId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.accountId" for="field_accountId">Account Id</label>
+                    <input type="text" class="form-control" name="accountId" id="field_accountId"
+                           formControlName="accountId"/>
+                    <div *ngIf="editForm.get('accountId')!.invalid && (editForm.get('accountId')!.dirty || editForm.get('accountId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('accountId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.accountType" for="field_accountType">Account Type</label>
+                    <select class="form-control" name="accountType" formControlName="accountType" id="field_accountType">
+                        <option value="CUSTOMER">{{ 'crmwebApp.AccountType.CUSTOMER' | translate }}</option>
+                        <option value="SUBSCRIPTION">{{ 'crmwebApp.AccountType.SUBSCRIPTION' | translate }}</option>
+                        <option value="BILLING">{{ 'crmwebApp.AccountType.BILLING' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('accountType')!.invalid && (editForm.get('accountType')!.dirty || editForm.get('accountType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('accountType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.addressType" for="field_addressType">Address Type</label>
+                    <select class="form-control" name="addressType" formControlName="addressType" id="field_addressType">
+                        <option value="BILLING">{{ 'crmwebApp.AddressType.BILLING' | translate }}</option>
+                        <option value="DELIVERY">{{ 'crmwebApp.AddressType.DELIVERY' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('addressType')!.invalid && (editForm.get('addressType')!.dirty || editForm.get('addressType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('addressType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.addressLang" for="field_addressLang">Address Lang</label>
+                    <select class="form-control" name="addressLang" formControlName="addressLang" id="field_addressLang">
+                        <option value="CHINESE">{{ 'crmwebApp.Language.CHINESE' | translate }}</option>
+                        <option value="ENGLISH">{{ 'crmwebApp.Language.ENGLISH' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('addressLang')!.invalid && (editForm.get('addressLang')!.dirty || editForm.get('addressLang')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('addressLang')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.formattedAddress" for="field_formattedAddress">Formatted Address</label>
+                    <input type="checkbox" class="form-control" name="formattedAddress" id="field_formattedAddress"
+                           formControlName="formattedAddress"/>
+                    <div *ngIf="editForm.get('formattedAddress')!.invalid && (editForm.get('formattedAddress')!.dirty || editForm.get('formattedAddress')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('formattedAddress')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.room" for="field_room">Room</label>
+                    <input type="text" class="form-control" name="room" id="field_room"
+                           formControlName="room"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.floor" for="field_floor">Floor</label>
+                    <input type="text" class="form-control" name="floor" id="field_floor"
+                           formControlName="floor"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.block" for="field_block">Block</label>
+                    <input type="text" class="form-control" name="block" id="field_block"
+                           formControlName="block"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.building" for="field_building">Building</label>
+                    <input type="text" class="form-control" name="building" id="field_building"
+                           formControlName="building"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.streetEstate" for="field_streetEstate">Street Estate</label>
+                    <input type="text" class="form-control" name="streetEstate" id="field_streetEstate"
+                           formControlName="streetEstate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.district" for="field_district">District</label>
+                    <input type="text" class="form-control" name="district" id="field_district"
+                           formControlName="district"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.region" for="field_region">Region</label>
+                    <input type="text" class="form-control" name="region" id="field_region"
+                           formControlName="region"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.address1" for="field_address1">Address 1</label>
+                    <input type="text" class="form-control" name="address1" id="field_address1"
+                           formControlName="address1"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.address2" for="field_address2">Address 2</label>
+                    <input type="text" class="form-control" name="address2" id="field_address2"
+                           formControlName="address2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.address3" for="field_address3">Address 3</label>
+                    <input type="text" class="form-control" name="address3" id="field_address3"
+                           formControlName="address3"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.address4" for="field_address4">Address 4</label>
+                    <input type="text" class="form-control" name="address4" id="field_address4"
+                           formControlName="address4"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.address5" for="field_address5">Address 5</label>
+                    <input type="text" class="form-control" name="address5" id="field_address5"
+                           formControlName="address5"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custAddress.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption" *ngFor="let customerOption of customers; trackBy: trackById">{{ customerOption.custAcctId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

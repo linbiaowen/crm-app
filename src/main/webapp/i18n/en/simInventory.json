@@ -1,0 +1,36 @@
+{
+  "crmwebApp": {
+    "simInventory": {
+      "home": {
+        "title": "Sim Inventories",
+        "createLabel": "Create a new Sim Inventory",
+        "createOrEditLabel": "Create or edit a Sim Inventory",
+        "notFound": "No Sim Inventories found"
+      },
+      "created": "A new Sim Inventory is created with identifier {{ param }}",
+      "updated": "A Sim Inventory is updated with identifier {{ param }}",
+      "deleted": "A Sim Inventory is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sim Inventory {{ id }}?"
+      },
+      "detail": {
+        "title": "Sim Inventory"
+      },
+      "iccid": "Iccid",
+      "imsi": "Imsi",
+      "ki": "Ki",
+      "k4sno": "K 4 Sno",
+      "opsno": "Opsno",
+      "offerId": "Offer Id",
+      "offerName": "Offer Name",
+      "status": "Status",
+      "offerValidFromDate": "Offer Valid From Date",
+      "offerValidToDate": "Offer Valid To Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

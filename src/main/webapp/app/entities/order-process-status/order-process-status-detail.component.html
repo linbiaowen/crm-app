@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderProcessStatus">
+            <h2><span jhiTranslate="crmwebApp.orderProcessStatus.detail.title">Order Process Status</span> {{ orderProcessStatus.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatus.orderId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.entryOrderStatus">Entry Order Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.OrderStatus.' + orderProcessStatus.entryOrderStatus }}">{{ orderProcessStatus.entryOrderStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.exitOrderStatus">Exit Order Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.OrderStatus.' + orderProcessStatus.exitOrderStatus }}">{{ orderProcessStatus.exitOrderStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.statusUpdatedDate">Status Updated Date</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatus.statusUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.processName">Process Name</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatus.processName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.ProcessStatus.' + orderProcessStatus.status }}">{{ orderProcessStatus.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatus.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatus.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatus.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatus.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatus.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ orderProcessStatus.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderProcessStatus.orderMaster">Order Master</span></dt>
+                <dd>
+                    <div *ngIf="orderProcessStatus.orderMaster">
+                        <a [routerLink]="['/order-master', orderProcessStatus.orderMaster?.id, 'view']">{{ orderProcessStatus.orderMaster?.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-process-status', orderProcessStatus.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="groupEndReason">
+            <h2><span jhiTranslate="crmwebApp.groupEndReason.detail.title">Group End Reason</span> {{ groupEndReason.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.groupEndReason.endReasonCode">End Reason Code</span></dt>
+                <dd>
+                    <span>{{ groupEndReason.endReasonCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupEndReason.endReason">End Reason</span></dt>
+                <dd>
+                    <span>{{ groupEndReason.endReason }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupEndReason.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ groupEndReason.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupEndReason.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ groupEndReason.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupEndReason.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ groupEndReason.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupEndReason.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ groupEndReason.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupEndReason.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ groupEndReason.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupEndReason.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ groupEndReason.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupEndReason.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ groupEndReason.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/group-end-reason', groupEndReason.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

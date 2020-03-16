@@ -1,0 +1,206 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subsOrderDetails">
+            <h2><span jhiTranslate="crmwebApp.subsOrderDetails.detail.title">Subs Order Details</span> {{ subsOrderDetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.subsOrderSeqId">Subs Order Seq Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.subsOrderSeqId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.orderId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.ssaNbr">Ssa Nbr</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.ssaNbr }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.primaryMsisdn">Primary Msisdn</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.primaryMsisdn }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.iccid">Iccid</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.iccid }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.imsi">Imsi</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.imsi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.simVerified">Sim Verified</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.simVerified }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.simVerifiedDate">Sim Verified Date</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.simVerifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.billingAcctId">Billing Acct Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.billingAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.billCycleId">Bill Cycle Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.billCycleId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.mnpRequestedDate">Mnp Requested Date</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.mnpRequestedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.mnpTicket">Mnp Ticket</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.mnpTicket }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.mnpPortInSession">Mnp Port In Session</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.mnpPortInSession }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.mnpOriginalId">Mnp Original Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.mnpOriginalId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.mnpCustName">Mnp Cust Name</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.mnpCustName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.mnpIdNbr">Mnp Id Nbr</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.mnpIdNbr }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.mnpIdType">Mnp Id Type</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.mnpIdType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.hthkMsisdn">Hthk Msisdn</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.hthkMsisdn }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.lang">Lang</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.Language.' + subsOrderDetails.lang }}">{{ subsOrderDetails.lang }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.offerId">Offer Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.offerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.offerName">Offer Name</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.offerName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.matrixxCatalogId">Matrixx Catalog Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.matrixxCatalogId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.matrixxResourceId">Matrixx Resource Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.matrixxResourceId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.matrixxObjectId">Matrixx Object Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.matrixxObjectId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.salesChannel">Sales Channel</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.salesChannel }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.advancePaymentMonths">Advance Payment Months</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.advancePaymentMonths }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.offerPrice">Offer Price</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.offerPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.networkType">Network Type</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.networkType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.servicetype">Servicetype</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.ServiceType.' + subsOrderDetails.servicetype }}">{{ subsOrderDetails.servicetype }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.offerPlanCode">Offer Plan Code</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.offerPlanCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.serviceInPerson">Service In Person</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.serviceInPerson }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.fcmToken">Fcm Token</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.fcmToken }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.cdVersion">Cd Version</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.cdVersion }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ subsOrderDetails.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.custSubscription">Cust Subscription</span></dt>
+                <dd>
+                    <div *ngIf="subsOrderDetails.custSubscription">
+                        <a [routerLink]="['/cust-subscription', subsOrderDetails.custSubscription?.id, 'view']">{{ subsOrderDetails.custSubscription?.subscriptionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsOrderDetails.orderMaster">Order Master</span></dt>
+                <dd>
+                    <div *ngIf="subsOrderDetails.orderMaster">
+                        <a [routerLink]="['/order-master', subsOrderDetails.orderMaster?.id, 'view']">{{ subsOrderDetails.orderMaster?.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subs-order-details', subsOrderDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

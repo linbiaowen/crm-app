@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.orderProcessStatus.home.title">Order Process Statuses</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-process-status" [routerLink]="['/order-process-status/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.orderProcessStatus.home.createLabel">
+            Create a new Order Process Status
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orderProcessStatuses?.length === 0">
+        <span jhiTranslate="crmwebApp.orderProcessStatus.home.notFound">No orderProcessStatuses found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orderProcessStatuses?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderId"><span jhiTranslate="crmwebApp.orderProcessStatus.orderId">Order Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="entryOrderStatus"><span jhiTranslate="crmwebApp.orderProcessStatus.entryOrderStatus">Entry Order Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="exitOrderStatus"><span jhiTranslate="crmwebApp.orderProcessStatus.exitOrderStatus">Exit Order Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="statusUpdatedDate"><span jhiTranslate="crmwebApp.orderProcessStatus.statusUpdatedDate">Status Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="processName"><span jhiTranslate="crmwebApp.orderProcessStatus.processName">Process Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="crmwebApp.orderProcessStatus.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarks"><span jhiTranslate="crmwebApp.orderProcessStatus.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.orderProcessStatus.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.orderProcessStatus.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.orderProcessStatus.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.orderProcessStatus.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.orderProcessStatus.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderMaster.orderId"><span jhiTranslate="crmwebApp.orderProcessStatus.orderMaster">Order Master</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let orderProcessStatus of orderProcessStatuses ;trackBy: trackId">
+                    <td><a [routerLink]="['/order-process-status', orderProcessStatus.id, 'view']">{{ orderProcessStatus.id }}</a></td>
+                    <td>{{ orderProcessStatus.orderId }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.OrderStatus.' + orderProcessStatus.entryOrderStatus }}">{{ orderProcessStatus.entryOrderStatus }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.OrderStatus.' + orderProcessStatus.exitOrderStatus }}">{{ orderProcessStatus.exitOrderStatus }}</td>
+                    <td>{{ orderProcessStatus.statusUpdatedDate | date:'medium' }}</td>
+                    <td>{{ orderProcessStatus.processName }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.ProcessStatus.' + orderProcessStatus.status }}">{{ orderProcessStatus.status }}</td>
+                    <td>{{ orderProcessStatus.remarks }}</td>
+                    <td>{{ orderProcessStatus.createdDate | date:'medium' }}</td>
+                    <td>{{ orderProcessStatus.createdBy }}</td>
+                    <td>{{ orderProcessStatus.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ orderProcessStatus.lastUpdatedBy }}</td>
+                    <td>{{ orderProcessStatus.tenantId }}</td>
+                    <td>
+                        <div *ngIf="orderProcessStatus.orderMaster">
+                            <a [routerLink]="['/order-master', orderProcessStatus.orderMaster?.id, 'view']" >{{ orderProcessStatus.orderMaster?.orderId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order-process-status', orderProcessStatus.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order-process-status', orderProcessStatus.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(orderProcessStatus)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="orderProcessStatuses?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

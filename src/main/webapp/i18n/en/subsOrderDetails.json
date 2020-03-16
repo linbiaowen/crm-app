@@ -1,0 +1,65 @@
+{
+  "crmwebApp": {
+    "subsOrderDetails": {
+      "home": {
+        "title": "Subs Order Details",
+        "createLabel": "Create a new Subs Order Details",
+        "createOrEditLabel": "Create or edit a Subs Order Details",
+        "notFound": "No Subs Order Details found"
+      },
+      "created": "A new Subs Order Details is created with identifier {{ param }}",
+      "updated": "A Subs Order Details is updated with identifier {{ param }}",
+      "deleted": "A Subs Order Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Subs Order Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Subs Order Details"
+      },
+      "subsOrderSeqId": "Subs Order Seq Id",
+      "subscriptionId": "Subscription Id",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "orderId": "Order Id",
+      "ssaNbr": "Ssa Nbr",
+      "primaryMsisdn": "Primary Msisdn",
+      "iccid": "Iccid",
+      "imsi": "Imsi",
+      "simVerified": "Sim Verified",
+      "simVerifiedDate": "Sim Verified Date",
+      "billingAcctId": "Billing Acct Id",
+      "billCycleId": "Bill Cycle Id",
+      "mnpRequestedDate": "Mnp Requested Date",
+      "mnpTicket": "Mnp Ticket",
+      "mnpPortInSession": "Mnp Port In Session",
+      "mnpOriginalId": "Mnp Original Id",
+      "mnpCustName": "Mnp Cust Name",
+      "mnpIdNbr": "Mnp Id Nbr",
+      "mnpIdType": "Mnp Id Type",
+      "hthkMsisdn": "Hthk Msisdn",
+      "lang": "Lang",
+      "offerId": "Offer Id",
+      "offerName": "Offer Name",
+      "matrixxCatalogId": "Matrixx Catalog Id",
+      "matrixxResourceId": "Matrixx Resource Id",
+      "matrixxObjectId": "Matrixx Object Id",
+      "salesChannel": "Sales Channel",
+      "advancePaymentMonths": "Advance Payment Months",
+      "offerPrice": "Offer Price",
+      "networkType": "Network Type",
+      "servicetype": "Servicetype",
+      "offerPlanCode": "Offer Plan Code",
+      "serviceInPerson": "Service In Person",
+      "fcmToken": "Fcm Token",
+      "remarks": "Remarks",
+      "cdVersion": "Cd Version",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "custSubscription": "Cust Subscription",
+      "orderMaster": "Order Master"
+    }
+  }
+}

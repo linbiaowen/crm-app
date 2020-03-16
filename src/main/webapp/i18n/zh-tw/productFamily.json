@@ -1,0 +1,11 @@
+{
+  "crmwebApp": {
+    "ProductFamily": {
+      "null": "",
+      "VOICE": "VOICE",
+      "DATA": "DATA",
+      "SMS": "SMS",
+      "BOX": "BOX"
+    }
+  }
+}

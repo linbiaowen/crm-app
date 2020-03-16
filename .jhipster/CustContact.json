@@ -1,0 +1,109 @@
+{
+    "name": "CustContact",
+    "fields": [
+        {
+            "fieldName": "contactId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "accountId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "accountType",
+            "fieldType": "AccountType",
+            "fieldValues": "CUSTOMER,SUBSCRIPTION,BILLING",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contactType",
+            "fieldType": "ContactType",
+            "fieldValues": "HOME,OFFICE,FAX,MOBILE,EMAIL,INVOICE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contactPerson",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactPhone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "RecordStatus",
+            "fieldValues": "INACTIVE,ACTIVE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "custContacts",
+            "relationshipName": "customer",
+            "otherEntityField": "custAcctId"
+        }
+    ],
+    "changelogDate": "20200307165900",
+    "entityTableName": "cust_contact",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

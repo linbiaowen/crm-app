@@ -1,0 +1,8 @@
+export const enum OrderType {
+  PURCHASE_OFFER,
+  CANCEL_OFFER,
+  MODIFY_OFFER,
+  CHANGE_SERVICE,
+  SIM_REPLACEMENT,
+  RESEND_SIM
+}

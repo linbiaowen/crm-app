@@ -1,0 +1,160 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span jhiTranslate="crmwebApp.customer.detail.title">Customer</span> {{ customer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.customer.custAcctId">Cust Acct Id</span></dt>
+                <dd>
+                    <span>{{ customer.custAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.parentCustAcctId">Parent Cust Acct Id</span></dt>
+                <dd>
+                    <span>{{ customer.parentCustAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.acctStatus">Acct Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.AcctStatus.' + customer.acctStatus }}">{{ customer.acctStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.acctStartDate">Acct Start Date</span></dt>
+                <dd>
+                    <span>{{ customer.acctStartDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.acctEndDate">Acct End Date</span></dt>
+                <dd>
+                    <span>{{ customer.acctEndDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.cabsAcctId">Cabs Acct Id</span></dt>
+                <dd>
+                    <span>{{ customer.cabsAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.title">Title</span></dt>
+                <dd>
+                    <span>{{ customer.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.givenName">Given Name</span></dt>
+                <dd>
+                    <span>{{ customer.givenName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.familyName">Family Name</span></dt>
+                <dd>
+                    <span>{{ customer.familyName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.givenNameChi">Given Name Chi</span></dt>
+                <dd>
+                    <span>{{ customer.givenNameChi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.familyNameChi">Family Name Chi</span></dt>
+                <dd>
+                    <span>{{ customer.familyNameChi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.aliasName">Alias Name</span></dt>
+                <dd>
+                    <span>{{ customer.aliasName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.gender">Gender</span></dt>
+                <dd>
+                    <span>{{ customer.gender }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.birthDate">Birth Date</span></dt>
+                <dd>
+                    <span>{{ customer.birthDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.idType">Id Type</span></dt>
+                <dd>
+                    <span>{{ customer.idType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.idNumber">Id Number</span></dt>
+                <dd>
+                    <span>{{ customer.idNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.companyNameEng">Company Name Eng</span></dt>
+                <dd>
+                    <span>{{ customer.companyNameEng }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.companyNameChi">Company Name Chi</span></dt>
+                <dd>
+                    <span>{{ customer.companyNameChi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.unlimitedCompany">Unlimited Company</span></dt>
+                <dd>
+                    <span>{{ customer.unlimitedCompany }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.lang">Lang</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.Language.' + customer.lang }}">{{ customer.lang }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.selfCareUserId">Self Care User Id</span></dt>
+                <dd>
+                    <span>{{ customer.selfCareUserId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.selfCarePassword">Self Care Password</span></dt>
+                <dd>
+                    <span>{{ customer.selfCarePassword }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.ivrPin">Ivr Pin</span></dt>
+                <dd>
+                    <span>{{ customer.ivrPin }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.maritialStatus">Maritial Status</span></dt>
+                <dd>
+                    <span>{{ customer.maritialStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.customerSegment">Customer Segment</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.CustomerSegment.' + customer.customerSegment }}">{{ customer.customerSegment }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.customerClass">Customer Class</span></dt>
+                <dd>
+                    <span>{{ customer.customerClass }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.billingAcctId">Billing Acct Id</span></dt>
+                <dd>
+                    <span>{{ customer.billingAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ customer.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ customer.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ customer.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ customer.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ customer.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.customer.parentCustomer">Parent Customer</span></dt>
+                <dd>
+                    <div *ngIf="customer.parentCustomer">
+                        <a [routerLink]="['/customer', customer.parentCustomer?.id, 'view']">{{ customer.parentCustomer?.custAcctId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

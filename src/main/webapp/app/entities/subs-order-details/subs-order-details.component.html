@@ -1,0 +1,165 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.subsOrderDetails.home.title">Subs Order Details</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-subs-order-details" [routerLink]="['/subs-order-details/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.subsOrderDetails.home.createLabel">
+            Create a new Subs Order Details
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="subsOrderDetails?.length === 0">
+        <span jhiTranslate="crmwebApp.subsOrderDetails.home.notFound">No subsOrderDetails found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="subsOrderDetails?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subsOrderSeqId"><span jhiTranslate="crmwebApp.subsOrderDetails.subsOrderSeqId">Subs Order Seq Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriptionId"><span jhiTranslate="crmwebApp.subsOrderDetails.subscriptionId">Subscription Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="startDate"><span jhiTranslate="crmwebApp.subsOrderDetails.startDate">Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="endDate"><span jhiTranslate="crmwebApp.subsOrderDetails.endDate">End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderId"><span jhiTranslate="crmwebApp.subsOrderDetails.orderId">Order Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ssaNbr"><span jhiTranslate="crmwebApp.subsOrderDetails.ssaNbr">Ssa Nbr</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primaryMsisdn"><span jhiTranslate="crmwebApp.subsOrderDetails.primaryMsisdn">Primary Msisdn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="iccid"><span jhiTranslate="crmwebApp.subsOrderDetails.iccid">Iccid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imsi"><span jhiTranslate="crmwebApp.subsOrderDetails.imsi">Imsi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="simVerified"><span jhiTranslate="crmwebApp.subsOrderDetails.simVerified">Sim Verified</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="simVerifiedDate"><span jhiTranslate="crmwebApp.subsOrderDetails.simVerifiedDate">Sim Verified Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billingAcctId"><span jhiTranslate="crmwebApp.subsOrderDetails.billingAcctId">Billing Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billCycleId"><span jhiTranslate="crmwebApp.subsOrderDetails.billCycleId">Bill Cycle Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mnpRequestedDate"><span jhiTranslate="crmwebApp.subsOrderDetails.mnpRequestedDate">Mnp Requested Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mnpTicket"><span jhiTranslate="crmwebApp.subsOrderDetails.mnpTicket">Mnp Ticket</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mnpPortInSession"><span jhiTranslate="crmwebApp.subsOrderDetails.mnpPortInSession">Mnp Port In Session</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mnpOriginalId"><span jhiTranslate="crmwebApp.subsOrderDetails.mnpOriginalId">Mnp Original Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mnpCustName"><span jhiTranslate="crmwebApp.subsOrderDetails.mnpCustName">Mnp Cust Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mnpIdNbr"><span jhiTranslate="crmwebApp.subsOrderDetails.mnpIdNbr">Mnp Id Nbr</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mnpIdType"><span jhiTranslate="crmwebApp.subsOrderDetails.mnpIdType">Mnp Id Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="hthkMsisdn"><span jhiTranslate="crmwebApp.subsOrderDetails.hthkMsisdn">Hthk Msisdn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lang"><span jhiTranslate="crmwebApp.subsOrderDetails.lang">Lang</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerId"><span jhiTranslate="crmwebApp.subsOrderDetails.offerId">Offer Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerName"><span jhiTranslate="crmwebApp.subsOrderDetails.offerName">Offer Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matrixxCatalogId"><span jhiTranslate="crmwebApp.subsOrderDetails.matrixxCatalogId">Matrixx Catalog Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matrixxResourceId"><span jhiTranslate="crmwebApp.subsOrderDetails.matrixxResourceId">Matrixx Resource Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matrixxObjectId"><span jhiTranslate="crmwebApp.subsOrderDetails.matrixxObjectId">Matrixx Object Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="salesChannel"><span jhiTranslate="crmwebApp.subsOrderDetails.salesChannel">Sales Channel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="advancePaymentMonths"><span jhiTranslate="crmwebApp.subsOrderDetails.advancePaymentMonths">Advance Payment Months</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerPrice"><span jhiTranslate="crmwebApp.subsOrderDetails.offerPrice">Offer Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="networkType"><span jhiTranslate="crmwebApp.subsOrderDetails.networkType">Network Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="servicetype"><span jhiTranslate="crmwebApp.subsOrderDetails.servicetype">Servicetype</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerPlanCode"><span jhiTranslate="crmwebApp.subsOrderDetails.offerPlanCode">Offer Plan Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serviceInPerson"><span jhiTranslate="crmwebApp.subsOrderDetails.serviceInPerson">Service In Person</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fcmToken"><span jhiTranslate="crmwebApp.subsOrderDetails.fcmToken">Fcm Token</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarks"><span jhiTranslate="crmwebApp.subsOrderDetails.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cdVersion"><span jhiTranslate="crmwebApp.subsOrderDetails.cdVersion">Cd Version</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.subsOrderDetails.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.subsOrderDetails.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.subsOrderDetails.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.subsOrderDetails.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.subsOrderDetails.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custSubscription.subscriptionId"><span jhiTranslate="crmwebApp.subsOrderDetails.custSubscription">Cust Subscription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderMaster.orderId"><span jhiTranslate="crmwebApp.subsOrderDetails.orderMaster">Order Master</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let subsOrderDetails of subsOrderDetails ;trackBy: trackId">
+                    <td><a [routerLink]="['/subs-order-details', subsOrderDetails.id, 'view']">{{ subsOrderDetails.id }}</a></td>
+                    <td>{{ subsOrderDetails.subsOrderSeqId }}</td>
+                    <td>{{ subsOrderDetails.subscriptionId }}</td>
+                    <td>{{ subsOrderDetails.startDate | date:'medium' }}</td>
+                    <td>{{ subsOrderDetails.endDate | date:'medium' }}</td>
+                    <td>{{ subsOrderDetails.orderId }}</td>
+                    <td>{{ subsOrderDetails.ssaNbr }}</td>
+                    <td>{{ subsOrderDetails.primaryMsisdn }}</td>
+                    <td>{{ subsOrderDetails.iccid }}</td>
+                    <td>{{ subsOrderDetails.imsi }}</td>
+                    <td>{{ subsOrderDetails.simVerified }}</td>
+                    <td>{{ subsOrderDetails.simVerifiedDate | date:'medium' }}</td>
+                    <td>{{ subsOrderDetails.billingAcctId }}</td>
+                    <td>{{ subsOrderDetails.billCycleId }}</td>
+                    <td>{{ subsOrderDetails.mnpRequestedDate | date:'medium' }}</td>
+                    <td>{{ subsOrderDetails.mnpTicket }}</td>
+                    <td>{{ subsOrderDetails.mnpPortInSession }}</td>
+                    <td>{{ subsOrderDetails.mnpOriginalId }}</td>
+                    <td>{{ subsOrderDetails.mnpCustName }}</td>
+                    <td>{{ subsOrderDetails.mnpIdNbr }}</td>
+                    <td>{{ subsOrderDetails.mnpIdType }}</td>
+                    <td>{{ subsOrderDetails.hthkMsisdn }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.Language.' + subsOrderDetails.lang }}">{{ subsOrderDetails.lang }}</td>
+                    <td>{{ subsOrderDetails.offerId }}</td>
+                    <td>{{ subsOrderDetails.offerName }}</td>
+                    <td>{{ subsOrderDetails.matrixxCatalogId }}</td>
+                    <td>{{ subsOrderDetails.matrixxResourceId }}</td>
+                    <td>{{ subsOrderDetails.matrixxObjectId }}</td>
+                    <td>{{ subsOrderDetails.salesChannel }}</td>
+                    <td>{{ subsOrderDetails.advancePaymentMonths }}</td>
+                    <td>{{ subsOrderDetails.offerPrice }}</td>
+                    <td>{{ subsOrderDetails.networkType }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.ServiceType.' + subsOrderDetails.servicetype }}">{{ subsOrderDetails.servicetype }}</td>
+                    <td>{{ subsOrderDetails.offerPlanCode }}</td>
+                    <td>{{ subsOrderDetails.serviceInPerson }}</td>
+                    <td>{{ subsOrderDetails.fcmToken }}</td>
+                    <td>{{ subsOrderDetails.remarks }}</td>
+                    <td>{{ subsOrderDetails.cdVersion }}</td>
+                    <td>{{ subsOrderDetails.createdDate | date:'medium' }}</td>
+                    <td>{{ subsOrderDetails.createdBy }}</td>
+                    <td>{{ subsOrderDetails.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ subsOrderDetails.lastUpdatedBy }}</td>
+                    <td>{{ subsOrderDetails.tenantId }}</td>
+                    <td>
+                        <div *ngIf="subsOrderDetails.custSubscription">
+                            <a [routerLink]="['/cust-subscription', subsOrderDetails.custSubscription?.id, 'view']" >{{ subsOrderDetails.custSubscription?.subscriptionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="subsOrderDetails.orderMaster">
+                            <a [routerLink]="['/order-master', subsOrderDetails.orderMaster?.id, 'view']" >{{ subsOrderDetails.orderMaster?.orderId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/subs-order-details', subsOrderDetails.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/subs-order-details', subsOrderDetails.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(subsOrderDetails)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="subsOrderDetails?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

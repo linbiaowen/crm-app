@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offerDiscount">
+            <h2><span jhiTranslate="crmwebApp.offerDiscount.detail.title">Offer Discount</span> {{ offerDiscount.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.discountCode">Discount Code</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.discountCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.offerId">Offer Id</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.offerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.discountType">Discount Type</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.discountType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.offerDiscount">Offer Discount</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.offerDiscount }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.RecordStatus.' + offerDiscount.status }}">{{ offerDiscount.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ offerDiscount.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerDiscount.offer">Offer</span></dt>
+                <dd>
+                    <div *ngIf="offerDiscount.offer">
+                        <a [routerLink]="['/offer', offerDiscount.offer?.id, 'view']">{{ offerDiscount.offer?.offerId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer-discount', offerDiscount.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{
+  "crmwebApp": {
+    "dataServiceSpec": {
+      "home": {
+        "title": "Data Service Specs",
+        "createLabel": "建立一筆新的 Data Service Spec",
+        "createOrEditLabel": "建立或編輯 Data Service Spec",
+        "notFound": "No Data Service Specs found"
+      },
+      "created": "新的 Data Service Spec 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Data Service Spec 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Data Service Spec 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Data Service Spec {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Data Service Spec"
+      },
+      "dataSpecId": "Data Spec Id",
+      "serviceSpecId": "Service Spec Id",
+      "maxEntitlement": "Max Entitlement",
+      "maxAccessSpeed": "Max Access Speed",
+      "throttledSpeed": "Throttled Speed",
+      "upstreamSpeed": "Upstream Speed",
+      "downstreamSpeed": "Downstream Speed",
+      "socialSites": "Social Sites",
+      "entertainmentPackOptions": "Entertainment Pack Options",
+      "roamingDataSpeed": "Roaming Data Speed",
+      "roamingDataVolume": "Roaming Data Volume",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "cfsServices": "Cfs Services"
+    }
+  }
+}

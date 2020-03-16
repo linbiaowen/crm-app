@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.deliveryMethod.home.title">Delivery Methods</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-delivery-method" [routerLink]="['/delivery-method/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.deliveryMethod.home.createLabel">
+            Create a new Delivery Method
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="deliveryMethods?.length === 0">
+        <span jhiTranslate="crmwebApp.deliveryMethod.home.notFound">No deliveryMethods found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="deliveryMethods?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryMethodId"><span jhiTranslate="crmwebApp.deliveryMethod.deliveryMethodId">Delivery Method Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryMethod"><span jhiTranslate="crmwebApp.deliveryMethod.deliveryMethod">Delivery Method</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryMethodDesc"><span jhiTranslate="crmwebApp.deliveryMethod.deliveryMethodDesc">Delivery Method Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="startDate"><span jhiTranslate="crmwebApp.deliveryMethod.startDate">Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="endDate"><span jhiTranslate="crmwebApp.deliveryMethod.endDate">End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.deliveryMethod.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.deliveryMethod.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.deliveryMethod.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.deliveryMethod.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.deliveryMethod.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let deliveryMethod of deliveryMethods ;trackBy: trackId">
+                    <td><a [routerLink]="['/delivery-method', deliveryMethod.id, 'view']">{{ deliveryMethod.id }}</a></td>
+                    <td>{{ deliveryMethod.deliveryMethodId }}</td>
+                    <td>{{ deliveryMethod.deliveryMethod }}</td>
+                    <td>{{ deliveryMethod.deliveryMethodDesc }}</td>
+                    <td>{{ deliveryMethod.startDate | date:'medium' }}</td>
+                    <td>{{ deliveryMethod.endDate | date:'medium' }}</td>
+                    <td>{{ deliveryMethod.createdDate | date:'medium' }}</td>
+                    <td>{{ deliveryMethod.createdBy }}</td>
+                    <td>{{ deliveryMethod.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ deliveryMethod.lastUpdatedBy }}</td>
+                    <td>{{ deliveryMethod.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/delivery-method', deliveryMethod.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/delivery-method', deliveryMethod.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(deliveryMethod)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="deliveryMethods?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

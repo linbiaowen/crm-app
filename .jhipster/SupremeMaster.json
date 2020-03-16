@@ -1,0 +1,99 @@
+{
+    "name": "SupremeMaster",
+    "fields": [
+        {
+            "fieldName": "supremeSeqId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "subscriptionId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "msisdn",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "membershipServiceType",
+            "fieldType": "MemberShipServiceType",
+            "fieldValues": "VIP,GOLD,DIAMOND"
+        },
+        {
+            "fieldName": "peCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "personalExecDirectLine",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "personalExecName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "custSubscription",
+            "otherEntityRelationshipName": "supremeMasters",
+            "relationshipName": "custSubscription",
+            "otherEntityField": "subscriptionId"
+        }
+    ],
+    "changelogDate": "20200307171500",
+    "entityTableName": "supreme_master",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

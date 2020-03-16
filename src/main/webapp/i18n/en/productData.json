@@ -1,0 +1,47 @@
+{
+  "crmwebApp": {
+    "productData": {
+      "home": {
+        "title": "Product Data",
+        "createLabel": "Create a new Product Data",
+        "createOrEditLabel": "Create or edit a Product Data",
+        "notFound": "No Product Data found"
+      },
+      "created": "A new Product Data is created with identifier {{ param }}",
+      "updated": "A Product Data is updated with identifier {{ param }}",
+      "deleted": "A Product Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Data"
+      },
+      "dataId": "Data Id",
+      "productSpecId": "Product Spec Id",
+      "unit": "Unit",
+      "volume": "Volume",
+      "dataSlab": "Data Slab",
+      "dataSpeedCategory": "Data Speed Category",
+      "specicalPackType": "Specical Pack Type",
+      "dataServiceType": "Data Service Type",
+      "roamingRegions": "Roaming Regions",
+      "roamingCountries": "Roaming Countries",
+      "roamingDayPassType": "Roaming Day Pass Type",
+      "roamingPackValidPeriodType": "Roaming Pack Valid Period Type",
+      "roamingPackPeriod": "Roaming Pack Period",
+      "roamingPackTerm": "Roaming Pack Term",
+      "minTransferQuota": "Min Transfer Quota",
+      "maxTransferQuota": "Max Transfer Quota",
+      "minRetentionQuota": "Min Retention Quota",
+      "minTpTransferQuota": "Min Tp Transfer Quota",
+      "maxTpTransferQuota": "Max Tp Transfer Quota",
+      "minTpRetentionQuota": "Min Tp Retention Quota",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "productSpec": "Product Spec"
+    }
+  }
+}

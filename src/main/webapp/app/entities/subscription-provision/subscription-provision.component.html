@@ -1,0 +1,115 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.subscriptionProvision.home.title">Subscription Provisions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-subscription-provision" [routerLink]="['/subscription-provision/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.subscriptionProvision.home.createLabel">
+            Create a new Subscription Provision
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="subscriptionProvisions?.length === 0">
+        <span jhiTranslate="crmwebApp.subscriptionProvision.home.notFound">No subscriptionProvisions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="subscriptionProvisions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="provisionSeqId"><span jhiTranslate="crmwebApp.subscriptionProvision.provisionSeqId">Provision Seq Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriptionId"><span jhiTranslate="crmwebApp.subscriptionProvision.subscriptionId">Subscription Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderId"><span jhiTranslate="crmwebApp.subscriptionProvision.orderId">Order Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productId"><span jhiTranslate="crmwebApp.subscriptionProvision.productId">Product Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="msisdn"><span jhiTranslate="crmwebApp.subscriptionProvision.msisdn">Msisdn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="iccid"><span jhiTranslate="crmwebApp.subscriptionProvision.iccid">Iccid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imsi"><span jhiTranslate="crmwebApp.subscriptionProvision.imsi">Imsi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serviceSpecId"><span jhiTranslate="crmwebApp.subscriptionProvision.serviceSpecId">Service Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="resourceSpecId"><span jhiTranslate="crmwebApp.subscriptionProvision.resourceSpecId">Resource Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rfs"><span jhiTranslate="crmwebApp.subscriptionProvision.rfs">Rfs</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="provisionStatus"><span jhiTranslate="crmwebApp.subscriptionProvision.provisionStatus">Provision Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="provisionStatusDesc"><span jhiTranslate="crmwebApp.subscriptionProvision.provisionStatusDesc">Provision Status Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="provisionResponse"><span jhiTranslate="crmwebApp.subscriptionProvision.provisionResponse">Provision Response</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="startDate"><span jhiTranslate="crmwebApp.subscriptionProvision.startDate">Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="endDate"><span jhiTranslate="crmwebApp.subscriptionProvision.endDate">End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.subscriptionProvision.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.subscriptionProvision.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.subscriptionProvision.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.subscriptionProvision.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.subscriptionProvision.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderMaster.orderId"><span jhiTranslate="crmwebApp.subscriptionProvision.orderMaster">Order Master</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let subscriptionProvision of subscriptionProvisions ;trackBy: trackId">
+                    <td><a [routerLink]="['/subscription-provision', subscriptionProvision.id, 'view']">{{ subscriptionProvision.id }}</a></td>
+                    <td>{{ subscriptionProvision.provisionSeqId }}</td>
+                    <td>{{ subscriptionProvision.subscriptionId }}</td>
+                    <td>{{ subscriptionProvision.orderId }}</td>
+                    <td>{{ subscriptionProvision.productId }}</td>
+                    <td>{{ subscriptionProvision.msisdn }}</td>
+                    <td>{{ subscriptionProvision.iccid }}</td>
+                    <td>{{ subscriptionProvision.imsi }}</td>
+                    <td>{{ subscriptionProvision.serviceSpecId }}</td>
+                    <td>{{ subscriptionProvision.resourceSpecId }}</td>
+                    <td>{{ subscriptionProvision.rfs }}</td>
+                    <td>{{ subscriptionProvision.provisionStatus }}</td>
+                    <td>{{ subscriptionProvision.provisionStatusDesc }}</td>
+                    <td>{{ subscriptionProvision.provisionResponse }}</td>
+                    <td>{{ subscriptionProvision.startDate | date:'medium' }}</td>
+                    <td>{{ subscriptionProvision.endDate | date:'medium' }}</td>
+                    <td>{{ subscriptionProvision.createdDate | date:'medium' }}</td>
+                    <td>{{ subscriptionProvision.createdBy }}</td>
+                    <td>{{ subscriptionProvision.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ subscriptionProvision.lastUpdatedBy }}</td>
+                    <td>{{ subscriptionProvision.tenantId }}</td>
+                    <td>
+                        <div *ngIf="subscriptionProvision.orderMaster">
+                            <a [routerLink]="['/order-master', subscriptionProvision.orderMaster?.id, 'view']" >{{ subscriptionProvision.orderMaster?.orderId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/subscription-provision', subscriptionProvision.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/subscription-provision', subscriptionProvision.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(subscriptionProvision)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="subscriptionProvisions?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

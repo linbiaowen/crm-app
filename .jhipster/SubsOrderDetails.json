@@ -1,0 +1,228 @@
+{
+    "name": "SubsOrderDetails",
+    "fields": [
+        {
+            "fieldName": "subsOrderSeqId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "subscriptionId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "orderId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ssaNbr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "primaryMsisdn",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "iccid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imsi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "simVerified",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "simVerifiedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "billingAcctId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "billCycleId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "mnpRequestedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "mnpTicket",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mnpPortInSession",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mnpOriginalId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mnpCustName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mnpIdNbr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mnpIdType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hthkMsisdn",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lang",
+            "fieldType": "Language",
+            "fieldValues": "CHINESE,ENGLISH",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "offerId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "offerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "matrixxCatalogId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "matrixxResourceId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "matrixxObjectId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "salesChannel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "advancePaymentMonths",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "offerPrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "networkType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "servicetype",
+            "fieldType": "ServiceType",
+            "fieldValues": "PREPAID,POSTPAID,OTHERS"
+        },
+        {
+            "fieldName": "offerPlanCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceInPerson",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fcmToken",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remarks",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cdVersion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "custSubscription",
+            "otherEntityRelationshipName": "subsOrderDetails",
+            "relationshipName": "custSubscription",
+            "otherEntityField": "subscriptionId"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "orderMaster",
+            "otherEntityRelationshipName": "subsOrderDetails",
+            "relationshipName": "orderMaster",
+            "otherEntityField": "orderId"
+        }
+    ],
+    "changelogDate": "20200307170800",
+    "entityTableName": "subs_order_details",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

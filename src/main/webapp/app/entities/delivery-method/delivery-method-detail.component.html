@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="deliveryMethod">
+            <h2><span jhiTranslate="crmwebApp.deliveryMethod.detail.title">Delivery Method</span> {{ deliveryMethod.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.deliveryMethodId">Delivery Method Id</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.deliveryMethodId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.deliveryMethod">Delivery Method</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.deliveryMethod }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.deliveryMethodDesc">Delivery Method Desc</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.deliveryMethodDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryMethod.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ deliveryMethod.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/delivery-method', deliveryMethod.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,127 @@
+{
+    "name": "SubsItemDelivery",
+    "fields": [
+        {
+            "fieldName": "deliveryId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "orderId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "subscriptionId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "subscriptionItemId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "deliveryStatus",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "deliveryMethodId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "deliveryRefCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fileGenerationDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fileReceivedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "deliveryDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "remarks",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "subsDeliveryItemDetails",
+            "otherEntityRelationshipName": "subsItemDelivery",
+            "relationshipName": "subsDeliveryItemDetails"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "orderMaster",
+            "otherEntityRelationshipName": "subsItemDeliverys",
+            "relationshipName": "orderMaster",
+            "otherEntityField": "orderId"
+        }
+    ],
+    "changelogDate": "20200307170900",
+    "entityTableName": "subs_item_delivery",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

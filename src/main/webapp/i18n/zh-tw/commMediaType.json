@@ -1,0 +1,31 @@
+{
+  "crmwebApp": {
+    "commMediaType": {
+      "home": {
+        "title": "Comm Media Types",
+        "createLabel": "建立一筆新的 Comm Media Type",
+        "createOrEditLabel": "建立或編輯 Comm Media Type",
+        "notFound": "No Comm Media Types found"
+      },
+      "created": "新的 Comm Media Type 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Comm Media Type 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Comm Media Type 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Comm Media Type {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Comm Media Type"
+      },
+      "optoutMediaId": "Optout Media Id",
+      "mediaType": "Media Type",
+      "mediaTypeDesc": "Media Type Desc",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

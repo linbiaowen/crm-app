@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="model">
+            <h2><span jhiTranslate="crmwebApp.model.detail.title">Model</span> {{ model.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.model.modelCode">Model Code</span></dt>
+                <dd>
+                    <span>{{ model.modelCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.model.modelGroup">Model Group</span></dt>
+                <dd>
+                    <span>{{ model.modelGroup }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.model.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.RecordStatus.' + model.status }}">{{ model.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.model.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ model.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.model.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ model.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.model.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ model.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.model.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ model.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.model.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ model.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/model', model.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.dataServiceSpec.home.title">Data Service Specs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-data-service-spec" [routerLink]="['/data-service-spec/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.dataServiceSpec.home.createLabel">
+            Create a new Data Service Spec
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="dataServiceSpecs?.length === 0">
+        <span jhiTranslate="crmwebApp.dataServiceSpec.home.notFound">No dataServiceSpecs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="dataServiceSpecs?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dataSpecId"><span jhiTranslate="crmwebApp.dataServiceSpec.dataSpecId">Data Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serviceSpecId"><span jhiTranslate="crmwebApp.dataServiceSpec.serviceSpecId">Service Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maxEntitlement"><span jhiTranslate="crmwebApp.dataServiceSpec.maxEntitlement">Max Entitlement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maxAccessSpeed"><span jhiTranslate="crmwebApp.dataServiceSpec.maxAccessSpeed">Max Access Speed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="throttledSpeed"><span jhiTranslate="crmwebApp.dataServiceSpec.throttledSpeed">Throttled Speed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="upstreamSpeed"><span jhiTranslate="crmwebApp.dataServiceSpec.upstreamSpeed">Upstream Speed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="downstreamSpeed"><span jhiTranslate="crmwebApp.dataServiceSpec.downstreamSpeed">Downstream Speed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="socialSites"><span jhiTranslate="crmwebApp.dataServiceSpec.socialSites">Social Sites</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="entertainmentPackOptions"><span jhiTranslate="crmwebApp.dataServiceSpec.entertainmentPackOptions">Entertainment Pack Options</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingDataSpeed"><span jhiTranslate="crmwebApp.dataServiceSpec.roamingDataSpeed">Roaming Data Speed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingDataVolume"><span jhiTranslate="crmwebApp.dataServiceSpec.roamingDataVolume">Roaming Data Volume</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.dataServiceSpec.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.dataServiceSpec.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.dataServiceSpec.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.dataServiceSpec.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.dataServiceSpec.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dataServiceSpec of dataServiceSpecs ;trackBy: trackId">
+                    <td><a [routerLink]="['/data-service-spec', dataServiceSpec.id, 'view']">{{ dataServiceSpec.id }}</a></td>
+                    <td>{{ dataServiceSpec.dataSpecId }}</td>
+                    <td>{{ dataServiceSpec.serviceSpecId }}</td>
+                    <td>{{ dataServiceSpec.maxEntitlement }}</td>
+                    <td>{{ dataServiceSpec.maxAccessSpeed }}</td>
+                    <td>{{ dataServiceSpec.throttledSpeed }}</td>
+                    <td>{{ dataServiceSpec.upstreamSpeed }}</td>
+                    <td>{{ dataServiceSpec.downstreamSpeed }}</td>
+                    <td>{{ dataServiceSpec.socialSites }}</td>
+                    <td>{{ dataServiceSpec.entertainmentPackOptions }}</td>
+                    <td>{{ dataServiceSpec.roamingDataSpeed }}</td>
+                    <td>{{ dataServiceSpec.roamingDataVolume }}</td>
+                    <td>{{ dataServiceSpec.createdDate | date:'medium' }}</td>
+                    <td>{{ dataServiceSpec.createdBy }}</td>
+                    <td>{{ dataServiceSpec.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ dataServiceSpec.lastUpdatedBy }}</td>
+                    <td>{{ dataServiceSpec.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/data-service-spec', dataServiceSpec.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/data-service-spec', dataServiceSpec.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(dataServiceSpec)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="dataServiceSpecs?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

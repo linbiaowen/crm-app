@@ -1,0 +1,89 @@
+{
+    "name": "BillCycle",
+    "fields": [
+        {
+            "fieldName": "billCycleId",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "billCycleDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "billCycle",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "billFrequency",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "billCycleStartDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "billCycleEndDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dueDateOffset",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "directDebitProcessDay",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200307171600",
+    "entityTableName": "bill_cycle",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

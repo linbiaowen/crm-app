@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.custContact.home.title">Cust Contacts</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cust-contact" [routerLink]="['/cust-contact/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.custContact.home.createLabel">
+            Create a new Cust Contact
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="custContacts?.length === 0">
+        <span jhiTranslate="crmwebApp.custContact.home.notFound">No custContacts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="custContacts?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contactId"><span jhiTranslate="crmwebApp.custContact.contactId">Contact Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="accountId"><span jhiTranslate="crmwebApp.custContact.accountId">Account Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="accountType"><span jhiTranslate="crmwebApp.custContact.accountType">Account Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contactType"><span jhiTranslate="crmwebApp.custContact.contactType">Contact Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contactPerson"><span jhiTranslate="crmwebApp.custContact.contactPerson">Contact Person</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contactPhone"><span jhiTranslate="crmwebApp.custContact.contactPhone">Contact Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contactEmail"><span jhiTranslate="crmwebApp.custContact.contactEmail">Contact Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="crmwebApp.custContact.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.custContact.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.custContact.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.custContact.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.custContact.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.custContact.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customer.custAcctId"><span jhiTranslate="crmwebApp.custContact.customer">Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let custContact of custContacts ;trackBy: trackId">
+                    <td><a [routerLink]="['/cust-contact', custContact.id, 'view']">{{ custContact.id }}</a></td>
+                    <td>{{ custContact.contactId }}</td>
+                    <td>{{ custContact.accountId }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.AccountType.' + custContact.accountType }}">{{ custContact.accountType }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.ContactType.' + custContact.contactType }}">{{ custContact.contactType }}</td>
+                    <td>{{ custContact.contactPerson }}</td>
+                    <td>{{ custContact.contactPhone }}</td>
+                    <td>{{ custContact.contactEmail }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.RecordStatus.' + custContact.status }}">{{ custContact.status }}</td>
+                    <td>{{ custContact.createdDate | date:'medium' }}</td>
+                    <td>{{ custContact.createdBy }}</td>
+                    <td>{{ custContact.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ custContact.lastUpdatedBy }}</td>
+                    <td>{{ custContact.tenantId }}</td>
+                    <td>
+                        <div *ngIf="custContact.customer">
+                            <a [routerLink]="['/customer', custContact.customer?.id, 'view']" >{{ custContact.customer?.custAcctId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cust-contact', custContact.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cust-contact', custContact.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(custContact)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="custContacts?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

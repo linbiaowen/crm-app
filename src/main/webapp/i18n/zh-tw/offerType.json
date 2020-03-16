@@ -1,0 +1,11 @@
+{
+  "crmwebApp": {
+    "OfferType": {
+      "null": "",
+      "BASE": "BASE",
+      "ADDON": "ADDON",
+      "VAS": "VAS",
+      "BUNDLE": "BUNDLE"
+    }
+  }
+}

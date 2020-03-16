@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subsItemDelivery">
+            <h2><span jhiTranslate="crmwebApp.subsItemDelivery.detail.title">Subs Item Delivery</span> {{ subsItemDelivery.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.deliveryId">Delivery Id</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.deliveryId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.orderId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.subscriptionItemId">Subscription Item Id</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.subscriptionItemId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.deliveryStatus">Delivery Status</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.deliveryStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.deliveryMethodId">Delivery Method Id</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.deliveryMethodId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.deliveryRefCode">Delivery Ref Code</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.deliveryRefCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.fileGenerationDate">File Generation Date</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.fileGenerationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.fileReceivedDate">File Received Date</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.fileReceivedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.deliveryDate">Delivery Date</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.deliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ subsItemDelivery.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsItemDelivery.orderMaster">Order Master</span></dt>
+                <dd>
+                    <div *ngIf="subsItemDelivery.orderMaster">
+                        <a [routerLink]="['/order-master', subsItemDelivery.orderMaster?.id, 'view']">{{ subsItemDelivery.orderMaster?.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subs-item-delivery', subsItemDelivery.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

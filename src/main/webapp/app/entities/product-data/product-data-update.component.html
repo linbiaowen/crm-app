@@ -1,0 +1,242 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-product-data-heading" jhiTranslate="crmwebApp.productData.home.createOrEditLabel">Create or edit a Product Data</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.dataId" for="field_dataId">Data Id</label>
+                    <input type="text" class="form-control" name="dataId" id="field_dataId"
+                           formControlName="dataId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.productSpecId" for="field_productSpecId">Product Spec Id</label>
+                    <input type="number" class="form-control" name="productSpecId" id="field_productSpecId"
+                           formControlName="productSpecId"/>
+                    <div *ngIf="editForm.get('productSpecId')!.invalid && (editForm.get('productSpecId')!.dirty || editForm.get('productSpecId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('productSpecId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('productSpecId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.unit" for="field_unit">Unit</label>
+                    <input type="text" class="form-control" name="unit" id="field_unit"
+                           formControlName="unit"/>
+                    <div *ngIf="editForm.get('unit')!.invalid && (editForm.get('unit')!.dirty || editForm.get('unit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unit')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.volume" for="field_volume">Volume</label>
+                    <input type="number" class="form-control" name="volume" id="field_volume"
+                           formControlName="volume"/>
+                    <div *ngIf="editForm.get('volume')!.invalid && (editForm.get('volume')!.dirty || editForm.get('volume')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('volume')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('volume')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.dataSlab" for="field_dataSlab">Data Slab</label>
+                    <input type="text" class="form-control" name="dataSlab" id="field_dataSlab"
+                           formControlName="dataSlab"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.dataSpeedCategory" for="field_dataSpeedCategory">Data Speed Category</label>
+                    <input type="text" class="form-control" name="dataSpeedCategory" id="field_dataSpeedCategory"
+                           formControlName="dataSpeedCategory"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.specicalPackType" for="field_specicalPackType">Specical Pack Type</label>
+                    <input type="text" class="form-control" name="specicalPackType" id="field_specicalPackType"
+                           formControlName="specicalPackType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.dataServiceType" for="field_dataServiceType">Data Service Type</label>
+                    <input type="text" class="form-control" name="dataServiceType" id="field_dataServiceType"
+                           formControlName="dataServiceType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.roamingRegions" for="field_roamingRegions">Roaming Regions</label>
+                    <input type="text" class="form-control" name="roamingRegions" id="field_roamingRegions"
+                           formControlName="roamingRegions"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.roamingCountries" for="field_roamingCountries">Roaming Countries</label>
+                    <input type="text" class="form-control" name="roamingCountries" id="field_roamingCountries"
+                           formControlName="roamingCountries"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.roamingDayPassType" for="field_roamingDayPassType">Roaming Day Pass Type</label>
+                    <input type="text" class="form-control" name="roamingDayPassType" id="field_roamingDayPassType"
+                           formControlName="roamingDayPassType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.roamingPackValidPeriodType" for="field_roamingPackValidPeriodType">Roaming Pack Valid Period Type</label>
+                    <input type="text" class="form-control" name="roamingPackValidPeriodType" id="field_roamingPackValidPeriodType"
+                           formControlName="roamingPackValidPeriodType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.roamingPackPeriod" for="field_roamingPackPeriod">Roaming Pack Period</label>
+                    <input type="number" class="form-control" name="roamingPackPeriod" id="field_roamingPackPeriod"
+                           formControlName="roamingPackPeriod"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.roamingPackTerm" for="field_roamingPackTerm">Roaming Pack Term</label>
+                    <input type="text" class="form-control" name="roamingPackTerm" id="field_roamingPackTerm"
+                           formControlName="roamingPackTerm"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.minTransferQuota" for="field_minTransferQuota">Min Transfer Quota</label>
+                    <input type="number" class="form-control" name="minTransferQuota" id="field_minTransferQuota"
+                           formControlName="minTransferQuota"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.maxTransferQuota" for="field_maxTransferQuota">Max Transfer Quota</label>
+                    <input type="number" class="form-control" name="maxTransferQuota" id="field_maxTransferQuota"
+                           formControlName="maxTransferQuota"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.minRetentionQuota" for="field_minRetentionQuota">Min Retention Quota</label>
+                    <input type="number" class="form-control" name="minRetentionQuota" id="field_minRetentionQuota"
+                           formControlName="minRetentionQuota"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.minTpTransferQuota" for="field_minTpTransferQuota">Min Tp Transfer Quota</label>
+                    <input type="number" class="form-control" name="minTpTransferQuota" id="field_minTpTransferQuota"
+                           formControlName="minTpTransferQuota"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.maxTpTransferQuota" for="field_maxTpTransferQuota">Max Tp Transfer Quota</label>
+                    <input type="number" class="form-control" name="maxTpTransferQuota" id="field_maxTpTransferQuota"
+                           formControlName="maxTpTransferQuota"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.minTpRetentionQuota" for="field_minTpRetentionQuota">Min Tp Retention Quota</label>
+                    <input type="number" class="form-control" name="minTpRetentionQuota" id="field_minTpRetentionQuota"
+                           formControlName="minTpRetentionQuota"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.productData.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

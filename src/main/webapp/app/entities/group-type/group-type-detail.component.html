@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="groupType">
+            <h2><span jhiTranslate="crmwebApp.groupType.detail.title">Group Type</span> {{ groupType.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.groupType.groupTypeId">Group Type Id</span></dt>
+                <dd>
+                    <span>{{ groupType.groupTypeId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupType.groupType">Group Type</span></dt>
+                <dd>
+                    <span>{{ groupType.groupType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupType.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ groupType.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupType.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ groupType.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupType.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ groupType.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupType.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ groupType.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupType.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ groupType.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupType.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ groupType.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupType.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ groupType.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/group-type', groupType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

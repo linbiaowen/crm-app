@@ -1,0 +1,14 @@
+{
+  "crmwebApp": {
+    "ProductSpecType": {
+      "null": "",
+      "DEVICE": "DEVICE",
+      "ACCESSORY": "ACCESSORY",
+      "SIM": "SIM",
+      "VOICE": "VOICE",
+      "SMS": "SMS",
+      "DATA": "DATA",
+      "BOX": "BOX"
+    }
+  }
+}

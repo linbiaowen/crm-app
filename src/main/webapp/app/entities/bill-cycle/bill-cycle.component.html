@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.billCycle.home.title">Bill Cycles</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bill-cycle" [routerLink]="['/bill-cycle/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.billCycle.home.createLabel">
+            Create a new Bill Cycle
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="billCycles?.length === 0">
+        <span jhiTranslate="crmwebApp.billCycle.home.notFound">No billCycles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="billCycles?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billCycleId"><span jhiTranslate="crmwebApp.billCycle.billCycleId">Bill Cycle Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billCycleDesc"><span jhiTranslate="crmwebApp.billCycle.billCycleDesc">Bill Cycle Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billCycle"><span jhiTranslate="crmwebApp.billCycle.billCycle">Bill Cycle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billFrequency"><span jhiTranslate="crmwebApp.billCycle.billFrequency">Bill Frequency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billCycleStartDate"><span jhiTranslate="crmwebApp.billCycle.billCycleStartDate">Bill Cycle Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="billCycleEndDate"><span jhiTranslate="crmwebApp.billCycle.billCycleEndDate">Bill Cycle End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dueDateOffset"><span jhiTranslate="crmwebApp.billCycle.dueDateOffset">Due Date Offset</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="directDebitProcessDay"><span jhiTranslate="crmwebApp.billCycle.directDebitProcessDay">Direct Debit Process Day</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.billCycle.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.billCycle.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.billCycle.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.billCycle.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.billCycle.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let billCycle of billCycles ;trackBy: trackId">
+                    <td><a [routerLink]="['/bill-cycle', billCycle.id, 'view']">{{ billCycle.id }}</a></td>
+                    <td>{{ billCycle.billCycleId }}</td>
+                    <td>{{ billCycle.billCycleDesc }}</td>
+                    <td>{{ billCycle.billCycle }}</td>
+                    <td>{{ billCycle.billFrequency }}</td>
+                    <td>{{ billCycle.billCycleStartDate | date:'medium' }}</td>
+                    <td>{{ billCycle.billCycleEndDate | date:'medium' }}</td>
+                    <td>{{ billCycle.dueDateOffset }}</td>
+                    <td>{{ billCycle.directDebitProcessDay }}</td>
+                    <td>{{ billCycle.createdDate | date:'medium' }}</td>
+                    <td>{{ billCycle.createdBy }}</td>
+                    <td>{{ billCycle.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ billCycle.lastUpdatedBy }}</td>
+                    <td>{{ billCycle.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bill-cycle', billCycle.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bill-cycle', billCycle.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(billCycle)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="billCycles?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{
+  "crmwebApp": {
+    "custContact": {
+      "home": {
+        "title": "Cust Contacts",
+        "createLabel": "建立一筆新的 Cust Contact",
+        "createOrEditLabel": "建立或編輯 Cust Contact",
+        "notFound": "No Cust Contacts found"
+      },
+      "created": "新的 Cust Contact 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Cust Contact 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Cust Contact 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Cust Contact {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Cust Contact"
+      },
+      "contactId": "Contact Id",
+      "accountId": "Account Id",
+      "accountType": "Account Type",
+      "contactType": "Contact Type",
+      "contactPerson": "Contact Person",
+      "contactPhone": "Contact Phone",
+      "contactEmail": "Contact Email",
+      "status": "Status",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "customer": "Customer"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "crmwebApp": {
+    "modelCategory": {
+      "home": {
+        "title": "Model Categories",
+        "createLabel": "Create a new Model Category",
+        "createOrEditLabel": "Create or edit a Model Category",
+        "notFound": "No Model Categories found"
+      },
+      "created": "A new Model Category is created with identifier {{ param }}",
+      "updated": "A Model Category is updated with identifier {{ param }}",
+      "deleted": "A Model Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Model Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Model Category"
+      },
+      "modelCate": "Model Cate",
+      "parentModelCate": "Parent Model Cate",
+      "modelCateDesc": "Model Cate Desc",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

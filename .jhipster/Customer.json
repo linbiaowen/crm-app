@@ -1,0 +1,225 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "custAcctId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "parentCustAcctId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "acctStatus",
+            "fieldType": "AcctStatus",
+            "fieldValues": "PREACTIVE,ACTIVE,INACTIVE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "acctStartDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "acctEndDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "cabsAcctId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "givenName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familyName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "givenNameChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familyNameChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aliasName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "idType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "companyNameEng",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "companyNameChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unlimitedCompany",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lang",
+            "fieldType": "Language",
+            "fieldValues": "CHINESE,ENGLISH",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "selfCareUserId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "selfCarePassword",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ivrPin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maritialStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerSegment",
+            "fieldType": "CustomerSegment",
+            "fieldValues": "MASS,CORP,VIP"
+        },
+        {
+            "fieldName": "customerClass",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "billingAcctId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "parentCustomer",
+            "otherEntityField": "custAcctId",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "custDocument",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "custDocuments"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "custCommOptoutMaster",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "custCommOptouts"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "custContact",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "custContacts"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "custAddress",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "custAddresses"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "subscriptionGroup",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "subscriptionGroups"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "custSubscription",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "subscriptions"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "orderMaster",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "orderMasters"
+        }
+    ],
+    "changelogDate": "20200307165100",
+    "entityTableName": "customer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

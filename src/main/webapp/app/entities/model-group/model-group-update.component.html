@@ -1,0 +1,270 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-model-group-heading" jhiTranslate="crmwebApp.modelGroup.home.createOrEditLabel">Create or edit a Model Group</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.modelGroup" for="field_modelGroup">Model Group</label>
+                    <input type="text" class="form-control" name="modelGroup" id="field_modelGroup"
+                           formControlName="modelGroup"/>
+                    <div *ngIf="editForm.get('modelGroup')!.invalid && (editForm.get('modelGroup')!.dirty || editForm.get('modelGroup')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('modelGroup')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.groupDesc" for="field_groupDesc">Group Desc</label>
+                    <input type="text" class="form-control" name="groupDesc" id="field_groupDesc"
+                           formControlName="groupDesc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.listPrice" for="field_listPrice">List Price</label>
+                    <input type="number" class="form-control" name="listPrice" id="field_listPrice"
+                           formControlName="listPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.brand" for="field_brand">Brand</label>
+                    <input type="text" class="form-control" name="brand" id="field_brand"
+                           formControlName="brand"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.model" for="field_model">Model</label>
+                    <input type="text" class="form-control" name="model" id="field_model"
+                           formControlName="model"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.origCountry" for="field_origCountry">Orig Country</label>
+                    <input type="text" class="form-control" name="origCountry" id="field_origCountry"
+                           formControlName="origCountry"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.network" for="field_network">Network</label>
+                    <input type="text" class="form-control" name="network" id="field_network"
+                           formControlName="network"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.camera" for="field_camera">Camera</label>
+                    <input type="text" class="form-control" name="camera" id="field_camera"
+                           formControlName="camera"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.memCardSlot" for="field_memCardSlot">Mem Card Slot</label>
+                    <input type="text" class="form-control" name="memCardSlot" id="field_memCardSlot"
+                           formControlName="memCardSlot"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.dataTransfer" for="field_dataTransfer">Data Transfer</label>
+                    <input type="text" class="form-control" name="dataTransfer" id="field_dataTransfer"
+                           formControlName="dataTransfer"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.warranty" for="field_warranty">Warranty</label>
+                    <input type="text" class="form-control" name="warranty" id="field_warranty"
+                           formControlName="warranty"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.warrantyProvider" for="field_warrantyProvider">Warranty Provider</label>
+                    <input type="text" class="form-control" name="warrantyProvider" id="field_warrantyProvider"
+                           formControlName="warrantyProvider"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.modelCate" for="field_modelCate">Model Cate</label>
+                    <input type="text" class="form-control" name="modelCate" id="field_modelCate"
+                           formControlName="modelCate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                           formControlName="remarks"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.remarksEndDate" for="field_remarksEndDate">Remarks End Date</label>
+                    <input type="text" class="form-control" name="remarksEndDate" id="field_remarksEndDate"
+                           formControlName="remarksEndDate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.brandChi" for="field_brandChi">Brand Chi</label>
+                    <input type="text" class="form-control" name="brandChi" id="field_brandChi"
+                           formControlName="brandChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.modelChi" for="field_modelChi">Model Chi</label>
+                    <input type="text" class="form-control" name="modelChi" id="field_modelChi"
+                           formControlName="modelChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.origCountryChi" for="field_origCountryChi">Orig Country Chi</label>
+                    <input type="text" class="form-control" name="origCountryChi" id="field_origCountryChi"
+                           formControlName="origCountryChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.networkChi" for="field_networkChi">Network Chi</label>
+                    <input type="text" class="form-control" name="networkChi" id="field_networkChi"
+                           formControlName="networkChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.cameraChi" for="field_cameraChi">Camera Chi</label>
+                    <input type="text" class="form-control" name="cameraChi" id="field_cameraChi"
+                           formControlName="cameraChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.memCardSlotChi" for="field_memCardSlotChi">Mem Card Slot Chi</label>
+                    <input type="text" class="form-control" name="memCardSlotChi" id="field_memCardSlotChi"
+                           formControlName="memCardSlotChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.dataTransferChi" for="field_dataTransferChi">Data Transfer Chi</label>
+                    <input type="text" class="form-control" name="dataTransferChi" id="field_dataTransferChi"
+                           formControlName="dataTransferChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.warrantyChi" for="field_warrantyChi">Warranty Chi</label>
+                    <input type="text" class="form-control" name="warrantyChi" id="field_warrantyChi"
+                           formControlName="warrantyChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.warrantyProviderChi" for="field_warrantyProviderChi">Warranty Provider Chi</label>
+                    <input type="text" class="form-control" name="warrantyProviderChi" id="field_warrantyProviderChi"
+                           formControlName="warrantyProviderChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.modelCateChi" for="field_modelCateChi">Model Cate Chi</label>
+                    <input type="text" class="form-control" name="modelCateChi" id="field_modelCateChi"
+                           formControlName="modelCateChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.remarksChi" for="field_remarksChi">Remarks Chi</label>
+                    <input type="text" class="form-control" name="remarksChi" id="field_remarksChi"
+                           formControlName="remarksChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.remarksChiEndDate" for="field_remarksChiEndDate">Remarks Chi End Date</label>
+                    <input type="text" class="form-control" name="remarksChiEndDate" id="field_remarksChiEndDate"
+                           formControlName="remarksChiEndDate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.couponFlag" for="field_couponFlag">Coupon Flag</label>
+                    <input type="text" class="form-control" name="couponFlag" id="field_couponFlag"
+                           formControlName="couponFlag"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.modelGroup.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

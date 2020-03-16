@@ -1,0 +1,30 @@
+{
+  "crmwebApp": {
+    "groupType": {
+      "home": {
+        "title": "Group Types",
+        "createLabel": "建立一筆新的 Group Type",
+        "createOrEditLabel": "建立或編輯 Group Type",
+        "notFound": "No Group Types found"
+      },
+      "created": "新的 Group Type 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Group Type 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Group Type 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Group Type {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Group Type"
+      },
+      "groupTypeId": "Group Type Id",
+      "groupType": "Group Type",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

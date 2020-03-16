@@ -1,0 +1,28 @@
+{
+  "crmwebApp": {
+    "productAttributes": {
+      "home": {
+        "title": "Product Attributes",
+        "createLabel": "Create a new Product Attributes",
+        "createOrEditLabel": "Create or edit a Product Attributes",
+        "notFound": "No Product Attributes found"
+      },
+      "created": "A new Product Attributes is created with identifier {{ param }}",
+      "updated": "A Product Attributes is updated with identifier {{ param }}",
+      "deleted": "A Product Attributes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Attributes {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Attributes"
+      },
+      "skuType": "Sku Type",
+      "shippable": "Shippable",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

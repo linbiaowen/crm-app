@@ -1,0 +1,109 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.custDocument.home.title">Cust Documents</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cust-document" [routerLink]="['/cust-document/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.custDocument.home.createLabel">
+            Create a new Cust Document
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="custDocuments?.length === 0">
+        <span jhiTranslate="crmwebApp.custDocument.home.notFound">No custDocuments found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="custDocuments?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custDocId"><span jhiTranslate="crmwebApp.custDocument.custDocId">Cust Doc Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custAcctId"><span jhiTranslate="crmwebApp.custDocument.custAcctId">Cust Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriptionId"><span jhiTranslate="crmwebApp.custDocument.subscriptionId">Subscription Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="docType"><span jhiTranslate="crmwebApp.custDocument.docType">Doc Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="docIdNumber"><span jhiTranslate="crmwebApp.custDocument.docIdNumber">Doc Id Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="docDataStoreId"><span jhiTranslate="crmwebApp.custDocument.docDataStoreId">Doc Data Store Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.custDocument.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.custDocument.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.custDocument.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.custDocument.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.custDocument.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="docDataStore.docDataStoreId"><span jhiTranslate="crmwebApp.custDocument.docDataStore">Doc Data Store</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customer.custAcctId"><span jhiTranslate="crmwebApp.custDocument.customer">Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custSubscription.subscriptionId"><span jhiTranslate="crmwebApp.custDocument.custSubscription">Cust Subscription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let custDocument of custDocuments ;trackBy: trackId">
+                    <td><a [routerLink]="['/cust-document', custDocument.id, 'view']">{{ custDocument.id }}</a></td>
+                    <td>{{ custDocument.custDocId }}</td>
+                    <td>{{ custDocument.custAcctId }}</td>
+                    <td>{{ custDocument.subscriptionId }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.DocType.' + custDocument.docType }}">{{ custDocument.docType }}</td>
+                    <td>{{ custDocument.docIdNumber }}</td>
+                    <td>{{ custDocument.docDataStoreId }}</td>
+                    <td>{{ custDocument.createdDate | date:'medium' }}</td>
+                    <td>{{ custDocument.createdBy }}</td>
+                    <td>{{ custDocument.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ custDocument.lastUpdatedBy }}</td>
+                    <td>{{ custDocument.tenantId }}</td>
+                    <td>
+                        <div *ngIf="custDocument.docDataStore">
+                            <a [routerLink]="['/cust-doc-data-store', custDocument.docDataStore?.id, 'view']" >{{ custDocument.docDataStore?.docDataStoreId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="custDocument.customer">
+                            <a [routerLink]="['/customer', custDocument.customer?.id, 'view']" >{{ custDocument.customer?.custAcctId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="custDocument.custSubscription">
+                            <a [routerLink]="['/cust-subscription', custDocument.custSubscription?.id, 'view']" >{{ custDocument.custSubscription?.subscriptionId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cust-document', custDocument.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cust-document', custDocument.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(custDocument)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="custDocuments?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

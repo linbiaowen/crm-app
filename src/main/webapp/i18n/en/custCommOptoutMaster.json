@@ -1,0 +1,37 @@
+{
+  "crmwebApp": {
+    "custCommOptoutMaster": {
+      "home": {
+        "title": "Cust Comm Optout Masters",
+        "createLabel": "Create a new Cust Comm Optout Master",
+        "createOrEditLabel": "Create or edit a Cust Comm Optout Master",
+        "notFound": "No Cust Comm Optout Masters found"
+      },
+      "created": "A new Cust Comm Optout Master is created with identifier {{ param }}",
+      "updated": "A Cust Comm Optout Master is updated with identifier {{ param }}",
+      "deleted": "A Cust Comm Optout Master is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cust Comm Optout Master {{ id }}?"
+      },
+      "detail": {
+        "title": "Cust Comm Optout Master"
+      },
+      "optoutId": "Optout Id",
+      "custAcctId": "Cust Acct Id",
+      "subscriptionId": "Subscription Id",
+      "primaryMobNbr": "Primary Mob Nbr",
+      "optoutTypeId": "Optout Type Id",
+      "optoutMediaId": "Optout Media Id",
+      "optoutStatus": "Optout Status",
+      "optoutStartDate": "Optout Start Date",
+      "optoutEndDate": "Optout End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "customer": "Customer",
+      "custSubscription": "Cust Subscription"
+    }
+  }
+}

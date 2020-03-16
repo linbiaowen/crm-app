@@ -1,0 +1,30 @@
+{
+  "crmwebApp": {
+    "salesChannelMaster": {
+      "home": {
+        "title": "Sales Channel Masters",
+        "createLabel": "Create a new Sales Channel Master",
+        "createOrEditLabel": "Create or edit a Sales Channel Master",
+        "notFound": "No Sales Channel Masters found"
+      },
+      "created": "A new Sales Channel Master is created with identifier {{ param }}",
+      "updated": "A Sales Channel Master is updated with identifier {{ param }}",
+      "deleted": "A Sales Channel Master is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sales Channel Master {{ id }}?"
+      },
+      "detail": {
+        "title": "Sales Channel Master"
+      },
+      "salesChannel": "Sales Channel",
+      "salesChannelDesc": "Sales Channel Desc",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

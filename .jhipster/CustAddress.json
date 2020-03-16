@@ -1,0 +1,152 @@
+{
+    "name": "CustAddress",
+    "fields": [
+        {
+            "fieldName": "addressId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "accountId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "accountType",
+            "fieldType": "AccountType",
+            "fieldValues": "CUSTOMER,SUBSCRIPTION,BILLING",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "addressType",
+            "fieldType": "AddressType",
+            "fieldValues": "BILLING,DELIVERY",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "addressLang",
+            "fieldType": "Language",
+            "fieldValues": "CHINESE,ENGLISH",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "formattedAddress",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "room",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "floor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "block",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "building",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "streetEstate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "district",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "region",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "custAddresses",
+            "relationshipName": "customer",
+            "otherEntityField": "custAcctId"
+        }
+    ],
+    "changelogDate": "20200307170000",
+    "entityTableName": "cust_address",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

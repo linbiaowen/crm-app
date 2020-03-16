@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cfsServices">
+            <h2><span jhiTranslate="crmwebApp.cfsServices.detail.title">Cfs Services</span> {{ cfsServices.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.cfsServices.serviceId">Service Id</span></dt>
+                <dd>
+                    <span>{{ cfsServices.serviceId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.cfsServices.serviceName">Service Name</span></dt>
+                <dd>
+                    <span>{{ cfsServices.serviceName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.cfsServices.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ cfsServices.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.cfsServices.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ cfsServices.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.cfsServices.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ cfsServices.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.cfsServices.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ cfsServices.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.cfsServices.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ cfsServices.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.cfsServices.cfsServiceSpec">Cfs Service Spec</span></dt>
+                <dd>
+                    <div *ngIf="cfsServices.cfsServiceSpec">
+                        <a [routerLink]="['/cfs-service-spec', cfsServices.cfsServiceSpec?.id, 'view']">{{ cfsServices.cfsServiceSpec?.serviceSpecId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cfs-services', cfsServices.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

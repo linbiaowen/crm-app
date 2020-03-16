@@ -1,0 +1,28 @@
+{
+  "crmwebApp": {
+    "productAttributes": {
+      "home": {
+        "title": "Product Attributes",
+        "createLabel": "建立一筆新的 Product Attributes",
+        "createOrEditLabel": "建立或編輯 Product Attributes",
+        "notFound": "No Product Attributes found"
+      },
+      "created": "新的 Product Attributes 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Product Attributes 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Product Attributes 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Product Attributes {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Product Attributes"
+      },
+      "skuType": "Sku Type",
+      "shippable": "Shippable",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

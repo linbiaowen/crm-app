@@ -1,0 +1,39 @@
+{
+  "crmwebApp": {
+    "productSpecification": {
+      "home": {
+        "title": "Product Specifications",
+        "createLabel": "Create a new Product Specification",
+        "createOrEditLabel": "Create or edit a Product Specification",
+        "notFound": "No Product Specifications found"
+      },
+      "created": "A new Product Specification is created with identifier {{ param }}",
+      "updated": "A Product Specification is updated with identifier {{ param }}",
+      "deleted": "A Product Specification is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Specification {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Specification"
+      },
+      "productSpecId": "Product Spec Id",
+      "productId": "Product Id",
+      "serviceSpecId": "Service Spec Id",
+      "productSpecType": "Product Spec Type",
+      "skuType": "Sku Type",
+      "simType": "Sim Type",
+      "boxType": "Box Type",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "voice": "Voice",
+      "data": "Data",
+      "sms": "Sms",
+      "cfsServiceSpec": "Cfs Service Spec",
+      "product": "Product",
+      "offer": "Offer"
+    }
+  }
+}

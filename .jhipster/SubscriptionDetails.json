@@ -1,0 +1,173 @@
+{
+    "name": "SubscriptionDetails",
+    "fields": [
+        {
+            "fieldName": "subsDetailId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "subscriptionId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "orderId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ssaNbr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "primaryMsisdn",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "iccid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imsi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mnpRequestedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lang",
+            "fieldType": "Language",
+            "fieldValues": "CHINESE,ENGLISH",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "baseOfferId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "baseOfferName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "matrixxCatalogId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "matrixxResourceId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "matrixxObjectId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "salesChannel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "advancePaymentMonths",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "offerPrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "networkType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "offerPlanCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceInPerson",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fcmToken",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remarks",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cdVersion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "custSubscription",
+            "otherEntityRelationshipName": "subscriptionDetails",
+            "relationshipName": "custSubscription",
+            "otherEntityField": "subscriptionId"
+        }
+    ],
+    "changelogDate": "20200307170700",
+    "entityTableName": "subscription_details",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

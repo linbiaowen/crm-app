@@ -1,0 +1,226 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-order-master-heading" jhiTranslate="crmwebApp.orderMaster.home.createOrEditLabel">Create or edit a Order Master</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.orderId" for="field_orderId">Order Id</label>
+                    <input type="text" class="form-control" name="orderId" id="field_orderId"
+                           formControlName="orderId"/>
+                    <div *ngIf="editForm.get('orderId')!.invalid && (editForm.get('orderId')!.dirty || editForm.get('orderId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('orderId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.custAcctId" for="field_custAcctId">Cust Acct Id</label>
+                    <input type="text" class="form-control" name="custAcctId" id="field_custAcctId"
+                           formControlName="custAcctId"/>
+                    <div *ngIf="editForm.get('custAcctId')!.invalid && (editForm.get('custAcctId')!.dirty || editForm.get('custAcctId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('custAcctId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.subscriptionId" for="field_subscriptionId">Subscription Id</label>
+                    <input type="text" class="form-control" name="subscriptionId" id="field_subscriptionId"
+                           formControlName="subscriptionId"/>
+                    <div *ngIf="editForm.get('subscriptionId')!.invalid && (editForm.get('subscriptionId')!.dirty || editForm.get('subscriptionId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('subscriptionId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.orderType" for="field_orderType">Order Type</label>
+                    <select class="form-control" name="orderType" formControlName="orderType" id="field_orderType">
+                        <option value="PURCHASE_OFFER">{{ 'crmwebApp.OrderType.PURCHASE_OFFER' | translate }}</option>
+                        <option value="CANCEL_OFFER">{{ 'crmwebApp.OrderType.CANCEL_OFFER' | translate }}</option>
+                        <option value="MODIFY_OFFER">{{ 'crmwebApp.OrderType.MODIFY_OFFER' | translate }}</option>
+                        <option value="CHANGE_SERVICE">{{ 'crmwebApp.OrderType.CHANGE_SERVICE' | translate }}</option>
+                        <option value="SIM_REPLACEMENT">{{ 'crmwebApp.OrderType.SIM_REPLACEMENT' | translate }}</option>
+                        <option value="RESEND_SIM">{{ 'crmwebApp.OrderType.RESEND_SIM' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('orderType')!.invalid && (editForm.get('orderType')!.dirty || editForm.get('orderType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('orderType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.subOrderType" for="field_subOrderType">Sub Order Type</label>
+                    <select class="form-control" name="subOrderType" formControlName="subOrderType" id="field_subOrderType">
+                        <option value="OFFER">{{ 'crmwebApp.SubOrderType.OFFER' | translate }}</option>
+                        <option value="SERVICE">{{ 'crmwebApp.SubOrderType.SERVICE' | translate }}</option>
+                        <option value="TRANSFER">{{ 'crmwebApp.SubOrderType.TRANSFER' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('subOrderType')!.invalid && (editForm.get('subOrderType')!.dirty || editForm.get('subOrderType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('subOrderType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.orderNature" for="field_orderNature">Order Nature</label>
+                    <select class="form-control" name="orderNature" formControlName="orderNature" id="field_orderNature">
+                        <option value="NORMAL">{{ 'crmwebApp.OrderNature.NORMAL' | translate }}</option>
+                        <option value="MNP">{{ 'crmwebApp.OrderNature.MNP' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.isChangePlan" for="field_isChangePlan">Is Change Plan</label>
+                    <input type="checkbox" class="form-control" name="isChangePlan" id="field_isChangePlan"
+                           formControlName="isChangePlan"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.orderStatus" for="field_orderStatus">Order Status</label>
+                    <select class="form-control" name="orderStatus" formControlName="orderStatus" id="field_orderStatus">
+                        <option value="NEW">{{ 'crmwebApp.OrderStatus.NEW' | translate }}</option>
+                        <option value="PAYMENT_CONFIRMED">{{ 'crmwebApp.OrderStatus.PAYMENT_CONFIRMED' | translate }}</option>
+                        <option value="DELIVERY_IN_PROGRESS">{{ 'crmwebApp.OrderStatus.DELIVERY_IN_PROGRESS' | translate }}</option>
+                        <option value="DELIVERY_COMPLETED">{{ 'crmwebApp.OrderStatus.DELIVERY_COMPLETED' | translate }}</option>
+                        <option value="SIM_VERIFIED">{{ 'crmwebApp.OrderStatus.SIM_VERIFIED' | translate }}</option>
+                        <option value="IN_PROGRESS">{{ 'crmwebApp.OrderStatus.IN_PROGRESS' | translate }}</option>
+                        <option value="MNP_REJECTED">{{ 'crmwebApp.OrderStatus.MNP_REJECTED' | translate }}</option>
+                        <option value="PROV_IN_PROGRESS">{{ 'crmwebApp.OrderStatus.PROV_IN_PROGRESS' | translate }}</option>
+                        <option value="PROV_COMPLETED">{{ 'crmwebApp.OrderStatus.PROV_COMPLETED' | translate }}</option>
+                        <option value="COMPLETED">{{ 'crmwebApp.OrderStatus.COMPLETED' | translate }}</option>
+                        <option value="COMPLETED_ERROR">{{ 'crmwebApp.OrderStatus.COMPLETED_ERROR' | translate }}</option>
+                        <option value="REJECTED">{{ 'crmwebApp.OrderStatus.REJECTED' | translate }}</option>
+                        <option value="CANCELLED">{{ 'crmwebApp.OrderStatus.CANCELLED' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('orderStatus')!.invalid && (editForm.get('orderStatus')!.dirty || editForm.get('orderStatus')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('orderStatus')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                           formControlName="remarks"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption" *ngFor="let customerOption of customers; trackBy: trackById">{{ customerOption.custAcctId }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.orderMaster.custSubscription" for="field_custSubscription">Cust Subscription</label>
+                    <select class="form-control" id="field_custSubscription" name="custSubscription" formControlName="custSubscription">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="custSubscriptionOption.id === editForm.get('custSubscription')!.value?.id ? editForm.get('custSubscription')!.value : custSubscriptionOption" *ngFor="let custSubscriptionOption of custsubscriptions; trackBy: trackById">{{ custSubscriptionOption.subscriptionId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

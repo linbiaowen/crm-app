@@ -1,0 +1,156 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subscriptionDetails">
+            <h2><span jhiTranslate="crmwebApp.subscriptionDetails.detail.title">Subscription Details</span> {{ subscriptionDetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.subsDetailId">Subs Detail Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.subsDetailId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.orderId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.ssaNbr">Ssa Nbr</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.ssaNbr }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.primaryMsisdn">Primary Msisdn</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.primaryMsisdn }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.iccid">Iccid</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.iccid }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.imsi">Imsi</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.imsi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.mnpRequestedDate">Mnp Requested Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.mnpRequestedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.lang">Lang</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.Language.' + subscriptionDetails.lang }}">{{ subscriptionDetails.lang }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.baseOfferId">Base Offer Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.baseOfferId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.baseOfferName">Base Offer Name</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.baseOfferName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.matrixxCatalogId">Matrixx Catalog Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.matrixxCatalogId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.matrixxResourceId">Matrixx Resource Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.matrixxResourceId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.matrixxObjectId">Matrixx Object Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.matrixxObjectId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.salesChannel">Sales Channel</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.salesChannel }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.advancePaymentMonths">Advance Payment Months</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.advancePaymentMonths }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.offerPrice">Offer Price</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.offerPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.networkType">Network Type</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.networkType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.serviceType">Service Type</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.serviceType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.offerPlanCode">Offer Plan Code</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.offerPlanCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.serviceInPerson">Service In Person</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.serviceInPerson }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.fcmToken">Fcm Token</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.fcmToken }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.cdVersion">Cd Version</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.cdVersion }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionDetails.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionDetails.custSubscription">Cust Subscription</span></dt>
+                <dd>
+                    <div *ngIf="subscriptionDetails.custSubscription">
+                        <a [routerLink]="['/cust-subscription', subscriptionDetails.custSubscription?.id, 'view']">{{ subscriptionDetails.custSubscription?.subscriptionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subscription-details', subscriptionDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

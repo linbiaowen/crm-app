@@ -1,0 +1,371 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-subs-order-details-heading" jhiTranslate="crmwebApp.subsOrderDetails.home.createOrEditLabel">Create or edit a Subs Order Details</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.subsOrderSeqId" for="field_subsOrderSeqId">Subs Order Seq Id</label>
+                    <input type="number" class="form-control" name="subsOrderSeqId" id="field_subsOrderSeqId"
+                           formControlName="subsOrderSeqId"/>
+                    <div *ngIf="editForm.get('subsOrderSeqId')!.invalid && (editForm.get('subsOrderSeqId')!.dirty || editForm.get('subsOrderSeqId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('subsOrderSeqId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('subsOrderSeqId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.subscriptionId" for="field_subscriptionId">Subscription Id</label>
+                    <input type="text" class="form-control" name="subscriptionId" id="field_subscriptionId"
+                           formControlName="subscriptionId"/>
+                    <div *ngIf="editForm.get('subscriptionId')!.invalid && (editForm.get('subscriptionId')!.dirty || editForm.get('subscriptionId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('subscriptionId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.startDate" for="field_startDate">Start Date</label>
+                    <div class="d-flex">
+                        <input id="field_startDate" type="datetime-local" class="form-control" name="startDate" formControlName="startDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.endDate" for="field_endDate">End Date</label>
+                    <div class="d-flex">
+                        <input id="field_endDate" type="datetime-local" class="form-control" name="endDate" formControlName="endDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.orderId" for="field_orderId">Order Id</label>
+                    <input type="text" class="form-control" name="orderId" id="field_orderId"
+                           formControlName="orderId"/>
+                    <div *ngIf="editForm.get('orderId')!.invalid && (editForm.get('orderId')!.dirty || editForm.get('orderId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('orderId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.ssaNbr" for="field_ssaNbr">Ssa Nbr</label>
+                    <input type="text" class="form-control" name="ssaNbr" id="field_ssaNbr"
+                           formControlName="ssaNbr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.primaryMsisdn" for="field_primaryMsisdn">Primary Msisdn</label>
+                    <input type="text" class="form-control" name="primaryMsisdn" id="field_primaryMsisdn"
+                           formControlName="primaryMsisdn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.iccid" for="field_iccid">Iccid</label>
+                    <input type="text" class="form-control" name="iccid" id="field_iccid"
+                           formControlName="iccid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.imsi" for="field_imsi">Imsi</label>
+                    <input type="text" class="form-control" name="imsi" id="field_imsi"
+                           formControlName="imsi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.simVerified" for="field_simVerified">Sim Verified</label>
+                    <input type="checkbox" class="form-control" name="simVerified" id="field_simVerified"
+                           formControlName="simVerified"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.simVerifiedDate" for="field_simVerifiedDate">Sim Verified Date</label>
+                    <div class="d-flex">
+                        <input id="field_simVerifiedDate" type="datetime-local" class="form-control" name="simVerifiedDate" formControlName="simVerifiedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.billingAcctId" for="field_billingAcctId">Billing Acct Id</label>
+                    <input type="text" class="form-control" name="billingAcctId" id="field_billingAcctId"
+                           formControlName="billingAcctId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.billCycleId" for="field_billCycleId">Bill Cycle Id</label>
+                    <input type="number" class="form-control" name="billCycleId" id="field_billCycleId"
+                           formControlName="billCycleId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.mnpRequestedDate" for="field_mnpRequestedDate">Mnp Requested Date</label>
+                    <div class="d-flex">
+                        <input id="field_mnpRequestedDate" type="datetime-local" class="form-control" name="mnpRequestedDate" formControlName="mnpRequestedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.mnpTicket" for="field_mnpTicket">Mnp Ticket</label>
+                    <input type="text" class="form-control" name="mnpTicket" id="field_mnpTicket"
+                           formControlName="mnpTicket"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.mnpPortInSession" for="field_mnpPortInSession">Mnp Port In Session</label>
+                    <input type="text" class="form-control" name="mnpPortInSession" id="field_mnpPortInSession"
+                           formControlName="mnpPortInSession"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.mnpOriginalId" for="field_mnpOriginalId">Mnp Original Id</label>
+                    <input type="text" class="form-control" name="mnpOriginalId" id="field_mnpOriginalId"
+                           formControlName="mnpOriginalId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.mnpCustName" for="field_mnpCustName">Mnp Cust Name</label>
+                    <input type="text" class="form-control" name="mnpCustName" id="field_mnpCustName"
+                           formControlName="mnpCustName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.mnpIdNbr" for="field_mnpIdNbr">Mnp Id Nbr</label>
+                    <input type="text" class="form-control" name="mnpIdNbr" id="field_mnpIdNbr"
+                           formControlName="mnpIdNbr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.mnpIdType" for="field_mnpIdType">Mnp Id Type</label>
+                    <input type="text" class="form-control" name="mnpIdType" id="field_mnpIdType"
+                           formControlName="mnpIdType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.hthkMsisdn" for="field_hthkMsisdn">Hthk Msisdn</label>
+                    <input type="checkbox" class="form-control" name="hthkMsisdn" id="field_hthkMsisdn"
+                           formControlName="hthkMsisdn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.lang" for="field_lang">Lang</label>
+                    <select class="form-control" name="lang" formControlName="lang" id="field_lang">
+                        <option value="CHINESE">{{ 'crmwebApp.Language.CHINESE' | translate }}</option>
+                        <option value="ENGLISH">{{ 'crmwebApp.Language.ENGLISH' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('lang')!.invalid && (editForm.get('lang')!.dirty || editForm.get('lang')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lang')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.offerId" for="field_offerId">Offer Id</label>
+                    <input type="text" class="form-control" name="offerId" id="field_offerId"
+                           formControlName="offerId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.offerName" for="field_offerName">Offer Name</label>
+                    <input type="text" class="form-control" name="offerName" id="field_offerName"
+                           formControlName="offerName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.matrixxCatalogId" for="field_matrixxCatalogId">Matrixx Catalog Id</label>
+                    <input type="text" class="form-control" name="matrixxCatalogId" id="field_matrixxCatalogId"
+                           formControlName="matrixxCatalogId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.matrixxResourceId" for="field_matrixxResourceId">Matrixx Resource Id</label>
+                    <input type="text" class="form-control" name="matrixxResourceId" id="field_matrixxResourceId"
+                           formControlName="matrixxResourceId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.matrixxObjectId" for="field_matrixxObjectId">Matrixx Object Id</label>
+                    <input type="text" class="form-control" name="matrixxObjectId" id="field_matrixxObjectId"
+                           formControlName="matrixxObjectId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.salesChannel" for="field_salesChannel">Sales Channel</label>
+                    <input type="text" class="form-control" name="salesChannel" id="field_salesChannel"
+                           formControlName="salesChannel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.advancePaymentMonths" for="field_advancePaymentMonths">Advance Payment Months</label>
+                    <input type="number" class="form-control" name="advancePaymentMonths" id="field_advancePaymentMonths"
+                           formControlName="advancePaymentMonths"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.offerPrice" for="field_offerPrice">Offer Price</label>
+                    <input type="number" class="form-control" name="offerPrice" id="field_offerPrice"
+                           formControlName="offerPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.networkType" for="field_networkType">Network Type</label>
+                    <input type="text" class="form-control" name="networkType" id="field_networkType"
+                           formControlName="networkType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.servicetype" for="field_servicetype">Servicetype</label>
+                    <select class="form-control" name="servicetype" formControlName="servicetype" id="field_servicetype">
+                        <option value="PREPAID">{{ 'crmwebApp.ServiceType.PREPAID' | translate }}</option>
+                        <option value="POSTPAID">{{ 'crmwebApp.ServiceType.POSTPAID' | translate }}</option>
+                        <option value="OTHERS">{{ 'crmwebApp.ServiceType.OTHERS' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.offerPlanCode" for="field_offerPlanCode">Offer Plan Code</label>
+                    <input type="text" class="form-control" name="offerPlanCode" id="field_offerPlanCode"
+                           formControlName="offerPlanCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.serviceInPerson" for="field_serviceInPerson">Service In Person</label>
+                    <input type="text" class="form-control" name="serviceInPerson" id="field_serviceInPerson"
+                           formControlName="serviceInPerson"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.fcmToken" for="field_fcmToken">Fcm Token</label>
+                    <input type="text" class="form-control" name="fcmToken" id="field_fcmToken"
+                           formControlName="fcmToken"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                           formControlName="remarks"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.cdVersion" for="field_cdVersion">Cd Version</label>
+                    <input type="text" class="form-control" name="cdVersion" id="field_cdVersion"
+                           formControlName="cdVersion"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.custSubscription" for="field_custSubscription">Cust Subscription</label>
+                    <select class="form-control" id="field_custSubscription" name="custSubscription" formControlName="custSubscription">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="custSubscriptionOption.id === editForm.get('custSubscription')!.value?.id ? editForm.get('custSubscription')!.value : custSubscriptionOption" *ngFor="let custSubscriptionOption of custsubscriptions; trackBy: trackById">{{ custSubscriptionOption.subscriptionId }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsOrderDetails.orderMaster" for="field_orderMaster">Order Master</label>
+                    <select class="form-control" id="field_orderMaster" name="orderMaster" formControlName="orderMaster">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderMasterOption.id === editForm.get('orderMaster')!.value?.id ? editForm.get('orderMaster')!.value : orderMasterOption" *ngFor="let orderMasterOption of ordermasters; trackBy: trackById">{{ orderMasterOption.orderId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

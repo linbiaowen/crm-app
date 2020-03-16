@@ -1,0 +1,256 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-subscription-provision-heading" jhiTranslate="crmwebApp.subscriptionProvision.home.createOrEditLabel">Create or edit a Subscription Provision</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.provisionSeqId" for="field_provisionSeqId">Provision Seq Id</label>
+                    <input type="text" class="form-control" name="provisionSeqId" id="field_provisionSeqId"
+                           formControlName="provisionSeqId"/>
+                    <div *ngIf="editForm.get('provisionSeqId')!.invalid && (editForm.get('provisionSeqId')!.dirty || editForm.get('provisionSeqId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('provisionSeqId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.subscriptionId" for="field_subscriptionId">Subscription Id</label>
+                    <input type="text" class="form-control" name="subscriptionId" id="field_subscriptionId"
+                           formControlName="subscriptionId"/>
+                    <div *ngIf="editForm.get('subscriptionId')!.invalid && (editForm.get('subscriptionId')!.dirty || editForm.get('subscriptionId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('subscriptionId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.orderId" for="field_orderId">Order Id</label>
+                    <input type="text" class="form-control" name="orderId" id="field_orderId"
+                           formControlName="orderId"/>
+                    <div *ngIf="editForm.get('orderId')!.invalid && (editForm.get('orderId')!.dirty || editForm.get('orderId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('orderId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.productId" for="field_productId">Product Id</label>
+                    <input type="text" class="form-control" name="productId" id="field_productId"
+                           formControlName="productId"/>
+                    <div *ngIf="editForm.get('productId')!.invalid && (editForm.get('productId')!.dirty || editForm.get('productId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('productId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.msisdn" for="field_msisdn">Msisdn</label>
+                    <input type="text" class="form-control" name="msisdn" id="field_msisdn"
+                           formControlName="msisdn"/>
+                    <div *ngIf="editForm.get('msisdn')!.invalid && (editForm.get('msisdn')!.dirty || editForm.get('msisdn')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('msisdn')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.iccid" for="field_iccid">Iccid</label>
+                    <input type="text" class="form-control" name="iccid" id="field_iccid"
+                           formControlName="iccid"/>
+                    <div *ngIf="editForm.get('iccid')!.invalid && (editForm.get('iccid')!.dirty || editForm.get('iccid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('iccid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.imsi" for="field_imsi">Imsi</label>
+                    <input type="text" class="form-control" name="imsi" id="field_imsi"
+                           formControlName="imsi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.serviceSpecId" for="field_serviceSpecId">Service Spec Id</label>
+                    <input type="text" class="form-control" name="serviceSpecId" id="field_serviceSpecId"
+                           formControlName="serviceSpecId"/>
+                    <div *ngIf="editForm.get('serviceSpecId')!.invalid && (editForm.get('serviceSpecId')!.dirty || editForm.get('serviceSpecId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serviceSpecId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.resourceSpecId" for="field_resourceSpecId">Resource Spec Id</label>
+                    <input type="text" class="form-control" name="resourceSpecId" id="field_resourceSpecId"
+                           formControlName="resourceSpecId"/>
+                    <div *ngIf="editForm.get('resourceSpecId')!.invalid && (editForm.get('resourceSpecId')!.dirty || editForm.get('resourceSpecId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('resourceSpecId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.rfs" for="field_rfs">Rfs</label>
+                    <input type="text" class="form-control" name="rfs" id="field_rfs"
+                           formControlName="rfs"/>
+                    <div *ngIf="editForm.get('rfs')!.invalid && (editForm.get('rfs')!.dirty || editForm.get('rfs')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rfs')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.provisionStatus" for="field_provisionStatus">Provision Status</label>
+                    <input type="text" class="form-control" name="provisionStatus" id="field_provisionStatus"
+                           formControlName="provisionStatus"/>
+                    <div *ngIf="editForm.get('provisionStatus')!.invalid && (editForm.get('provisionStatus')!.dirty || editForm.get('provisionStatus')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('provisionStatus')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.provisionStatusDesc" for="field_provisionStatusDesc">Provision Status Desc</label>
+                    <input type="text" class="form-control" name="provisionStatusDesc" id="field_provisionStatusDesc"
+                           formControlName="provisionStatusDesc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.provisionResponse" for="field_provisionResponse">Provision Response</label>
+                    <input type="text" class="form-control" name="provisionResponse" id="field_provisionResponse"
+                           formControlName="provisionResponse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.startDate" for="field_startDate">Start Date</label>
+                    <div class="d-flex">
+                        <input id="field_startDate" type="datetime-local" class="form-control" name="startDate" formControlName="startDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.endDate" for="field_endDate">End Date</label>
+                    <div class="d-flex">
+                        <input id="field_endDate" type="datetime-local" class="form-control" name="endDate" formControlName="endDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subscriptionProvision.orderMaster" for="field_orderMaster">Order Master</label>
+                    <select class="form-control" id="field_orderMaster" name="orderMaster" formControlName="orderMaster">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderMasterOption.id === editForm.get('orderMaster')!.value?.id ? editForm.get('orderMaster')!.value : orderMasterOption" *ngFor="let orderMasterOption of ordermasters; trackBy: trackById">{{ orderMasterOption.orderId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,184 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-subs-delivery-item-details-heading" jhiTranslate="crmwebApp.subsDeliveryItemDetails.home.createOrEditLabel">Create or edit a Subs Delivery Item Details</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.subscriptionItemId" for="field_subscriptionItemId">Subscription Item Id</label>
+                    <input type="number" class="form-control" name="subscriptionItemId" id="field_subscriptionItemId"
+                           formControlName="subscriptionItemId"/>
+                    <div *ngIf="editForm.get('subscriptionItemId')!.invalid && (editForm.get('subscriptionItemId')!.dirty || editForm.get('subscriptionItemId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('subscriptionItemId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('subscriptionItemId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.deliveryId" for="field_deliveryId">Delivery Id</label>
+                    <input type="number" class="form-control" name="deliveryId" id="field_deliveryId"
+                           formControlName="deliveryId"/>
+                    <div *ngIf="editForm.get('deliveryId')!.invalid && (editForm.get('deliveryId')!.dirty || editForm.get('deliveryId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('deliveryId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('deliveryId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.productId" for="field_productId">Product Id</label>
+                    <input type="text" class="form-control" name="productId" id="field_productId"
+                           formControlName="productId"/>
+                    <div *ngIf="editForm.get('productId')!.invalid && (editForm.get('productId')!.dirty || editForm.get('productId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('productId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.productName" for="field_productName">Product Name</label>
+                    <input type="text" class="form-control" name="productName" id="field_productName"
+                           formControlName="productName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.deviceType" for="field_deviceType">Device Type</label>
+                    <input type="text" class="form-control" name="deviceType" id="field_deviceType"
+                           formControlName="deviceType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.deviceModel" for="field_deviceModel">Device Model</label>
+                    <input type="text" class="form-control" name="deviceModel" id="field_deviceModel"
+                           formControlName="deviceModel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.deviceSerialNbr" for="field_deviceSerialNbr">Device Serial Nbr</label>
+                    <input type="text" class="form-control" name="deviceSerialNbr" id="field_deviceSerialNbr"
+                           formControlName="deviceSerialNbr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.imei" for="field_imei">Imei</label>
+                    <input type="text" class="form-control" name="imei" id="field_imei"
+                           formControlName="imei"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.productTheme" for="field_productTheme">Product Theme</label>
+                    <input type="text" class="form-control" name="productTheme" id="field_productTheme"
+                           formControlName="productTheme"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.subsDeliveryItemDetails.subsItemDelivery" for="field_subsItemDelivery">Subs Item Delivery</label>
+                    <select class="form-control" id="field_subsItemDelivery" name="subsItemDelivery" formControlName="subsItemDelivery">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="subsItemDeliveryOption.id === editForm.get('subsItemDelivery')!.value?.id ? editForm.get('subsItemDelivery')!.value : subsItemDeliveryOption" *ngFor="let subsItemDeliveryOption of subsitemdeliveries; trackBy: trackById">{{ subsItemDeliveryOption.deliveryId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

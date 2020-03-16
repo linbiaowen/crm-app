@@ -1,0 +1,10 @@
+{
+  "crmwebApp": {
+    "CustomerSegment": {
+      "null": "",
+      "MASS": "MASS",
+      "CORP": "CORP",
+      "VIP": "VIP"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.cfsServices.home.title">Cfs Services</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cfs-services" [routerLink]="['/cfs-services/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.cfsServices.home.createLabel">
+            Create a new Cfs Services
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="cfsServices?.length === 0">
+        <span jhiTranslate="crmwebApp.cfsServices.home.notFound">No cfsServices found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="cfsServices?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serviceId"><span jhiTranslate="crmwebApp.cfsServices.serviceId">Service Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serviceName"><span jhiTranslate="crmwebApp.cfsServices.serviceName">Service Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.cfsServices.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.cfsServices.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.cfsServices.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.cfsServices.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.cfsServices.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cfsServiceSpec.serviceSpecId"><span jhiTranslate="crmwebApp.cfsServices.cfsServiceSpec">Cfs Service Spec</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cfsServices of cfsServices ;trackBy: trackId">
+                    <td><a [routerLink]="['/cfs-services', cfsServices.id, 'view']">{{ cfsServices.id }}</a></td>
+                    <td>{{ cfsServices.serviceId }}</td>
+                    <td>{{ cfsServices.serviceName }}</td>
+                    <td>{{ cfsServices.createdDate | date:'medium' }}</td>
+                    <td>{{ cfsServices.createdBy }}</td>
+                    <td>{{ cfsServices.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ cfsServices.lastUpdatedBy }}</td>
+                    <td>{{ cfsServices.tenantId }}</td>
+                    <td>
+                        <div *ngIf="cfsServices.cfsServiceSpec">
+                            <a [routerLink]="['/cfs-service-spec', cfsServices.cfsServiceSpec?.id, 'view']" >{{ cfsServices.cfsServiceSpec?.serviceSpecId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cfs-services', cfsServices.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cfs-services', cfsServices.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(cfsServices)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="cfsServices?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

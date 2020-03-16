@@ -1,0 +1,71 @@
+{
+    "name": "ProductSimAttributes",
+    "fields": [
+        {
+            "fieldName": "simType",
+            "fieldType": "SimType",
+            "fieldValues": "PHYSICAL_SIM,ESIM,ONE_CARD_MULTI_NUMBER",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "imsiRangeFrom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imsiRangeTo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "simRepositoryRef",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200307172300",
+    "entityTableName": "product_sim_attributes",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

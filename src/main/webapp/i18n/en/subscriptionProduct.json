@@ -1,0 +1,50 @@
+{
+  "crmwebApp": {
+    "subscriptionProduct": {
+      "home": {
+        "title": "Subscription Products",
+        "createLabel": "Create a new Subscription Product",
+        "createOrEditLabel": "Create or edit a Subscription Product",
+        "notFound": "No Subscription Products found"
+      },
+      "created": "A new Subscription Product is created with identifier {{ param }}",
+      "updated": "A Subscription Product is updated with identifier {{ param }}",
+      "deleted": "A Subscription Product is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Subscription Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Subscription Product"
+      },
+      "productSubsriptionSeqId": "Product Subsription Seq Id",
+      "orderId": "Order Id",
+      "subscriptionId": "Subscription Id",
+      "productId": "Product Id",
+      "productName": "Product Name",
+      "activationDate": "Activation Date",
+      "endDate": "End Date",
+      "secondMsisdn": "Second Msisdn",
+      "secondImsi": "Second Imsi",
+      "quantity": "Quantity",
+      "terminationReasonCode": "Termination Reason Code",
+      "offerId": "Offer Id",
+      "offerName": "Offer Name",
+      "offerType": "Offer Type",
+      "matrixxCatalogId": "Matrixx Catalog Id",
+      "matrixxResourceId": "Matrixx Resource Id",
+      "matrixxObjectId": "Matrixx Object Id",
+      "salesChannel": "Sales Channel",
+      "contractId": "Contract Id",
+      "autoRenewal": "Auto Renewal",
+      "autoPay": "Auto Pay",
+      "remarks": "Remarks",
+      "vendorProvisionInd": "Vendor Provision Ind",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "custSubscription": "Cust Subscription"
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+    "name": "OrderProcessStatus",
+    "fields": [
+        {
+            "fieldName": "orderId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "entryOrderStatus",
+            "fieldType": "OrderStatus",
+            "fieldValues": "NEW,PAYMENT_CONFIRMED,DELIVERY_IN_PROGRESS,DELIVERY_COMPLETED,SIM_VERIFIED,IN_PROGRESS,MNP_REJECTED,PROV_IN_PROGRESS,PROV_COMPLETED,COMPLETED,COMPLETED_ERROR,REJECTED,CANCELLED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "exitOrderStatus",
+            "fieldType": "OrderStatus",
+            "fieldValues": "NEW,PAYMENT_CONFIRMED,DELIVERY_IN_PROGRESS,DELIVERY_COMPLETED,SIM_VERIFIED,IN_PROGRESS,MNP_REJECTED,PROV_IN_PROGRESS,PROV_COMPLETED,COMPLETED,COMPLETED_ERROR,REJECTED,CANCELLED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "statusUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "processName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ProcessStatus",
+            "fieldValues": "NEW,PENDING,COMPLETED,COMPLETED_ERROR"
+        },
+        {
+            "fieldName": "remarks",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "orderMaster",
+            "otherEntityRelationshipName": "orderProcessStatuses",
+            "relationshipName": "orderMaster",
+            "otherEntityField": "orderId"
+        }
+    ],
+    "changelogDate": "20200307173800",
+    "entityTableName": "order_process_status",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

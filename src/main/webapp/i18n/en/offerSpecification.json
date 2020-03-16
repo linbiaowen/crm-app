@@ -1,0 +1,43 @@
+{
+  "crmwebApp": {
+    "offerSpecification": {
+      "home": {
+        "title": "Offer Specifications",
+        "createLabel": "Create a new Offer Specification",
+        "createOrEditLabel": "Create or edit a Offer Specification",
+        "notFound": "No Offer Specifications found"
+      },
+      "created": "A new Offer Specification is created with identifier {{ param }}",
+      "updated": "A Offer Specification is updated with identifier {{ param }}",
+      "deleted": "A Offer Specification is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Offer Specification {{ id }}?"
+      },
+      "detail": {
+        "title": "Offer Specification"
+      },
+      "offerSpecId": "Offer Spec Id",
+      "offerId": "Offer Id",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "limitedActivationPeriod": "Limited Activation Period",
+      "allowedActivationStartDate": "Allowed Activation Start Date",
+      "allowedActivationEndDate": "Allowed Activation End Date",
+      "isGroupSharingOffer": "Is Group Sharing Offer",
+      "isMnpOffer": "Is Mnp Offer",
+      "autoRenewal": "Auto Renewal",
+      "transferAllowed": "Transfer Allowed",
+      "infoSharingAllowed": "Info Sharing Allowed",
+      "infoSharingOptions": "Info Sharing Options",
+      "offerPeriod": "Offer Period",
+      "offerPeriodTerm": "Offer Period Term",
+      "paymentType": "Payment Type",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "offer": "Offer"
+    }
+  }
+}

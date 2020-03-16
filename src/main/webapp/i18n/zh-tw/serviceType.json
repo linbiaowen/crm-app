@@ -1,0 +1,10 @@
+{
+  "crmwebApp": {
+    "ServiceType": {
+      "null": "",
+      "PREPAID": "PREPAID",
+      "POSTPAID": "POSTPAID",
+      "OTHERS": "OTHERS"
+    }
+  }
+}

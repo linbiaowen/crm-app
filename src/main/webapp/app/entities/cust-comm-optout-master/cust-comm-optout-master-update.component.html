@@ -1,0 +1,192 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cust-comm-optout-master-heading" jhiTranslate="crmwebApp.custCommOptoutMaster.home.createOrEditLabel">Create or edit a Cust Comm Optout Master</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.optoutId" for="field_optoutId">Optout Id</label>
+                    <input type="text" class="form-control" name="optoutId" id="field_optoutId"
+                           formControlName="optoutId"/>
+                    <div *ngIf="editForm.get('optoutId')!.invalid && (editForm.get('optoutId')!.dirty || editForm.get('optoutId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('optoutId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.custAcctId" for="field_custAcctId">Cust Acct Id</label>
+                    <input type="text" class="form-control" name="custAcctId" id="field_custAcctId"
+                           formControlName="custAcctId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.subscriptionId" for="field_subscriptionId">Subscription Id</label>
+                    <input type="text" class="form-control" name="subscriptionId" id="field_subscriptionId"
+                           formControlName="subscriptionId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.primaryMobNbr" for="field_primaryMobNbr">Primary Mob Nbr</label>
+                    <input type="text" class="form-control" name="primaryMobNbr" id="field_primaryMobNbr"
+                           formControlName="primaryMobNbr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.optoutTypeId" for="field_optoutTypeId">Optout Type Id</label>
+                    <input type="text" class="form-control" name="optoutTypeId" id="field_optoutTypeId"
+                           formControlName="optoutTypeId"/>
+                    <div *ngIf="editForm.get('optoutTypeId')!.invalid && (editForm.get('optoutTypeId')!.dirty || editForm.get('optoutTypeId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('optoutTypeId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.optoutMediaId" for="field_optoutMediaId">Optout Media Id</label>
+                    <input type="text" class="form-control" name="optoutMediaId" id="field_optoutMediaId"
+                           formControlName="optoutMediaId"/>
+                    <div *ngIf="editForm.get('optoutMediaId')!.invalid && (editForm.get('optoutMediaId')!.dirty || editForm.get('optoutMediaId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('optoutMediaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.optoutStatus" for="field_optoutStatus">Optout Status</label>
+                    <input type="text" class="form-control" name="optoutStatus" id="field_optoutStatus"
+                           formControlName="optoutStatus"/>
+                    <div *ngIf="editForm.get('optoutStatus')!.invalid && (editForm.get('optoutStatus')!.dirty || editForm.get('optoutStatus')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('optoutStatus')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.optoutStartDate" for="field_optoutStartDate">Optout Start Date</label>
+                    <div class="d-flex">
+                        <input id="field_optoutStartDate" type="datetime-local" class="form-control" name="optoutStartDate" formControlName="optoutStartDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.optoutEndDate" for="field_optoutEndDate">Optout End Date</label>
+                    <div class="d-flex">
+                        <input id="field_optoutEndDate" type="datetime-local" class="form-control" name="optoutEndDate" formControlName="optoutEndDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption" *ngFor="let customerOption of customers; trackBy: trackById">{{ customerOption.custAcctId }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custCommOptoutMaster.custSubscription" for="field_custSubscription">Cust Subscription</label>
+                    <select class="form-control" id="field_custSubscription" name="custSubscription" formControlName="custSubscription">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="custSubscriptionOption.id === editForm.get('custSubscription')!.value?.id ? editForm.get('custSubscription')!.value : custSubscriptionOption" *ngFor="let custSubscriptionOption of custsubscriptions; trackBy: trackById">{{ custSubscriptionOption.subscriptionId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

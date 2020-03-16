@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.productSimAttributes.home.title">Product Sim Attributes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-sim-attributes" [routerLink]="['/product-sim-attributes/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.productSimAttributes.home.createLabel">
+            Create a new Product Sim Attributes
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productSimAttributes?.length === 0">
+        <span jhiTranslate="crmwebApp.productSimAttributes.home.notFound">No productSimAttributes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productSimAttributes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="simType"><span jhiTranslate="crmwebApp.productSimAttributes.simType">Sim Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imsiRangeFrom"><span jhiTranslate="crmwebApp.productSimAttributes.imsiRangeFrom">Imsi Range From</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imsiRangeTo"><span jhiTranslate="crmwebApp.productSimAttributes.imsiRangeTo">Imsi Range To</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="simRepositoryRef"><span jhiTranslate="crmwebApp.productSimAttributes.simRepositoryRef">Sim Repository Ref</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.productSimAttributes.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.productSimAttributes.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.productSimAttributes.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.productSimAttributes.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.productSimAttributes.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productSimAttributes of productSimAttributes ;trackBy: trackId">
+                    <td><a [routerLink]="['/product-sim-attributes', productSimAttributes.id, 'view']">{{ productSimAttributes.id }}</a></td>
+                    <td jhiTranslate="{{ 'crmwebApp.SimType.' + productSimAttributes.simType }}">{{ productSimAttributes.simType }}</td>
+                    <td>{{ productSimAttributes.imsiRangeFrom }}</td>
+                    <td>{{ productSimAttributes.imsiRangeTo }}</td>
+                    <td>{{ productSimAttributes.simRepositoryRef }}</td>
+                    <td>{{ productSimAttributes.createdDate | date:'medium' }}</td>
+                    <td>{{ productSimAttributes.createdBy }}</td>
+                    <td>{{ productSimAttributes.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ productSimAttributes.lastUpdatedBy }}</td>
+                    <td>{{ productSimAttributes.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product-sim-attributes', productSimAttributes.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product-sim-attributes', productSimAttributes.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productSimAttributes)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="productSimAttributes?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

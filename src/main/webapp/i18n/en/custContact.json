@@ -1,0 +1,35 @@
+{
+  "crmwebApp": {
+    "custContact": {
+      "home": {
+        "title": "Cust Contacts",
+        "createLabel": "Create a new Cust Contact",
+        "createOrEditLabel": "Create or edit a Cust Contact",
+        "notFound": "No Cust Contacts found"
+      },
+      "created": "A new Cust Contact is created with identifier {{ param }}",
+      "updated": "A Cust Contact is updated with identifier {{ param }}",
+      "deleted": "A Cust Contact is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cust Contact {{ id }}?"
+      },
+      "detail": {
+        "title": "Cust Contact"
+      },
+      "contactId": "Contact Id",
+      "accountId": "Account Id",
+      "accountType": "Account Type",
+      "contactType": "Contact Type",
+      "contactPerson": "Contact Person",
+      "contactPhone": "Contact Phone",
+      "contactEmail": "Contact Email",
+      "status": "Status",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "customer": "Customer"
+    }
+  }
+}

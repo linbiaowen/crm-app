@@ -1,0 +1,36 @@
+{
+  "crmwebApp": {
+    "productSms": {
+      "home": {
+        "title": "Product Sms",
+        "createLabel": "Create a new Product Sms",
+        "createOrEditLabel": "Create or edit a Product Sms",
+        "notFound": "No Product Sms found"
+      },
+      "created": "A new Product Sms is created with identifier {{ param }}",
+      "updated": "A Product Sms is updated with identifier {{ param }}",
+      "deleted": "A Product Sms is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Sms {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Sms"
+      },
+      "smsId": "Sms Id",
+      "productSpecId": "Product Spec Id",
+      "unit": "Unit",
+      "volume": "Volume",
+      "smsType": "Sms Type",
+      "roamingAllowed": "Roaming Allowed",
+      "minTransferQuota": "Min Transfer Quota",
+      "maxTransferQuota": "Max Transfer Quota",
+      "minRetentionQuota": "Min Retention Quota",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "productSpec": "Product Spec"
+    }
+  }
+}

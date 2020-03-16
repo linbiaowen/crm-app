@@ -1,0 +1,30 @@
+{
+  "crmwebApp": {
+    "productSimAttributes": {
+      "home": {
+        "title": "Product Sim Attributes",
+        "createLabel": "Create a new Product Sim Attributes",
+        "createOrEditLabel": "Create or edit a Product Sim Attributes",
+        "notFound": "No Product Sim Attributes found"
+      },
+      "created": "A new Product Sim Attributes is created with identifier {{ param }}",
+      "updated": "A Product Sim Attributes is updated with identifier {{ param }}",
+      "deleted": "A Product Sim Attributes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Sim Attributes {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Sim Attributes"
+      },
+      "simType": "Sim Type",
+      "imsiRangeFrom": "Imsi Range From",
+      "imsiRangeTo": "Imsi Range To",
+      "simRepositoryRef": "Sim Repository Ref",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

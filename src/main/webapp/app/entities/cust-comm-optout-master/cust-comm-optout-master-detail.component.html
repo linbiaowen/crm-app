@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="custCommOptoutMaster">
+            <h2><span jhiTranslate="crmwebApp.custCommOptoutMaster.detail.title">Cust Comm Optout Master</span> {{ custCommOptoutMaster.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutId">Optout Id</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.optoutId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.custAcctId">Cust Acct Id</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.custAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.primaryMobNbr">Primary Mob Nbr</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.primaryMobNbr }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutTypeId">Optout Type Id</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.optoutTypeId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutMediaId">Optout Media Id</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.optoutMediaId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutStatus">Optout Status</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.optoutStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutStartDate">Optout Start Date</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.optoutStartDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutEndDate">Optout End Date</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.optoutEndDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ custCommOptoutMaster.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="custCommOptoutMaster.customer">
+                        <a [routerLink]="['/customer', custCommOptoutMaster.customer?.id, 'view']">{{ custCommOptoutMaster.customer?.custAcctId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custCommOptoutMaster.custSubscription">Cust Subscription</span></dt>
+                <dd>
+                    <div *ngIf="custCommOptoutMaster.custSubscription">
+                        <a [routerLink]="['/cust-subscription', custCommOptoutMaster.custSubscription?.id, 'view']">{{ custCommOptoutMaster.custSubscription?.subscriptionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cust-comm-optout-master', custCommOptoutMaster.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "crmwebApp": {
+    "SubOrderType": {
+      "null": "",
+      "OFFER": "OFFER",
+      "SERVICE": "SERVICE",
+      "TRANSFER": "TRANSFER"
+    }
+  }
+}

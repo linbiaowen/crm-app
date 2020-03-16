@@ -1,0 +1,39 @@
+{
+  "crmwebApp": {
+    "subsItemDelivery": {
+      "home": {
+        "title": "Subs Item Deliveries",
+        "createLabel": "Create a new Subs Item Delivery",
+        "createOrEditLabel": "Create or edit a Subs Item Delivery",
+        "notFound": "No Subs Item Deliveries found"
+      },
+      "created": "A new Subs Item Delivery is created with identifier {{ param }}",
+      "updated": "A Subs Item Delivery is updated with identifier {{ param }}",
+      "deleted": "A Subs Item Delivery is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Subs Item Delivery {{ id }}?"
+      },
+      "detail": {
+        "title": "Subs Item Delivery"
+      },
+      "deliveryId": "Delivery Id",
+      "orderId": "Order Id",
+      "subscriptionId": "Subscription Id",
+      "subscriptionItemId": "Subscription Item Id",
+      "deliveryStatus": "Delivery Status",
+      "deliveryMethodId": "Delivery Method Id",
+      "deliveryRefCode": "Delivery Ref Code",
+      "fileGenerationDate": "File Generation Date",
+      "fileReceivedDate": "File Received Date",
+      "deliveryDate": "Delivery Date",
+      "remarks": "Remarks",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "subsDeliveryItemDetails": "Subs Delivery Item Details",
+      "orderMaster": "Order Master"
+    }
+  }
+}

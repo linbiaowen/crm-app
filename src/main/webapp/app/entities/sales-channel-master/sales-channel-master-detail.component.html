@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="salesChannelMaster">
+            <h2><span jhiTranslate="crmwebApp.salesChannelMaster.detail.title">Sales Channel Master</span> {{ salesChannelMaster.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.salesChannelMaster.salesChannel">Sales Channel</span></dt>
+                <dd>
+                    <span>{{ salesChannelMaster.salesChannel }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.salesChannelMaster.salesChannelDesc">Sales Channel Desc</span></dt>
+                <dd>
+                    <span>{{ salesChannelMaster.salesChannelDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.salesChannelMaster.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ salesChannelMaster.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.salesChannelMaster.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ salesChannelMaster.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.salesChannelMaster.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ salesChannelMaster.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.salesChannelMaster.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ salesChannelMaster.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.salesChannelMaster.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ salesChannelMaster.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.salesChannelMaster.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ salesChannelMaster.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.salesChannelMaster.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ salesChannelMaster.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sales-channel-master', salesChannelMaster.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

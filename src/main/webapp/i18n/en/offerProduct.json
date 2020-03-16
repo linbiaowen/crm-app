@@ -1,0 +1,30 @@
+{
+  "crmwebApp": {
+    "offerProduct": {
+      "home": {
+        "title": "Offer Products",
+        "createLabel": "Create a new Offer Product",
+        "createOrEditLabel": "Create or edit a Offer Product",
+        "notFound": "No Offer Products found"
+      },
+      "created": "A new Offer Product is created with identifier {{ param }}",
+      "updated": "A Offer Product is updated with identifier {{ param }}",
+      "deleted": "A Offer Product is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Offer Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Offer Product"
+      },
+      "recSeqId": "Rec Seq Id",
+      "productId": "Product Id",
+      "offerId": "Offer Id",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "offer": "Offer"
+    }
+  }
+}

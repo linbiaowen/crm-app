@@ -1,0 +1,33 @@
+{
+  "crmwebApp": {
+    "orderProcessStatusHistory": {
+      "home": {
+        "title": "Order Process Status Histories",
+        "createLabel": "Create a new Order Process Status History",
+        "createOrEditLabel": "Create or edit a Order Process Status History",
+        "notFound": "No Order Process Status Histories found"
+      },
+      "created": "A new Order Process Status History is created with identifier {{ param }}",
+      "updated": "A Order Process Status History is updated with identifier {{ param }}",
+      "deleted": "A Order Process Status History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order Process Status History {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Process Status History"
+      },
+      "orderId": "Order Id",
+      "entryOrderStatus": "Entry Order Status",
+      "exitOrderStatus": "Exit Order Status",
+      "statusUpdatedDate": "Status Updated Date",
+      "processName": "Process Name",
+      "status": "Status",
+      "remarks": "Remarks",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

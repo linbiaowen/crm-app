@@ -1,0 +1,9 @@
+{
+  "crmwebApp": {
+    "AddressType": {
+      "null": "",
+      "BILLING": "BILLING",
+      "DELIVERY": "DELIVERY"
+    }
+  }
+}

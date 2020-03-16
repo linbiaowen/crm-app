@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offerPromotion">
+            <h2><span jhiTranslate="crmwebApp.offerPromotion.detail.title">Offer Promotion</span> {{ offerPromotion.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.promoCode">Promo Code</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.promoCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.offerId">Offer Id</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.offerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.promoType">Promo Type</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.promoType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.offerPrice">Offer Price</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.offerPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.offerDiscount">Offer Discount</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.offerDiscount }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.freeDataOfferId">Free Data Offer Id</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.freeDataOfferId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.RecordStatus.' + offerPromotion.status }}">{{ offerPromotion.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ offerPromotion.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerPromotion.offer">Offer</span></dt>
+                <dd>
+                    <div *ngIf="offerPromotion.offer">
+                        <a [routerLink]="['/offer', offerPromotion.offer?.id, 'view']">{{ offerPromotion.offer?.offerId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer-promotion', offerPromotion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

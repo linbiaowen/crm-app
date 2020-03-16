@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="custAddress">
+            <h2><span jhiTranslate="crmwebApp.custAddress.detail.title">Cust Address</span> {{ custAddress.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.custAddress.addressId">Address Id</span></dt>
+                <dd>
+                    <span>{{ custAddress.addressId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.accountId">Account Id</span></dt>
+                <dd>
+                    <span>{{ custAddress.accountId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.accountType">Account Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.AccountType.' + custAddress.accountType }}">{{ custAddress.accountType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.addressType">Address Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.AddressType.' + custAddress.addressType }}">{{ custAddress.addressType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.addressLang">Address Lang</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.Language.' + custAddress.addressLang }}">{{ custAddress.addressLang }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.formattedAddress">Formatted Address</span></dt>
+                <dd>
+                    <span>{{ custAddress.formattedAddress }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.room">Room</span></dt>
+                <dd>
+                    <span>{{ custAddress.room }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.floor">Floor</span></dt>
+                <dd>
+                    <span>{{ custAddress.floor }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.block">Block</span></dt>
+                <dd>
+                    <span>{{ custAddress.block }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.building">Building</span></dt>
+                <dd>
+                    <span>{{ custAddress.building }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.streetEstate">Street Estate</span></dt>
+                <dd>
+                    <span>{{ custAddress.streetEstate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.district">District</span></dt>
+                <dd>
+                    <span>{{ custAddress.district }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.region">Region</span></dt>
+                <dd>
+                    <span>{{ custAddress.region }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.address1">Address 1</span></dt>
+                <dd>
+                    <span>{{ custAddress.address1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.address2">Address 2</span></dt>
+                <dd>
+                    <span>{{ custAddress.address2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.address3">Address 3</span></dt>
+                <dd>
+                    <span>{{ custAddress.address3 }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.address4">Address 4</span></dt>
+                <dd>
+                    <span>{{ custAddress.address4 }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.address5">Address 5</span></dt>
+                <dd>
+                    <span>{{ custAddress.address5 }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ custAddress.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ custAddress.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ custAddress.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ custAddress.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ custAddress.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAddress.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="custAddress.customer">
+                        <a [routerLink]="['/customer', custAddress.customer?.id, 'view']">{{ custAddress.customer?.custAcctId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cust-address', custAddress.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

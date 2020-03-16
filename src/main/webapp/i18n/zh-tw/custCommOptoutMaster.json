@@ -1,0 +1,37 @@
+{
+  "crmwebApp": {
+    "custCommOptoutMaster": {
+      "home": {
+        "title": "Cust Comm Optout Masters",
+        "createLabel": "建立一筆新的 Cust Comm Optout Master",
+        "createOrEditLabel": "建立或編輯 Cust Comm Optout Master",
+        "notFound": "No Cust Comm Optout Masters found"
+      },
+      "created": "新的 Cust Comm Optout Master 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Cust Comm Optout Master 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Cust Comm Optout Master 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Cust Comm Optout Master {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Cust Comm Optout Master"
+      },
+      "optoutId": "Optout Id",
+      "custAcctId": "Cust Acct Id",
+      "subscriptionId": "Subscription Id",
+      "primaryMobNbr": "Primary Mob Nbr",
+      "optoutTypeId": "Optout Type Id",
+      "optoutMediaId": "Optout Media Id",
+      "optoutStatus": "Optout Status",
+      "optoutStartDate": "Optout Start Date",
+      "optoutEndDate": "Optout End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "customer": "Customer",
+      "custSubscription": "Cust Subscription"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "crmwebApp": {
+    "offerPromotion": {
+      "home": {
+        "title": "Offer Promotions",
+        "createLabel": "建立一筆新的 Offer Promotion",
+        "createOrEditLabel": "建立或編輯 Offer Promotion",
+        "notFound": "No Offer Promotions found"
+      },
+      "created": "新的 Offer Promotion 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Offer Promotion 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Offer Promotion 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Offer Promotion {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Offer Promotion"
+      },
+      "promoCode": "Promo Code",
+      "offerId": "Offer Id",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "promoType": "Promo Type",
+      "offerPrice": "Offer Price",
+      "offerDiscount": "Offer Discount",
+      "freeDataOfferId": "Free Data Offer Id",
+      "status": "Status",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "offer": "Offer"
+    }
+  }
+}

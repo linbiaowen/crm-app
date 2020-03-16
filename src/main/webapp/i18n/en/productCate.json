@@ -1,0 +1,9 @@
+{
+  "crmwebApp": {
+    "ProductCate": {
+      "null": "",
+      "TELCO": "TELCO",
+      "NON_TELCO": "NON_TELCO"
+    }
+  }
+}

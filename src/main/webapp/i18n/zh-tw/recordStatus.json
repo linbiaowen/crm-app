@@ -1,0 +1,9 @@
+{
+  "crmwebApp": {
+    "RecordStatus": {
+      "null": "",
+      "INACTIVE": "INACTIVE",
+      "ACTIVE": "ACTIVE"
+    }
+  }
+}

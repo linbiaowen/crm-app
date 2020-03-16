@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subscriptionProvision">
+            <h2><span jhiTranslate="crmwebApp.subscriptionProvision.detail.title">Subscription Provision</span> {{ subscriptionProvision.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.provisionSeqId">Provision Seq Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.provisionSeqId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.orderId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.productId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.msisdn">Msisdn</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.msisdn }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.iccid">Iccid</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.iccid }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.imsi">Imsi</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.imsi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.serviceSpecId">Service Spec Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.serviceSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.resourceSpecId">Resource Spec Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.resourceSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.rfs">Rfs</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.rfs }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.provisionStatus">Provision Status</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.provisionStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.provisionStatusDesc">Provision Status Desc</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.provisionStatusDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.provisionResponse">Provision Response</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.provisionResponse }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProvision.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProvision.orderMaster">Order Master</span></dt>
+                <dd>
+                    <div *ngIf="subscriptionProvision.orderMaster">
+                        <a [routerLink]="['/order-master', subscriptionProvision.orderMaster?.id, 'view']">{{ subscriptionProvision.orderMaster?.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subscription-provision', subscriptionProvision.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

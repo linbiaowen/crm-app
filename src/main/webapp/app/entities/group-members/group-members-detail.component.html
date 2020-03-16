@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="groupMembers">
+            <h2><span jhiTranslate="crmwebApp.groupMembers.detail.title">Group Members</span> {{ groupMembers.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.groupMembers.groupId">Group Id</span></dt>
+                <dd>
+                    <span>{{ groupMembers.groupId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ groupMembers.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.msisdn">Msisdn</span></dt>
+                <dd>
+                    <span>{{ groupMembers.msisdn }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.groupRole">Group Role</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.GroupRole.' + groupMembers.groupRole }}">{{ groupMembers.groupRole }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.endReasonCode">End Reason Code</span></dt>
+                <dd>
+                    <span>{{ groupMembers.endReasonCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ groupMembers.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ groupMembers.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ groupMembers.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ groupMembers.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ groupMembers.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ groupMembers.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ groupMembers.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ groupMembers.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.groupMembers.subscriptionGroup">Subscription Group</span></dt>
+                <dd>
+                    <div *ngIf="groupMembers.subscriptionGroup">
+                        <a [routerLink]="['/subscription-group', groupMembers.subscriptionGroup?.id, 'view']">{{ groupMembers.subscriptionGroup?.groupName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/group-members', groupMembers.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

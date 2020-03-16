@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="custAcctBlackList">
+            <h2><span jhiTranslate="crmwebApp.custAcctBlackList.detail.title">Cust Acct Black List</span> {{ custAcctBlackList.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.blackListId">Black List Id</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.blackListId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.idType">Id Type</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.idType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.idNumber">Id Number</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.idNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.blackListCode">Black List Code</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.blackListCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custAcctBlackList.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ custAcctBlackList.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cust-acct-black-list', custAcctBlackList.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,166 @@
+{
+    "name": "ModelGroup",
+    "fields": [
+        {
+            "fieldName": "modelGroup",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "groupDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "listPrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "brand",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "model",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "origCountry",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "network",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "camera",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "memCardSlot",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataTransfer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "warranty",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "warrantyProvider",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modelCate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remarks",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remarksEndDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "brandChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modelChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "origCountryChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "networkChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cameraChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "memCardSlotChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataTransferChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "warrantyChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "warrantyProviderChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modelCateChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remarksChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remarksChiEndDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "couponFlag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200307174100",
+    "entityTableName": "model_group",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

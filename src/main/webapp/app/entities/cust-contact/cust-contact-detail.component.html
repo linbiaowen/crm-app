@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="custContact">
+            <h2><span jhiTranslate="crmwebApp.custContact.detail.title">Cust Contact</span> {{ custContact.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.custContact.contactId">Contact Id</span></dt>
+                <dd>
+                    <span>{{ custContact.contactId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.accountId">Account Id</span></dt>
+                <dd>
+                    <span>{{ custContact.accountId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.accountType">Account Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.AccountType.' + custContact.accountType }}">{{ custContact.accountType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.contactType">Contact Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.ContactType.' + custContact.contactType }}">{{ custContact.contactType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.contactPerson">Contact Person</span></dt>
+                <dd>
+                    <span>{{ custContact.contactPerson }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.contactPhone">Contact Phone</span></dt>
+                <dd>
+                    <span>{{ custContact.contactPhone }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.contactEmail">Contact Email</span></dt>
+                <dd>
+                    <span>{{ custContact.contactEmail }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.RecordStatus.' + custContact.status }}">{{ custContact.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ custContact.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ custContact.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ custContact.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ custContact.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ custContact.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.custContact.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="custContact.customer">
+                        <a [routerLink]="['/customer', custContact.customer?.id, 'view']">{{ custContact.customer?.custAcctId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cust-contact', custContact.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

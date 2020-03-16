@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="deliveryOption">
+            <h2><span jhiTranslate="crmwebApp.deliveryOption.detail.title">Delivery Option</span> {{ deliveryOption.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.deliveryOption.deliveryOption">Delivery Option</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.DeliverOptions.' + deliveryOption.deliveryOption }}">{{ deliveryOption.deliveryOption }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryOption.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ deliveryOption.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryOption.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ deliveryOption.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryOption.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ deliveryOption.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryOption.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ deliveryOption.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.deliveryOption.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ deliveryOption.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/delivery-option', deliveryOption.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offerAdvancePayment">
+            <h2><span jhiTranslate="crmwebApp.offerAdvancePayment.detail.title">Offer Advance Payment</span> {{ offerAdvancePayment.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.advancePaymentId">Advance Payment Id</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.advancePaymentId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.offerId">Offer Id</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.offerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.advancePaymentMonths">Advance Payment Months</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.advancePaymentMonths }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.offerPrice">Offer Price</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.offerPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.offerDiscount">Offer Discount</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.offerDiscount }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.RecordStatus.' + offerAdvancePayment.status }}">{{ offerAdvancePayment.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ offerAdvancePayment.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerAdvancePayment.offer">Offer</span></dt>
+                <dd>
+                    <div *ngIf="offerAdvancePayment.offer">
+                        <a [routerLink]="['/offer', offerAdvancePayment.offer?.id, 'view']">{{ offerAdvancePayment.offer?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer-advance-payment', offerAdvancePayment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

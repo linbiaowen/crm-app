@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.offerDiscount.home.title">Offer Discounts</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-offer-discount" [routerLink]="['/offer-discount/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.offerDiscount.home.createLabel">
+            Create a new Offer Discount
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="offerDiscounts?.length === 0">
+        <span jhiTranslate="crmwebApp.offerDiscount.home.notFound">No offerDiscounts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="offerDiscounts?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="discountCode"><span jhiTranslate="crmwebApp.offerDiscount.discountCode">Discount Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerId"><span jhiTranslate="crmwebApp.offerDiscount.offerId">Offer Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="startDate"><span jhiTranslate="crmwebApp.offerDiscount.startDate">Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="endDate"><span jhiTranslate="crmwebApp.offerDiscount.endDate">End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="discountType"><span jhiTranslate="crmwebApp.offerDiscount.discountType">Discount Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerDiscount"><span jhiTranslate="crmwebApp.offerDiscount.offerDiscount">Offer Discount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="crmwebApp.offerDiscount.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.offerDiscount.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.offerDiscount.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.offerDiscount.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.offerDiscount.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.offerDiscount.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offer.offerId"><span jhiTranslate="crmwebApp.offerDiscount.offer">Offer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let offerDiscount of offerDiscounts ;trackBy: trackId">
+                    <td><a [routerLink]="['/offer-discount', offerDiscount.id, 'view']">{{ offerDiscount.id }}</a></td>
+                    <td>{{ offerDiscount.discountCode }}</td>
+                    <td>{{ offerDiscount.offerId }}</td>
+                    <td>{{ offerDiscount.startDate | date:'medium' }}</td>
+                    <td>{{ offerDiscount.endDate | date:'medium' }}</td>
+                    <td>{{ offerDiscount.discountType }}</td>
+                    <td>{{ offerDiscount.offerDiscount }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.RecordStatus.' + offerDiscount.status }}">{{ offerDiscount.status }}</td>
+                    <td>{{ offerDiscount.createdDate | date:'medium' }}</td>
+                    <td>{{ offerDiscount.createdBy }}</td>
+                    <td>{{ offerDiscount.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ offerDiscount.lastUpdatedBy }}</td>
+                    <td>{{ offerDiscount.tenantId }}</td>
+                    <td>
+                        <div *ngIf="offerDiscount.offer">
+                            <a [routerLink]="['/offer', offerDiscount.offer?.id, 'view']" >{{ offerDiscount.offer?.offerId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/offer-discount', offerDiscount.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/offer-discount', offerDiscount.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(offerDiscount)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="offerDiscounts?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="modelCategory">
+            <h2><span jhiTranslate="crmwebApp.modelCategory.detail.title">Model Category</span> {{ modelCategory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.modelCategory.modelCate">Model Cate</span></dt>
+                <dd>
+                    <span>{{ modelCategory.modelCate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.modelCategory.parentModelCate">Parent Model Cate</span></dt>
+                <dd>
+                    <span>{{ modelCategory.parentModelCate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.modelCategory.modelCateDesc">Model Cate Desc</span></dt>
+                <dd>
+                    <span>{{ modelCategory.modelCateDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.modelCategory.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ modelCategory.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.modelCategory.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ modelCategory.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.modelCategory.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ modelCategory.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.modelCategory.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ modelCategory.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.modelCategory.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ modelCategory.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/model-category', modelCategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

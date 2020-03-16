@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.supremeMaster.home.title">Supreme Masters</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-supreme-master" [routerLink]="['/supreme-master/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.supremeMaster.home.createLabel">
+            Create a new Supreme Master
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="supremeMasters?.length === 0">
+        <span jhiTranslate="crmwebApp.supremeMaster.home.notFound">No supremeMasters found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="supremeMasters?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supremeSeqId"><span jhiTranslate="crmwebApp.supremeMaster.supremeSeqId">Supreme Seq Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriptionId"><span jhiTranslate="crmwebApp.supremeMaster.subscriptionId">Subscription Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="msisdn"><span jhiTranslate="crmwebApp.supremeMaster.msisdn">Msisdn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="startDate"><span jhiTranslate="crmwebApp.supremeMaster.startDate">Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="endDate"><span jhiTranslate="crmwebApp.supremeMaster.endDate">End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="membershipServiceType"><span jhiTranslate="crmwebApp.supremeMaster.membershipServiceType">Membership Service Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="peCode"><span jhiTranslate="crmwebApp.supremeMaster.peCode">Pe Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="personalExecDirectLine"><span jhiTranslate="crmwebApp.supremeMaster.personalExecDirectLine">Personal Exec Direct Line</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="personalExecName"><span jhiTranslate="crmwebApp.supremeMaster.personalExecName">Personal Exec Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.supremeMaster.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.supremeMaster.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.supremeMaster.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.supremeMaster.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.supremeMaster.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custSubscription.subscriptionId"><span jhiTranslate="crmwebApp.supremeMaster.custSubscription">Cust Subscription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let supremeMaster of supremeMasters ;trackBy: trackId">
+                    <td><a [routerLink]="['/supreme-master', supremeMaster.id, 'view']">{{ supremeMaster.id }}</a></td>
+                    <td>{{ supremeMaster.supremeSeqId }}</td>
+                    <td>{{ supremeMaster.subscriptionId }}</td>
+                    <td>{{ supremeMaster.msisdn }}</td>
+                    <td>{{ supremeMaster.startDate | date:'medium' }}</td>
+                    <td>{{ supremeMaster.endDate | date:'medium' }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.MemberShipServiceType.' + supremeMaster.membershipServiceType }}">{{ supremeMaster.membershipServiceType }}</td>
+                    <td>{{ supremeMaster.peCode }}</td>
+                    <td>{{ supremeMaster.personalExecDirectLine }}</td>
+                    <td>{{ supremeMaster.personalExecName }}</td>
+                    <td>{{ supremeMaster.createdDate | date:'medium' }}</td>
+                    <td>{{ supremeMaster.createdBy }}</td>
+                    <td>{{ supremeMaster.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ supremeMaster.lastUpdatedBy }}</td>
+                    <td>{{ supremeMaster.tenantId }}</td>
+                    <td>
+                        <div *ngIf="supremeMaster.custSubscription">
+                            <a [routerLink]="['/cust-subscription', supremeMaster.custSubscription?.id, 'view']" >{{ supremeMaster.custSubscription?.subscriptionId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/supreme-master', supremeMaster.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/supreme-master', supremeMaster.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(supremeMaster)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="supremeMasters?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

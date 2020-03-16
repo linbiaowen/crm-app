@@ -1,0 +1,33 @@
+{
+  "crmwebApp": {
+    "orderProcessStatusHistory": {
+      "home": {
+        "title": "Order Process Status Histories",
+        "createLabel": "建立一筆新的 Order Process Status History",
+        "createOrEditLabel": "建立或編輯 Order Process Status History",
+        "notFound": "No Order Process Status Histories found"
+      },
+      "created": "新的 Order Process Status History 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Order Process Status History 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Order Process Status History 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Order Process Status History {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Order Process Status History"
+      },
+      "orderId": "Order Id",
+      "entryOrderStatus": "Entry Order Status",
+      "exitOrderStatus": "Exit Order Status",
+      "statusUpdatedDate": "Status Updated Date",
+      "processName": "Process Name",
+      "status": "Status",
+      "remarks": "Remarks",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

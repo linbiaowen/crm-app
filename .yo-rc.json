@@ -37,6 +37,15 @@
     "enableTranslation": true,
     "nativeLanguage": "en",
     "languages": ["en", "zh-tw"],
-    "blueprints": []
+    "blueprints": [],
+    "appsFolders": ["crm-app"],
+    "directoryPath": "../",
+    "monitoring": "no",
+    "jwtSecretKey": "ZWI0ODk0MmJmYjhlMmVlYzI2Y2NkMmE5YjMzOGMwZmNhNjIyM2FlN2ViZjQzYzQ5Y2M0YWJlZmFlMjk0ODgwNjA1NjFlOGRjMjYzYzRhYjRjZDgxMjIxZTJjYzRiMmY0ZTc5Yw==",
+    "dockerRepositoryName": "https://hub.docker.com",
+    "dockerPushCommand": "docker push",
+    "openshiftNamespace": "default",
+    "storageType": "ephemeral",
+    "registryReplicas": 2
   }
 }

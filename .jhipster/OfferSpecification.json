@@ -1,0 +1,129 @@
+{
+    "name": "OfferSpecification",
+    "fields": [
+        {
+            "fieldName": "offerSpecId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "offerId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "limitedActivationPeriod",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "allowedActivationStartDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "allowedActivationEndDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "isGroupSharingOffer",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isMnpOffer",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "autoRenewal",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "transferAllowed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "infoSharingAllowed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "infoSharingOptions",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "offerPeriod",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "offerPeriodTerm",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "offer",
+            "otherEntityRelationshipName": "offerSpec",
+            "relationshipName": "offer",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200307171900",
+    "entityTableName": "offer_specification",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

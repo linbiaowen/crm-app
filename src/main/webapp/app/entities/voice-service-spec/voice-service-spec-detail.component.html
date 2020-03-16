@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="voiceServiceSpec">
+            <h2><span jhiTranslate="crmwebApp.voiceServiceSpec.detail.title">Voice Service Spec</span> {{ voiceServiceSpec.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.voiceSpecId">Voice Spec Id</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.voiceSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.serviceSpecId">Service Spec Id</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.serviceSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.roamingIncomingEnabled">Roaming Incoming Enabled</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.roamingIncomingEnabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.roamingOutgoingEnabled">Roaming Outgoing Enabled</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.roamingOutgoingEnabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.iddEnabled">Idd Enabled</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.iddEnabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.iddOptions">Idd Options</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.iddOptions }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.callForwardEnabled">Call Forward Enabled</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.callForwardEnabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.callWaitingEnabled">Call Waiting Enabled</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.callWaitingEnabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.clipEnabled">Clip Enabled</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.clipEnabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.callBarringEnabled">Call Barring Enabled</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.callBarringEnabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.mvrsEnabled">Mvrs Enabled</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.mvrsEnabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.specialCallServices">Special Call Services</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.specialCallServices }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.callRoutingSupported">Call Routing Supported</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.callRoutingSupported }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.prbtSupported">Prbt Supported</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.prbtSupported }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.hrbtSupported">Hrbt Supported</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.hrbtSupported }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.voiceServiceSpec.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ voiceServiceSpec.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/voice-service-spec', voiceServiceSpec.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

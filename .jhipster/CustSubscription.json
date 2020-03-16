@@ -1,0 +1,180 @@
+{
+    "name": "CustSubscription",
+    "fields": [
+        {
+            "fieldName": "subscriptionId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "activationDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "subsEndDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "subsPurchaseDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "origServiceStartDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "SubscriptionStatus",
+            "fieldValues": "PREACTIVE,ACTIVE,INACTIVE,TERMINATED,DEACTIVATED,SUBSPENDED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "primarySubsInd",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "subsLastStatusCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastStatusUpdatedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "custAcctId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "billingAcctId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "billCycleId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "orderId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "matrixxObjectId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subscriberName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subsDeptName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "selfCarePassword",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subsCategory",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "custDocument",
+            "otherEntityRelationshipName": "custSubscription",
+            "relationshipName": "custDocuments"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "custCommOptoutMaster",
+            "otherEntityRelationshipName": "custSubscription",
+            "relationshipName": "custCommOptouts"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "subscriptionDetails",
+            "otherEntityRelationshipName": "custSubscription",
+            "relationshipName": "subscriptionDetails"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "subsOrderDetails",
+            "otherEntityRelationshipName": "custSubscription",
+            "relationshipName": "subsOrderDetails"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "subscriptionProduct",
+            "otherEntityRelationshipName": "custSubscription",
+            "relationshipName": "subscriptionProducts"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "supremeMaster",
+            "otherEntityRelationshipName": "custSubscription",
+            "relationshipName": "supremeMasters"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "orderMaster",
+            "otherEntityRelationshipName": "custSubscription",
+            "relationshipName": "orderMasters"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "subscriptions",
+            "relationshipName": "customer",
+            "otherEntityField": "custAcctId"
+        }
+    ],
+    "changelogDate": "20200307170500",
+    "entityTableName": "cust_subscription",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

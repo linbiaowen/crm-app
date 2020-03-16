@@ -1,0 +1,9 @@
+{
+  "crmwebApp": {
+    "OrderNature": {
+      "null": "",
+      "NORMAL": "NORMAL",
+      "MNP": "MNP"
+    }
+  }
+}

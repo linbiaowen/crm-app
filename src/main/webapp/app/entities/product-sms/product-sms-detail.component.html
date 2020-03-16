@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productSms">
+            <h2><span jhiTranslate="crmwebApp.productSms.detail.title">Product Sms</span> {{ productSms.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.productSms.smsId">Sms Id</span></dt>
+                <dd>
+                    <span>{{ productSms.smsId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.productSpecId">Product Spec Id</span></dt>
+                <dd>
+                    <span>{{ productSms.productSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.unit">Unit</span></dt>
+                <dd>
+                    <span>{{ productSms.unit }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.volume">Volume</span></dt>
+                <dd>
+                    <span>{{ productSms.volume }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.smsType">Sms Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.SmsType.' + productSms.smsType }}">{{ productSms.smsType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.roamingAllowed">Roaming Allowed</span></dt>
+                <dd>
+                    <span>{{ productSms.roamingAllowed }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.minTransferQuota">Min Transfer Quota</span></dt>
+                <dd>
+                    <span>{{ productSms.minTransferQuota }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.maxTransferQuota">Max Transfer Quota</span></dt>
+                <dd>
+                    <span>{{ productSms.maxTransferQuota }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.minRetentionQuota">Min Retention Quota</span></dt>
+                <dd>
+                    <span>{{ productSms.minRetentionQuota }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ productSms.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ productSms.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ productSms.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ productSms.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSms.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ productSms.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-sms', productSms.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

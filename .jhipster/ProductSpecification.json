@@ -1,0 +1,134 @@
+{
+    "name": "ProductSpecification",
+    "fields": [
+        {
+            "fieldName": "productSpecId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "serviceSpecId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productSpecType",
+            "fieldType": "ProductSpecType",
+            "fieldValues": "DEVICE,ACCESSORY,SIM,VOICE,SMS,DATA,BOX"
+        },
+        {
+            "fieldName": "skuType",
+            "fieldType": "SkuType",
+            "fieldValues": "DEVICE,ACCESSORY,SIM,BOX"
+        },
+        {
+            "fieldName": "simType",
+            "fieldType": "SimType",
+            "fieldValues": "PHYSICAL_SIM,ESIM,ONE_CARD_MULTI_NUMBER"
+        },
+        {
+            "fieldName": "boxType",
+            "fieldType": "BoxType",
+            "fieldValues": "TRAVEL,BEAUTY,BOX_OF_MONTH"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "productVoice",
+            "otherEntityRelationshipName": "productSpec",
+            "relationshipName": "voice",
+            "otherEntityField": "voiceId",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "productData",
+            "otherEntityRelationshipName": "productSpec",
+            "relationshipName": "data",
+            "otherEntityField": "dataId",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "productSms",
+            "otherEntityRelationshipName": "productSpec",
+            "relationshipName": "sms",
+            "otherEntityField": "smsId",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cfsServiceSpec",
+            "otherEntityRelationshipName": "productSpecification",
+            "relationshipName": "cfsServiceSpec"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "productSpec",
+            "relationshipName": "product",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "offer",
+            "otherEntityRelationshipName": "productSpecifications",
+            "relationshipName": "offer",
+            "otherEntityField": "offerId"
+        }
+    ],
+    "changelogDate": "20200307172100",
+    "entityTableName": "product_specification",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

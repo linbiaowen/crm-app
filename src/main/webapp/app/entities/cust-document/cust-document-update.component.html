@@ -1,0 +1,179 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cust-document-heading" jhiTranslate="crmwebApp.custDocument.home.createOrEditLabel">Create or edit a Cust Document</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.custDocId" for="field_custDocId">Cust Doc Id</label>
+                    <input type="text" class="form-control" name="custDocId" id="field_custDocId"
+                           formControlName="custDocId"/>
+                    <div *ngIf="editForm.get('custDocId')!.invalid && (editForm.get('custDocId')!.dirty || editForm.get('custDocId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('custDocId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.custAcctId" for="field_custAcctId">Cust Acct Id</label>
+                    <input type="text" class="form-control" name="custAcctId" id="field_custAcctId"
+                           formControlName="custAcctId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.subscriptionId" for="field_subscriptionId">Subscription Id</label>
+                    <input type="text" class="form-control" name="subscriptionId" id="field_subscriptionId"
+                           formControlName="subscriptionId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.docType" for="field_docType">Doc Type</label>
+                    <select class="form-control" name="docType" formControlName="docType" id="field_docType">
+                        <option value="HKID">{{ 'crmwebApp.DocType.HKID' | translate }}</option>
+                        <option value="PASSPORT">{{ 'crmwebApp.DocType.PASSPORT' | translate }}</option>
+                        <option value="MNP">{{ 'crmwebApp.DocType.MNP' | translate }}</option>
+                        <option value="CMN">{{ 'crmwebApp.DocType.CMN' | translate }}</option>
+                        <option value="CONTRACT">{{ 'crmwebApp.DocType.CONTRACT' | translate }}</option>
+                        <option value="SIM">{{ 'crmwebApp.DocType.SIM' | translate }}</option>
+                        <option value="BR_NBR">{{ 'crmwebApp.DocType.BR_NBR' | translate }}</option>
+                        <option value="SSA">{{ 'crmwebApp.DocType.SSA' | translate }}</option>
+                        <option value="ADDRESS_PROOF">{{ 'crmwebApp.DocType.ADDRESS_PROOF' | translate }}</option>
+                        <option value="COP">{{ 'crmwebApp.DocType.COP' | translate }}</option>
+                        <option value="ECOS">{{ 'crmwebApp.DocType.ECOS' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('docType')!.invalid && (editForm.get('docType')!.dirty || editForm.get('docType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('docType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.docIdNumber" for="field_docIdNumber">Doc Id Number</label>
+                    <input type="text" class="form-control" name="docIdNumber" id="field_docIdNumber"
+                           formControlName="docIdNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.docDataStoreId" for="field_docDataStoreId">Doc Data Store Id</label>
+                    <input type="number" class="form-control" name="docDataStoreId" id="field_docDataStoreId"
+                           formControlName="docDataStoreId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.docDataStore" for="field_docDataStore">Doc Data Store</label>
+                    <select class="form-control" id="field_docDataStore" name="docDataStore" formControlName="docDataStore">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="custDocDataStoreOption.id === editForm.get('docDataStore')!.value?.id ? editForm.get('docDataStore')!.value : custDocDataStoreOption" *ngFor="let custDocDataStoreOption of docdatastores; trackBy: trackById">{{ custDocDataStoreOption.docDataStoreId }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption" *ngFor="let customerOption of customers; trackBy: trackById">{{ customerOption.custAcctId }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.custDocument.custSubscription" for="field_custSubscription">Cust Subscription</label>
+                    <select class="form-control" id="field_custSubscription" name="custSubscription" formControlName="custSubscription">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="custSubscriptionOption.id === editForm.get('custSubscription')!.value?.id ? editForm.get('custSubscription')!.value : custSubscriptionOption" *ngFor="let custSubscriptionOption of custsubscriptions; trackBy: trackById">{{ custSubscriptionOption.subscriptionId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

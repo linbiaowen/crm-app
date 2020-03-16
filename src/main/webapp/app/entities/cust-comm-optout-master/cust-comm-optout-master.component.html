@@ -1,0 +1,109 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.custCommOptoutMaster.home.title">Cust Comm Optout Masters</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cust-comm-optout-master" [routerLink]="['/cust-comm-optout-master/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.custCommOptoutMaster.home.createLabel">
+            Create a new Cust Comm Optout Master
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="custCommOptoutMasters?.length === 0">
+        <span jhiTranslate="crmwebApp.custCommOptoutMaster.home.notFound">No custCommOptoutMasters found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="custCommOptoutMasters?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="optoutId"><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutId">Optout Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custAcctId"><span jhiTranslate="crmwebApp.custCommOptoutMaster.custAcctId">Cust Acct Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriptionId"><span jhiTranslate="crmwebApp.custCommOptoutMaster.subscriptionId">Subscription Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primaryMobNbr"><span jhiTranslate="crmwebApp.custCommOptoutMaster.primaryMobNbr">Primary Mob Nbr</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="optoutTypeId"><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutTypeId">Optout Type Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="optoutMediaId"><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutMediaId">Optout Media Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="optoutStatus"><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutStatus">Optout Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="optoutStartDate"><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutStartDate">Optout Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="optoutEndDate"><span jhiTranslate="crmwebApp.custCommOptoutMaster.optoutEndDate">Optout End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.custCommOptoutMaster.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.custCommOptoutMaster.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.custCommOptoutMaster.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.custCommOptoutMaster.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.custCommOptoutMaster.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customer.custAcctId"><span jhiTranslate="crmwebApp.custCommOptoutMaster.customer">Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="custSubscription.subscriptionId"><span jhiTranslate="crmwebApp.custCommOptoutMaster.custSubscription">Cust Subscription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let custCommOptoutMaster of custCommOptoutMasters ;trackBy: trackId">
+                    <td><a [routerLink]="['/cust-comm-optout-master', custCommOptoutMaster.id, 'view']">{{ custCommOptoutMaster.id }}</a></td>
+                    <td>{{ custCommOptoutMaster.optoutId }}</td>
+                    <td>{{ custCommOptoutMaster.custAcctId }}</td>
+                    <td>{{ custCommOptoutMaster.subscriptionId }}</td>
+                    <td>{{ custCommOptoutMaster.primaryMobNbr }}</td>
+                    <td>{{ custCommOptoutMaster.optoutTypeId }}</td>
+                    <td>{{ custCommOptoutMaster.optoutMediaId }}</td>
+                    <td>{{ custCommOptoutMaster.optoutStatus }}</td>
+                    <td>{{ custCommOptoutMaster.optoutStartDate | date:'medium' }}</td>
+                    <td>{{ custCommOptoutMaster.optoutEndDate | date:'medium' }}</td>
+                    <td>{{ custCommOptoutMaster.createdDate | date:'medium' }}</td>
+                    <td>{{ custCommOptoutMaster.createdBy }}</td>
+                    <td>{{ custCommOptoutMaster.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ custCommOptoutMaster.lastUpdatedBy }}</td>
+                    <td>{{ custCommOptoutMaster.tenantId }}</td>
+                    <td>
+                        <div *ngIf="custCommOptoutMaster.customer">
+                            <a [routerLink]="['/customer', custCommOptoutMaster.customer?.id, 'view']" >{{ custCommOptoutMaster.customer?.custAcctId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="custCommOptoutMaster.custSubscription">
+                            <a [routerLink]="['/cust-subscription', custCommOptoutMaster.custSubscription?.id, 'view']" >{{ custCommOptoutMaster.custSubscription?.subscriptionId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cust-comm-optout-master', custCommOptoutMaster.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cust-comm-optout-master', custCommOptoutMaster.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(custCommOptoutMaster)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="custCommOptoutMasters?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

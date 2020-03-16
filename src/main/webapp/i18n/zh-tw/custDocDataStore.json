@@ -1,0 +1,28 @@
+{
+  "crmwebApp": {
+    "custDocDataStore": {
+      "home": {
+        "title": "Cust Doc Data Stores",
+        "createLabel": "建立一筆新的 Cust Doc Data Store",
+        "createOrEditLabel": "建立或編輯 Cust Doc Data Store",
+        "notFound": "No Cust Doc Data Stores found"
+      },
+      "created": "新的 Cust Doc Data Store 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Cust Doc Data Store 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Cust Doc Data Store 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Cust Doc Data Store {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Cust Doc Data Store"
+      },
+      "docDataStoreId": "Doc Data Store Id",
+      "documentData": "Document Data",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

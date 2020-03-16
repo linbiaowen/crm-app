@@ -1,0 +1,35 @@
+{
+  "crmwebApp": {
+    "productVoice": {
+      "home": {
+        "title": "Product Voices",
+        "createLabel": "建立一筆新的 Product Voice",
+        "createOrEditLabel": "建立或編輯 Product Voice",
+        "notFound": "No Product Voices found"
+      },
+      "created": "新的 Product Voice 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Product Voice 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Product Voice 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Product Voice {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Product Voice"
+      },
+      "voiceId": "Voice Id",
+      "productSpecId": "Product Spec Id",
+      "unit": "Unit",
+      "volume": "Volume",
+      "roamingFlag": "Roaming Flag",
+      "minTransferQuota": "Min Transfer Quota",
+      "maxTransferQuota": "Max Transfer Quota",
+      "minRetentionQuota": "Min Retention Quota",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "productSpec": "Product Spec"
+    }
+  }
+}

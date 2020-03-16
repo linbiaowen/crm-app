@@ -1,0 +1,104 @@
+{
+    "name": "SubsDeliveryItemDetails",
+    "fields": [
+        {
+            "fieldName": "subscriptionItemId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "deliveryId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deviceType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deviceModel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deviceSerialNbr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imei",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productTheme",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "subsItemDelivery",
+            "otherEntityRelationshipName": "subsDeliveryItemDetails",
+            "relationshipName": "subsItemDelivery",
+            "otherEntityField": "deliveryId"
+        }
+    ],
+    "changelogDate": "20200307171000",
+    "entityTableName": "subs_delivery_item_details",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

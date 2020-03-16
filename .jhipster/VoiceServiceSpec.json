@@ -1,0 +1,125 @@
+{
+    "name": "VoiceServiceSpec",
+    "fields": [
+        {
+            "fieldName": "voiceSpecId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "serviceSpecId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "roamingIncomingEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "roamingOutgoingEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "iddEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "iddOptions",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "callForwardEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "callWaitingEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "clipEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "callBarringEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "mvrsEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "specialCallServices",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "callRoutingSupported",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "prbtSupported",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "hrbtSupported",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "cfsServiceSpec",
+            "otherEntityRelationshipName": "voiceServiceSpec",
+            "relationshipName": "cfsServices",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200307172900",
+    "entityTableName": "voice_service_spec",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

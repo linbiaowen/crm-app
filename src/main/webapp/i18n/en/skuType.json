@@ -1,0 +1,11 @@
+{
+  "crmwebApp": {
+    "SkuType": {
+      "null": "",
+      "DEVICE": "DEVICE",
+      "ACCESSORY": "ACCESSORY",
+      "SIM": "SIM",
+      "BOX": "BOX"
+    }
+  }
+}

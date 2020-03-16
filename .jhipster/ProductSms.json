@@ -1,0 +1,105 @@
+{
+    "name": "ProductSms",
+    "fields": [
+        {
+            "fieldName": "smsId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productSpecId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "smsType",
+            "fieldType": "SmsType",
+            "fieldValues": "LOCAL,INTERNATIONAL"
+        },
+        {
+            "fieldName": "roamingAllowed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "minTransferQuota",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "maxTransferQuota",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "minRetentionQuota",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "productSpecification",
+            "otherEntityRelationshipName": "sms",
+            "relationshipName": "productSpec",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200307172600",
+    "entityTableName": "product_sms",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,213 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-offer-heading" jhiTranslate="crmwebApp.offer.home.createOrEditLabel">Create or edit a Offer</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.offerId" for="field_offerId">Offer Id</label>
+                    <input type="text" class="form-control" name="offerId" id="field_offerId"
+                           formControlName="offerId"/>
+                    <div *ngIf="editForm.get('offerId')!.invalid && (editForm.get('offerId')!.dirty || editForm.get('offerId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('offerId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.offerExternalId" for="field_offerExternalId">Offer External Id</label>
+                    <input type="text" class="form-control" name="offerExternalId" id="field_offerExternalId"
+                           formControlName="offerExternalId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.offerName" for="field_offerName">Offer Name</label>
+                    <input type="text" class="form-control" name="offerName" id="field_offerName"
+                           formControlName="offerName"/>
+                    <div *ngIf="editForm.get('offerName')!.invalid && (editForm.get('offerName')!.dirty || editForm.get('offerName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('offerName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.offerNameChi" for="field_offerNameChi">Offer Name Chi</label>
+                    <input type="text" class="form-control" name="offerNameChi" id="field_offerNameChi"
+                           formControlName="offerNameChi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.offerType" for="field_offerType">Offer Type</label>
+                    <select class="form-control" name="offerType" formControlName="offerType" id="field_offerType">
+                        <option value="BASE">{{ 'crmwebApp.OfferType.BASE' | translate }}</option>
+                        <option value="ADDON">{{ 'crmwebApp.OfferType.ADDON' | translate }}</option>
+                        <option value="VAS">{{ 'crmwebApp.OfferType.VAS' | translate }}</option>
+                        <option value="BUNDLE">{{ 'crmwebApp.OfferType.BUNDLE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.offerPrice" for="field_offerPrice">Offer Price</label>
+                    <input type="number" class="form-control" name="offerPrice" id="field_offerPrice"
+                           formControlName="offerPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.customerSegments" for="field_customerSegments">Customer Segments</label>
+                    <input type="text" class="form-control" name="customerSegments" id="field_customerSegments"
+                           formControlName="customerSegments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.customerClasses" for="field_customerClasses">Customer Classes</label>
+                    <input type="text" class="form-control" name="customerClasses" id="field_customerClasses"
+                           formControlName="customerClasses"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.salesChannels" for="field_salesChannels">Sales Channels</label>
+                    <input type="text" class="form-control" name="salesChannels" id="field_salesChannels"
+                           formControlName="salesChannels"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.startDate" for="field_startDate">Start Date</label>
+                    <div class="d-flex">
+                        <input id="field_startDate" type="datetime-local" class="form-control" name="startDate" formControlName="startDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.endDate" for="field_endDate">End Date</label>
+                    <div class="d-flex">
+                        <input id="field_endDate" type="datetime-local" class="form-control" name="endDate" formControlName="endDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.childOfferIds" for="field_childOfferIds">Child Offer Ids</label>
+                    <input type="text" class="form-control" name="childOfferIds" id="field_childOfferIds"
+                           formControlName="childOfferIds"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.productSpecIds" for="field_productSpecIds">Product Spec Ids</label>
+                    <input type="text" class="form-control" name="productSpecIds" id="field_productSpecIds"
+                           formControlName="productSpecIds"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.advancePaymentIds" for="field_advancePaymentIds">Advance Payment Ids</label>
+                    <input type="text" class="form-control" name="advancePaymentIds" id="field_advancePaymentIds"
+                           formControlName="advancePaymentIds"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.offer.offerSpec" for="field_offerSpec">Offer Spec</label>
+                    <select class="form-control" id="field_offerSpec" name="offerSpec" formControlName="offerSpec">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="offerSpecificationOption.id === editForm.get('offerSpec')!.value?.id ? editForm.get('offerSpec')!.value : offerSpecificationOption" *ngFor="let offerSpecificationOption of offerspecs; trackBy: trackById">{{ offerSpecificationOption.offerSpecId }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="crmwebApp.offer.parentOffer" for="field_parentOffers">Parent Offer</label>
+                    <select class="form-control" id="field_parentOffers" multiple name="parentOffers" formControlName="parentOffers">
+                        <option [ngValue]="getSelected(editForm.get('parentOffers')!.value, offerOption)" *ngFor="let offerOption of offers; trackBy: trackById">{{ offerOption.offerId }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

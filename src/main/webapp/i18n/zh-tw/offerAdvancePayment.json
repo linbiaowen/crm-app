@@ -1,0 +1,33 @@
+{
+  "crmwebApp": {
+    "offerAdvancePayment": {
+      "home": {
+        "title": "Offer Advance Payments",
+        "createLabel": "建立一筆新的 Offer Advance Payment",
+        "createOrEditLabel": "建立或編輯 Offer Advance Payment",
+        "notFound": "No Offer Advance Payments found"
+      },
+      "created": "新的 Offer Advance Payment 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Offer Advance Payment 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Offer Advance Payment 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Offer Advance Payment {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Offer Advance Payment"
+      },
+      "advancePaymentId": "Advance Payment Id",
+      "offerId": "Offer Id",
+      "advancePaymentMonths": "Advance Payment Months",
+      "offerPrice": "Offer Price",
+      "offerDiscount": "Offer Discount",
+      "status": "Status",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "offer": "Offer"
+    }
+  }
+}

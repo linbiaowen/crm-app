@@ -1,0 +1,111 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.offerSpecification.home.title">Offer Specifications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-offer-specification" [routerLink]="['/offer-specification/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.offerSpecification.home.createLabel">
+            Create a new Offer Specification
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="offerSpecifications?.length === 0">
+        <span jhiTranslate="crmwebApp.offerSpecification.home.notFound">No offerSpecifications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="offerSpecifications?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerSpecId"><span jhiTranslate="crmwebApp.offerSpecification.offerSpecId">Offer Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerId"><span jhiTranslate="crmwebApp.offerSpecification.offerId">Offer Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="startDate"><span jhiTranslate="crmwebApp.offerSpecification.startDate">Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="endDate"><span jhiTranslate="crmwebApp.offerSpecification.endDate">End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="limitedActivationPeriod"><span jhiTranslate="crmwebApp.offerSpecification.limitedActivationPeriod">Limited Activation Period</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="allowedActivationStartDate"><span jhiTranslate="crmwebApp.offerSpecification.allowedActivationStartDate">Allowed Activation Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="allowedActivationEndDate"><span jhiTranslate="crmwebApp.offerSpecification.allowedActivationEndDate">Allowed Activation End Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isGroupSharingOffer"><span jhiTranslate="crmwebApp.offerSpecification.isGroupSharingOffer">Is Group Sharing Offer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isMnpOffer"><span jhiTranslate="crmwebApp.offerSpecification.isMnpOffer">Is Mnp Offer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="autoRenewal"><span jhiTranslate="crmwebApp.offerSpecification.autoRenewal">Auto Renewal</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="transferAllowed"><span jhiTranslate="crmwebApp.offerSpecification.transferAllowed">Transfer Allowed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="infoSharingAllowed"><span jhiTranslate="crmwebApp.offerSpecification.infoSharingAllowed">Info Sharing Allowed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="infoSharingOptions"><span jhiTranslate="crmwebApp.offerSpecification.infoSharingOptions">Info Sharing Options</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerPeriod"><span jhiTranslate="crmwebApp.offerSpecification.offerPeriod">Offer Period</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerPeriodTerm"><span jhiTranslate="crmwebApp.offerSpecification.offerPeriodTerm">Offer Period Term</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentType"><span jhiTranslate="crmwebApp.offerSpecification.paymentType">Payment Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.offerSpecification.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.offerSpecification.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.offerSpecification.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.offerSpecification.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.offerSpecification.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let offerSpecification of offerSpecifications ;trackBy: trackId">
+                    <td><a [routerLink]="['/offer-specification', offerSpecification.id, 'view']">{{ offerSpecification.id }}</a></td>
+                    <td>{{ offerSpecification.offerSpecId }}</td>
+                    <td>{{ offerSpecification.offerId }}</td>
+                    <td>{{ offerSpecification.startDate | date:'medium' }}</td>
+                    <td>{{ offerSpecification.endDate | date:'medium' }}</td>
+                    <td>{{ offerSpecification.limitedActivationPeriod }}</td>
+                    <td>{{ offerSpecification.allowedActivationStartDate | date:'medium' }}</td>
+                    <td>{{ offerSpecification.allowedActivationEndDate | date:'medium' }}</td>
+                    <td>{{ offerSpecification.isGroupSharingOffer }}</td>
+                    <td>{{ offerSpecification.isMnpOffer }}</td>
+                    <td>{{ offerSpecification.autoRenewal }}</td>
+                    <td>{{ offerSpecification.transferAllowed }}</td>
+                    <td>{{ offerSpecification.infoSharingAllowed }}</td>
+                    <td>{{ offerSpecification.infoSharingOptions }}</td>
+                    <td>{{ offerSpecification.offerPeriod }}</td>
+                    <td>{{ offerSpecification.offerPeriodTerm }}</td>
+                    <td>{{ offerSpecification.paymentType }}</td>
+                    <td>{{ offerSpecification.createdDate | date:'medium' }}</td>
+                    <td>{{ offerSpecification.createdBy }}</td>
+                    <td>{{ offerSpecification.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ offerSpecification.lastUpdatedBy }}</td>
+                    <td>{{ offerSpecification.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/offer-specification', offerSpecification.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/offer-specification', offerSpecification.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(offerSpecification)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="offerSpecifications?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

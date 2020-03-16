@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subsDeliveryItemDetails">
+            <h2><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.detail.title">Subs Delivery Item Details</span> {{ subsDeliveryItemDetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.subscriptionItemId">Subscription Item Id</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.subscriptionItemId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.deliveryId">Delivery Id</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.deliveryId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.productId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.productName">Product Name</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.productName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.deviceType">Device Type</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.deviceType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.deviceModel">Device Model</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.deviceModel }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.deviceSerialNbr">Device Serial Nbr</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.deviceSerialNbr }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.imei">Imei</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.imei }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.productTheme">Product Theme</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.productTheme }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ subsDeliveryItemDetails.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsDeliveryItemDetails.subsItemDelivery">Subs Item Delivery</span></dt>
+                <dd>
+                    <div *ngIf="subsDeliveryItemDetails.subsItemDelivery">
+                        <a [routerLink]="['/subs-item-delivery', subsDeliveryItemDetails.subsItemDelivery?.id, 'view']">{{ subsDeliveryItemDetails.subsItemDelivery?.deliveryId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subs-delivery-item-details', subsDeliveryItemDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

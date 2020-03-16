@@ -1,0 +1,144 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subscriptionProduct">
+            <h2><span jhiTranslate="crmwebApp.subscriptionProduct.detail.title">Subscription Product</span> {{ subscriptionProduct.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.productSubsriptionSeqId">Product Subsription Seq Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.productSubsriptionSeqId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.orderId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.productId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.productName">Product Name</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.productName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.activationDate">Activation Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.activationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.secondMsisdn">Second Msisdn</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.secondMsisdn }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.secondImsi">Second Imsi</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.secondImsi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.terminationReasonCode">Termination Reason Code</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.terminationReasonCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.offerId">Offer Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.offerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.offerName">Offer Name</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.offerName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.offerType">Offer Type</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.offerType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.matrixxCatalogId">Matrixx Catalog Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.matrixxCatalogId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.matrixxResourceId">Matrixx Resource Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.matrixxResourceId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.matrixxObjectId">Matrixx Object Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.matrixxObjectId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.salesChannel">Sales Channel</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.salesChannel }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.contractId">Contract Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.contractId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.autoRenewal">Auto Renewal</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.autoRenewal }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.autoPay">Auto Pay</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.autoPay }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.vendorProvisionInd">Vendor Provision Ind</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.vendorProvisionInd }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ subscriptionProduct.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subscriptionProduct.custSubscription">Cust Subscription</span></dt>
+                <dd>
+                    <div *ngIf="subscriptionProduct.custSubscription">
+                        <a [routerLink]="['/cust-subscription', subscriptionProduct.custSubscription?.id, 'view']">{{ subscriptionProduct.custSubscription?.subscriptionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subscription-product', subscriptionProduct.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

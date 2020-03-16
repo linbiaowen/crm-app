@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderMaster">
+            <h2><span jhiTranslate="crmwebApp.orderMaster.detail.title">Order Master</span> {{ orderMaster.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.orderMaster.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{ orderMaster.orderId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.custAcctId">Cust Acct Id</span></dt>
+                <dd>
+                    <span>{{ orderMaster.custAcctId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ orderMaster.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.orderType">Order Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.OrderType.' + orderMaster.orderType }}">{{ orderMaster.orderType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.subOrderType">Sub Order Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.SubOrderType.' + orderMaster.subOrderType }}">{{ orderMaster.subOrderType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.orderNature">Order Nature</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.OrderNature.' + orderMaster.orderNature }}">{{ orderMaster.orderNature }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.isChangePlan">Is Change Plan</span></dt>
+                <dd>
+                    <span>{{ orderMaster.isChangePlan }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.orderStatus">Order Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.OrderStatus.' + orderMaster.orderStatus }}">{{ orderMaster.orderStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ orderMaster.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ orderMaster.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ orderMaster.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ orderMaster.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ orderMaster.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ orderMaster.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="orderMaster.customer">
+                        <a [routerLink]="['/customer', orderMaster.customer?.id, 'view']">{{ orderMaster.customer?.custAcctId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.orderMaster.custSubscription">Cust Subscription</span></dt>
+                <dd>
+                    <div *ngIf="orderMaster.custSubscription">
+                        <a [routerLink]="['/cust-subscription', orderMaster.custSubscription?.id, 'view']">{{ orderMaster.custSubscription?.subscriptionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-master', orderMaster.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

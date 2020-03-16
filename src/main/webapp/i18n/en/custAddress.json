@@ -1,0 +1,45 @@
+{
+  "crmwebApp": {
+    "custAddress": {
+      "home": {
+        "title": "Cust Addresses",
+        "createLabel": "Create a new Cust Address",
+        "createOrEditLabel": "Create or edit a Cust Address",
+        "notFound": "No Cust Addresses found"
+      },
+      "created": "A new Cust Address is created with identifier {{ param }}",
+      "updated": "A Cust Address is updated with identifier {{ param }}",
+      "deleted": "A Cust Address is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cust Address {{ id }}?"
+      },
+      "detail": {
+        "title": "Cust Address"
+      },
+      "addressId": "Address Id",
+      "accountId": "Account Id",
+      "accountType": "Account Type",
+      "addressType": "Address Type",
+      "addressLang": "Address Lang",
+      "formattedAddress": "Formatted Address",
+      "room": "Room",
+      "floor": "Floor",
+      "block": "Block",
+      "building": "Building",
+      "streetEstate": "Street Estate",
+      "district": "District",
+      "region": "Region",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "address3": "Address 3",
+      "address4": "Address 4",
+      "address5": "Address 5",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "customer": "Customer"
+    }
+  }
+}

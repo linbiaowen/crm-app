@@ -1,0 +1,10 @@
+{
+  "crmwebApp": {
+    "AcctStatus": {
+      "null": "",
+      "PREACTIVE": "PREACTIVE",
+      "ACTIVE": "ACTIVE",
+      "INACTIVE": "INACTIVE"
+    }
+  }
+}

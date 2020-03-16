@@ -1,0 +1,31 @@
+{
+  "crmwebApp": {
+    "deliveryMethod": {
+      "home": {
+        "title": "Delivery Methods",
+        "createLabel": "建立一筆新的 Delivery Method",
+        "createOrEditLabel": "建立或編輯 Delivery Method",
+        "notFound": "No Delivery Methods found"
+      },
+      "created": "新的 Delivery Method 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Delivery Method 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Delivery Method 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Delivery Method {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Delivery Method"
+      },
+      "deliveryMethodId": "Delivery Method Id",
+      "deliveryMethod": "Delivery Method",
+      "deliveryMethodDesc": "Delivery Method Desc",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

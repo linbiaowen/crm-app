@@ -1,0 +1,36 @@
+{
+  "crmwebApp": {
+    "subsDeliveryItemDetails": {
+      "home": {
+        "title": "Subs Delivery Item Details",
+        "createLabel": "建立一筆新的 Subs Delivery Item Details",
+        "createOrEditLabel": "建立或編輯 Subs Delivery Item Details",
+        "notFound": "No Subs Delivery Item Details found"
+      },
+      "created": "新的 Subs Delivery Item Details 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Subs Delivery Item Details 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Subs Delivery Item Details 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Subs Delivery Item Details {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Subs Delivery Item Details"
+      },
+      "subscriptionItemId": "Subscription Item Id",
+      "deliveryId": "Delivery Id",
+      "productId": "Product Id",
+      "productName": "Product Name",
+      "deviceType": "Device Type",
+      "deviceModel": "Device Model",
+      "deviceSerialNbr": "Device Serial Nbr",
+      "imei": "Imei",
+      "productTheme": "Product Theme",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "subsItemDelivery": "Subs Item Delivery"
+    }
+  }
+}

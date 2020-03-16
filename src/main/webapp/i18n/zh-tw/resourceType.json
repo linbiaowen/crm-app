@@ -1,0 +1,9 @@
+{
+  "crmwebApp": {
+    "ResourceType": {
+      "null": "",
+      "CORE_SUB": "CORE_SUB",
+      "SERVICE": "SERVICE"
+    }
+  }
+}

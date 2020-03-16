@@ -1,0 +1,130 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "productId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productNameChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productDescChi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productCate",
+            "fieldType": "ProductCate",
+            "fieldValues": "TELCO,NON_TELCO"
+        },
+        {
+            "fieldName": "productNature",
+            "fieldType": "ProductNature",
+            "fieldValues": "DEVICE,SERVICE,MECHANDISE"
+        },
+        {
+            "fieldName": "productFamily",
+            "fieldType": "ProductFamily",
+            "fieldValues": "VOICE,DATA,SMS,BOX"
+        },
+        {
+            "fieldName": "productType",
+            "fieldType": "ProductType",
+            "fieldValues": "BASE,VAS"
+        },
+        {
+            "fieldName": "modelCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "independentlyOrderable",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "networkProvisionRequired",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "changeEntitlementAllowed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastUpdatedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenantId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "productSpecification",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "productSpec",
+            "otherEntityField": "productSpecId",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200307172000",
+    "entityTableName": "product",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

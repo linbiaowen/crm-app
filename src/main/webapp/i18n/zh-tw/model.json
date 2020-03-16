@@ -1,0 +1,29 @@
+{
+  "crmwebApp": {
+    "model": {
+      "home": {
+        "title": "Models",
+        "createLabel": "建立一筆新的 Model",
+        "createOrEditLabel": "建立或編輯 Model",
+        "notFound": "No Models found"
+      },
+      "created": "新的 Model 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Model 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Model 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Model {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Model"
+      },
+      "modelCode": "Model Code",
+      "modelGroup": "Model Group",
+      "status": "Status",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

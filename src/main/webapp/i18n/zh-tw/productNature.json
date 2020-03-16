@@ -1,0 +1,10 @@
+{
+  "crmwebApp": {
+    "ProductNature": {
+      "null": "",
+      "DEVICE": "DEVICE",
+      "SERVICE": "SERVICE",
+      "MECHANDISE": "MECHANDISE"
+    }
+  }
+}

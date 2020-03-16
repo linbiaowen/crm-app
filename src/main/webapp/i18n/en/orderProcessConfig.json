@@ -1,0 +1,31 @@
+{
+  "crmwebApp": {
+    "orderProcessConfig": {
+      "home": {
+        "title": "Order Process Configs",
+        "createLabel": "Create a new Order Process Config",
+        "createOrEditLabel": "Create or edit a Order Process Config",
+        "notFound": "No Order Process Configs found"
+      },
+      "created": "A new Order Process Config is created with identifier {{ param }}",
+      "updated": "A Order Process Config is updated with identifier {{ param }}",
+      "deleted": "A Order Process Config is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order Process Config {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Process Config"
+      },
+      "orderType": "Order Type",
+      "subOrderType": "Sub Order Type",
+      "orderNature": "Order Nature",
+      "processName": "Process Name",
+      "childProcessName": "Child Process Name",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

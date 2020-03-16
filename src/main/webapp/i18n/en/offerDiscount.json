@@ -1,0 +1,34 @@
+{
+  "crmwebApp": {
+    "offerDiscount": {
+      "home": {
+        "title": "Offer Discounts",
+        "createLabel": "Create a new Offer Discount",
+        "createOrEditLabel": "Create or edit a Offer Discount",
+        "notFound": "No Offer Discounts found"
+      },
+      "created": "A new Offer Discount is created with identifier {{ param }}",
+      "updated": "A Offer Discount is updated with identifier {{ param }}",
+      "deleted": "A Offer Discount is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Offer Discount {{ id }}?"
+      },
+      "detail": {
+        "title": "Offer Discount"
+      },
+      "discountCode": "Discount Code",
+      "offerId": "Offer Id",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "discountType": "Discount Type",
+      "offerDiscount": "Offer Discount",
+      "status": "Status",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "offer": "Offer"
+    }
+  }
+}

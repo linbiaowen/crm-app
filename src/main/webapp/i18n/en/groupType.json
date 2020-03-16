@@ -1,0 +1,30 @@
+{
+  "crmwebApp": {
+    "groupType": {
+      "home": {
+        "title": "Group Types",
+        "createLabel": "Create a new Group Type",
+        "createOrEditLabel": "Create or edit a Group Type",
+        "notFound": "No Group Types found"
+      },
+      "created": "A new Group Type is created with identifier {{ param }}",
+      "updated": "A Group Type is updated with identifier {{ param }}",
+      "deleted": "A Group Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Group Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Group Type"
+      },
+      "groupTypeId": "Group Type Id",
+      "groupType": "Group Type",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

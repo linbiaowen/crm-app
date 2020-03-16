@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productData">
+            <h2><span jhiTranslate="crmwebApp.productData.detail.title">Product Data</span> {{ productData.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.productData.dataId">Data Id</span></dt>
+                <dd>
+                    <span>{{ productData.dataId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.productSpecId">Product Spec Id</span></dt>
+                <dd>
+                    <span>{{ productData.productSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.unit">Unit</span></dt>
+                <dd>
+                    <span>{{ productData.unit }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.volume">Volume</span></dt>
+                <dd>
+                    <span>{{ productData.volume }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.dataSlab">Data Slab</span></dt>
+                <dd>
+                    <span>{{ productData.dataSlab }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.dataSpeedCategory">Data Speed Category</span></dt>
+                <dd>
+                    <span>{{ productData.dataSpeedCategory }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.specicalPackType">Specical Pack Type</span></dt>
+                <dd>
+                    <span>{{ productData.specicalPackType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.dataServiceType">Data Service Type</span></dt>
+                <dd>
+                    <span>{{ productData.dataServiceType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.roamingRegions">Roaming Regions</span></dt>
+                <dd>
+                    <span>{{ productData.roamingRegions }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.roamingCountries">Roaming Countries</span></dt>
+                <dd>
+                    <span>{{ productData.roamingCountries }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.roamingDayPassType">Roaming Day Pass Type</span></dt>
+                <dd>
+                    <span>{{ productData.roamingDayPassType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.roamingPackValidPeriodType">Roaming Pack Valid Period Type</span></dt>
+                <dd>
+                    <span>{{ productData.roamingPackValidPeriodType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.roamingPackPeriod">Roaming Pack Period</span></dt>
+                <dd>
+                    <span>{{ productData.roamingPackPeriod }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.roamingPackTerm">Roaming Pack Term</span></dt>
+                <dd>
+                    <span>{{ productData.roamingPackTerm }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.minTransferQuota">Min Transfer Quota</span></dt>
+                <dd>
+                    <span>{{ productData.minTransferQuota }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.maxTransferQuota">Max Transfer Quota</span></dt>
+                <dd>
+                    <span>{{ productData.maxTransferQuota }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.minRetentionQuota">Min Retention Quota</span></dt>
+                <dd>
+                    <span>{{ productData.minRetentionQuota }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.minTpTransferQuota">Min Tp Transfer Quota</span></dt>
+                <dd>
+                    <span>{{ productData.minTpTransferQuota }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.maxTpTransferQuota">Max Tp Transfer Quota</span></dt>
+                <dd>
+                    <span>{{ productData.maxTpTransferQuota }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.minTpRetentionQuota">Min Tp Retention Quota</span></dt>
+                <dd>
+                    <span>{{ productData.minTpRetentionQuota }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ productData.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ productData.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ productData.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ productData.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productData.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ productData.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-data', productData.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

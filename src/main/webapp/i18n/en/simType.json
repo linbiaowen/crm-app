@@ -1,0 +1,10 @@
+{
+  "crmwebApp": {
+    "SimType": {
+      "null": "",
+      "PHYSICAL_SIM": "PHYSICAL_SIM",
+      "ESIM": "ESIM",
+      "ONE_CARD_MULTI_NUMBER": "ONE_CARD_MULTI_NUMBER"
+    }
+  }
+}

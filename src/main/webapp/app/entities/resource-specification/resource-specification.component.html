@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.resourceSpecification.home.title">Resource Specifications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-resource-specification" [routerLink]="['/resource-specification/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.resourceSpecification.home.createLabel">
+            Create a new Resource Specification
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="resourceSpecifications?.length === 0">
+        <span jhiTranslate="crmwebApp.resourceSpecification.home.notFound">No resourceSpecifications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="resourceSpecifications?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="resourceSpecId"><span jhiTranslate="crmwebApp.resourceSpecification.resourceSpecId">Resource Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="resourceType"><span jhiTranslate="crmwebApp.resourceSpecification.resourceType">Resource Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serviceSpecId"><span jhiTranslate="crmwebApp.resourceSpecification.serviceSpecId">Service Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rfs"><span jhiTranslate="crmwebApp.resourceSpecification.rfs">Rfs</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rfsParms"><span jhiTranslate="crmwebApp.resourceSpecification.rfsParms">Rfs Parms</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarks"><span jhiTranslate="crmwebApp.resourceSpecification.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.resourceSpecification.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.resourceSpecification.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.resourceSpecification.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.resourceSpecification.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.resourceSpecification.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cfsServiceSpec.serviceSpecId"><span jhiTranslate="crmwebApp.resourceSpecification.cfsServiceSpec">Cfs Service Spec</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resourceSpecification of resourceSpecifications ;trackBy: trackId">
+                    <td><a [routerLink]="['/resource-specification', resourceSpecification.id, 'view']">{{ resourceSpecification.id }}</a></td>
+                    <td>{{ resourceSpecification.resourceSpecId }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.ResourceType.' + resourceSpecification.resourceType }}">{{ resourceSpecification.resourceType }}</td>
+                    <td>{{ resourceSpecification.serviceSpecId }}</td>
+                    <td>{{ resourceSpecification.rfs }}</td>
+                    <td>{{ resourceSpecification.rfsParms }}</td>
+                    <td>{{ resourceSpecification.remarks }}</td>
+                    <td>{{ resourceSpecification.createdDate | date:'medium' }}</td>
+                    <td>{{ resourceSpecification.createdBy }}</td>
+                    <td>{{ resourceSpecification.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ resourceSpecification.lastUpdatedBy }}</td>
+                    <td>{{ resourceSpecification.tenantId }}</td>
+                    <td>
+                        <div *ngIf="resourceSpecification.cfsServiceSpec">
+                            <a [routerLink]="['/cfs-service-spec', resourceSpecification.cfsServiceSpec?.id, 'view']" >{{ resourceSpecification.cfsServiceSpec?.serviceSpecId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/resource-specification', resourceSpecification.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/resource-specification', resourceSpecification.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(resourceSpecification)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="resourceSpecifications?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

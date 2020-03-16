@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.productSms.home.title">Product Sms</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-sms" [routerLink]="['/product-sms/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.productSms.home.createLabel">
+            Create a new Product Sms
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productSms?.length === 0">
+        <span jhiTranslate="crmwebApp.productSms.home.notFound">No productSms found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productSms?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="smsId"><span jhiTranslate="crmwebApp.productSms.smsId">Sms Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productSpecId"><span jhiTranslate="crmwebApp.productSms.productSpecId">Product Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unit"><span jhiTranslate="crmwebApp.productSms.unit">Unit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="volume"><span jhiTranslate="crmwebApp.productSms.volume">Volume</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="smsType"><span jhiTranslate="crmwebApp.productSms.smsType">Sms Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingAllowed"><span jhiTranslate="crmwebApp.productSms.roamingAllowed">Roaming Allowed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="minTransferQuota"><span jhiTranslate="crmwebApp.productSms.minTransferQuota">Min Transfer Quota</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maxTransferQuota"><span jhiTranslate="crmwebApp.productSms.maxTransferQuota">Max Transfer Quota</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="minRetentionQuota"><span jhiTranslate="crmwebApp.productSms.minRetentionQuota">Min Retention Quota</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.productSms.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.productSms.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.productSms.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.productSms.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.productSms.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productSms of productSms ;trackBy: trackId">
+                    <td><a [routerLink]="['/product-sms', productSms.id, 'view']">{{ productSms.id }}</a></td>
+                    <td>{{ productSms.smsId }}</td>
+                    <td>{{ productSms.productSpecId }}</td>
+                    <td>{{ productSms.unit }}</td>
+                    <td>{{ productSms.volume }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.SmsType.' + productSms.smsType }}">{{ productSms.smsType }}</td>
+                    <td>{{ productSms.roamingAllowed }}</td>
+                    <td>{{ productSms.minTransferQuota }}</td>
+                    <td>{{ productSms.maxTransferQuota }}</td>
+                    <td>{{ productSms.minRetentionQuota }}</td>
+                    <td>{{ productSms.createdDate | date:'medium' }}</td>
+                    <td>{{ productSms.createdBy }}</td>
+                    <td>{{ productSms.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ productSms.lastUpdatedBy }}</td>
+                    <td>{{ productSms.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product-sms', productSms.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product-sms', productSms.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productSms)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="productSms?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,178 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-data-service-spec-heading" jhiTranslate="crmwebApp.dataServiceSpec.home.createOrEditLabel">Create or edit a Data Service Spec</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.dataSpecId" for="field_dataSpecId">Data Spec Id</label>
+                    <input type="number" class="form-control" name="dataSpecId" id="field_dataSpecId"
+                           formControlName="dataSpecId"/>
+                    <div *ngIf="editForm.get('dataSpecId')!.invalid && (editForm.get('dataSpecId')!.dirty || editForm.get('dataSpecId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dataSpecId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dataSpecId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.serviceSpecId" for="field_serviceSpecId">Service Spec Id</label>
+                    <input type="text" class="form-control" name="serviceSpecId" id="field_serviceSpecId"
+                           formControlName="serviceSpecId"/>
+                    <div *ngIf="editForm.get('serviceSpecId')!.invalid && (editForm.get('serviceSpecId')!.dirty || editForm.get('serviceSpecId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serviceSpecId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.maxEntitlement" for="field_maxEntitlement">Max Entitlement</label>
+                    <input type="text" class="form-control" name="maxEntitlement" id="field_maxEntitlement"
+                           formControlName="maxEntitlement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.maxAccessSpeed" for="field_maxAccessSpeed">Max Access Speed</label>
+                    <input type="text" class="form-control" name="maxAccessSpeed" id="field_maxAccessSpeed"
+                           formControlName="maxAccessSpeed"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.throttledSpeed" for="field_throttledSpeed">Throttled Speed</label>
+                    <input type="text" class="form-control" name="throttledSpeed" id="field_throttledSpeed"
+                           formControlName="throttledSpeed"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.upstreamSpeed" for="field_upstreamSpeed">Upstream Speed</label>
+                    <input type="text" class="form-control" name="upstreamSpeed" id="field_upstreamSpeed"
+                           formControlName="upstreamSpeed"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.downstreamSpeed" for="field_downstreamSpeed">Downstream Speed</label>
+                    <input type="text" class="form-control" name="downstreamSpeed" id="field_downstreamSpeed"
+                           formControlName="downstreamSpeed"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.socialSites" for="field_socialSites">Social Sites</label>
+                    <input type="text" class="form-control" name="socialSites" id="field_socialSites"
+                           formControlName="socialSites"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.entertainmentPackOptions" for="field_entertainmentPackOptions">Entertainment Pack Options</label>
+                    <input type="text" class="form-control" name="entertainmentPackOptions" id="field_entertainmentPackOptions"
+                           formControlName="entertainmentPackOptions"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.roamingDataSpeed" for="field_roamingDataSpeed">Roaming Data Speed</label>
+                    <input type="text" class="form-control" name="roamingDataSpeed" id="field_roamingDataSpeed"
+                           formControlName="roamingDataSpeed"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.roamingDataVolume" for="field_roamingDataVolume">Roaming Data Volume</label>
+                    <input type="text" class="form-control" name="roamingDataVolume" id="field_roamingDataVolume"
+                           formControlName="roamingDataVolume"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.lastUpdatedDate" for="field_lastUpdatedDate">Last Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastUpdatedDate" type="datetime-local" class="form-control" name="lastUpdatedDate" formControlName="lastUpdatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastUpdatedDate')!.invalid && (editForm.get('lastUpdatedDate')!.dirty || editForm.get('lastUpdatedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastUpdatedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+                    <input type="text" class="form-control" name="lastUpdatedBy" id="field_lastUpdatedBy"
+                           formControlName="lastUpdatedBy"/>
+                    <div *ngIf="editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastUpdatedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmwebApp.dataServiceSpec.tenantId" for="field_tenantId">Tenant Id</label>
+                    <input type="text" class="form-control" name="tenantId" id="field_tenantId"
+                           formControlName="tenantId"/>
+                    <div *ngIf="editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenantId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

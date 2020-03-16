@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.custAddress.home.title">Cust Addresses</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cust-address" [routerLink]="['/cust-address/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.custAddress.home.createLabel">
+            Create a new Cust Address
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="custAddresses?.length === 0">
+        <span jhiTranslate="crmwebApp.custAddress.home.notFound">No custAddresses found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="custAddresses?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="addressId"><span jhiTranslate="crmwebApp.custAddress.addressId">Address Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="accountId"><span jhiTranslate="crmwebApp.custAddress.accountId">Account Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="accountType"><span jhiTranslate="crmwebApp.custAddress.accountType">Account Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="addressType"><span jhiTranslate="crmwebApp.custAddress.addressType">Address Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="addressLang"><span jhiTranslate="crmwebApp.custAddress.addressLang">Address Lang</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="formattedAddress"><span jhiTranslate="crmwebApp.custAddress.formattedAddress">Formatted Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="room"><span jhiTranslate="crmwebApp.custAddress.room">Room</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="floor"><span jhiTranslate="crmwebApp.custAddress.floor">Floor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="block"><span jhiTranslate="crmwebApp.custAddress.block">Block</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="building"><span jhiTranslate="crmwebApp.custAddress.building">Building</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="streetEstate"><span jhiTranslate="crmwebApp.custAddress.streetEstate">Street Estate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="district"><span jhiTranslate="crmwebApp.custAddress.district">District</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="region"><span jhiTranslate="crmwebApp.custAddress.region">Region</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address1"><span jhiTranslate="crmwebApp.custAddress.address1">Address 1</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address2"><span jhiTranslate="crmwebApp.custAddress.address2">Address 2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address3"><span jhiTranslate="crmwebApp.custAddress.address3">Address 3</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address4"><span jhiTranslate="crmwebApp.custAddress.address4">Address 4</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address5"><span jhiTranslate="crmwebApp.custAddress.address5">Address 5</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.custAddress.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.custAddress.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.custAddress.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.custAddress.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.custAddress.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customer.custAcctId"><span jhiTranslate="crmwebApp.custAddress.customer">Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let custAddress of custAddresses ;trackBy: trackId">
+                    <td><a [routerLink]="['/cust-address', custAddress.id, 'view']">{{ custAddress.id }}</a></td>
+                    <td>{{ custAddress.addressId }}</td>
+                    <td>{{ custAddress.accountId }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.AccountType.' + custAddress.accountType }}">{{ custAddress.accountType }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.AddressType.' + custAddress.addressType }}">{{ custAddress.addressType }}</td>
+                    <td jhiTranslate="{{ 'crmwebApp.Language.' + custAddress.addressLang }}">{{ custAddress.addressLang }}</td>
+                    <td>{{ custAddress.formattedAddress }}</td>
+                    <td>{{ custAddress.room }}</td>
+                    <td>{{ custAddress.floor }}</td>
+                    <td>{{ custAddress.block }}</td>
+                    <td>{{ custAddress.building }}</td>
+                    <td>{{ custAddress.streetEstate }}</td>
+                    <td>{{ custAddress.district }}</td>
+                    <td>{{ custAddress.region }}</td>
+                    <td>{{ custAddress.address1 }}</td>
+                    <td>{{ custAddress.address2 }}</td>
+                    <td>{{ custAddress.address3 }}</td>
+                    <td>{{ custAddress.address4 }}</td>
+                    <td>{{ custAddress.address5 }}</td>
+                    <td>{{ custAddress.createdDate | date:'medium' }}</td>
+                    <td>{{ custAddress.createdBy }}</td>
+                    <td>{{ custAddress.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ custAddress.lastUpdatedBy }}</td>
+                    <td>{{ custAddress.tenantId }}</td>
+                    <td>
+                        <div *ngIf="custAddress.customer">
+                            <a [routerLink]="['/customer', custAddress.customer?.id, 'view']" >{{ custAddress.customer?.custAcctId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cust-address', custAddress.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cust-address', custAddress.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(custAddress)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="custAddresses?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

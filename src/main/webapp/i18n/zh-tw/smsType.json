@@ -1,0 +1,9 @@
+{
+  "crmwebApp": {
+    "SmsType": {
+      "null": "",
+      "LOCAL": "LOCAL",
+      "INTERNATIONAL": "INTERNATIONAL"
+    }
+  }
+}

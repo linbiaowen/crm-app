@@ -1,0 +1,54 @@
+{
+  "crmwebApp": {
+    "modelGroup": {
+      "home": {
+        "title": "Model Groups",
+        "createLabel": "建立一筆新的 Model Group",
+        "createOrEditLabel": "建立或編輯 Model Group",
+        "notFound": "No Model Groups found"
+      },
+      "created": "新的 Model Group 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Model Group 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Model Group 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Model Group {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Model Group"
+      },
+      "modelGroup": "Model Group",
+      "groupDesc": "Group Desc",
+      "listPrice": "List Price",
+      "brand": "Brand",
+      "model": "Model",
+      "origCountry": "Orig Country",
+      "network": "Network",
+      "camera": "Camera",
+      "memCardSlot": "Mem Card Slot",
+      "dataTransfer": "Data Transfer",
+      "warranty": "Warranty",
+      "warrantyProvider": "Warranty Provider",
+      "modelCate": "Model Cate",
+      "remarks": "Remarks",
+      "remarksEndDate": "Remarks End Date",
+      "brandChi": "Brand Chi",
+      "modelChi": "Model Chi",
+      "origCountryChi": "Orig Country Chi",
+      "networkChi": "Network Chi",
+      "cameraChi": "Camera Chi",
+      "memCardSlotChi": "Mem Card Slot Chi",
+      "dataTransferChi": "Data Transfer Chi",
+      "warrantyChi": "Warranty Chi",
+      "warrantyProviderChi": "Warranty Provider Chi",
+      "modelCateChi": "Model Cate Chi",
+      "remarksChi": "Remarks Chi",
+      "remarksChiEndDate": "Remarks Chi End Date",
+      "couponFlag": "Coupon Flag",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

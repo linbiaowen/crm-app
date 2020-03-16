@@ -1,0 +1,28 @@
+{
+  "crmwebApp": {
+    "custDocDataStore": {
+      "home": {
+        "title": "Cust Doc Data Stores",
+        "createLabel": "Create a new Cust Doc Data Store",
+        "createOrEditLabel": "Create or edit a Cust Doc Data Store",
+        "notFound": "No Cust Doc Data Stores found"
+      },
+      "created": "A new Cust Doc Data Store is created with identifier {{ param }}",
+      "updated": "A Cust Doc Data Store is updated with identifier {{ param }}",
+      "deleted": "A Cust Doc Data Store is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cust Doc Data Store {{ id }}?"
+      },
+      "detail": {
+        "title": "Cust Doc Data Store"
+      },
+      "docDataStoreId": "Doc Data Store Id",
+      "documentData": "Document Data",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

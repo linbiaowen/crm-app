@@ -1,0 +1,27 @@
+{
+  "crmwebApp": {
+    "deliveryOption": {
+      "home": {
+        "title": "Delivery Options",
+        "createLabel": "Create a new Delivery Option",
+        "createOrEditLabel": "Create or edit a Delivery Option",
+        "notFound": "No Delivery Options found"
+      },
+      "created": "A new Delivery Option is created with identifier {{ param }}",
+      "updated": "A Delivery Option is updated with identifier {{ param }}",
+      "deleted": "A Delivery Option is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Delivery Option {{ id }}?"
+      },
+      "detail": {
+        "title": "Delivery Option"
+      },
+      "deliveryOption": "Delivery Option",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

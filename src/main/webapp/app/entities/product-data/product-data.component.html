@@ -1,0 +1,119 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmwebApp.productData.home.title">Product Data</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-data" [routerLink]="['/product-data/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="crmwebApp.productData.home.createLabel">
+            Create a new Product Data
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productData?.length === 0">
+        <span jhiTranslate="crmwebApp.productData.home.notFound">No productData found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productData?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dataId"><span jhiTranslate="crmwebApp.productData.dataId">Data Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productSpecId"><span jhiTranslate="crmwebApp.productData.productSpecId">Product Spec Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unit"><span jhiTranslate="crmwebApp.productData.unit">Unit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="volume"><span jhiTranslate="crmwebApp.productData.volume">Volume</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dataSlab"><span jhiTranslate="crmwebApp.productData.dataSlab">Data Slab</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dataSpeedCategory"><span jhiTranslate="crmwebApp.productData.dataSpeedCategory">Data Speed Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="specicalPackType"><span jhiTranslate="crmwebApp.productData.specicalPackType">Specical Pack Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dataServiceType"><span jhiTranslate="crmwebApp.productData.dataServiceType">Data Service Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingRegions"><span jhiTranslate="crmwebApp.productData.roamingRegions">Roaming Regions</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingCountries"><span jhiTranslate="crmwebApp.productData.roamingCountries">Roaming Countries</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingDayPassType"><span jhiTranslate="crmwebApp.productData.roamingDayPassType">Roaming Day Pass Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingPackValidPeriodType"><span jhiTranslate="crmwebApp.productData.roamingPackValidPeriodType">Roaming Pack Valid Period Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingPackPeriod"><span jhiTranslate="crmwebApp.productData.roamingPackPeriod">Roaming Pack Period</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roamingPackTerm"><span jhiTranslate="crmwebApp.productData.roamingPackTerm">Roaming Pack Term</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="minTransferQuota"><span jhiTranslate="crmwebApp.productData.minTransferQuota">Min Transfer Quota</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maxTransferQuota"><span jhiTranslate="crmwebApp.productData.maxTransferQuota">Max Transfer Quota</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="minRetentionQuota"><span jhiTranslate="crmwebApp.productData.minRetentionQuota">Min Retention Quota</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="minTpTransferQuota"><span jhiTranslate="crmwebApp.productData.minTpTransferQuota">Min Tp Transfer Quota</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maxTpTransferQuota"><span jhiTranslate="crmwebApp.productData.maxTpTransferQuota">Max Tp Transfer Quota</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="minTpRetentionQuota"><span jhiTranslate="crmwebApp.productData.minTpRetentionQuota">Min Tp Retention Quota</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="crmwebApp.productData.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="crmwebApp.productData.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedDate"><span jhiTranslate="crmwebApp.productData.lastUpdatedDate">Last Updated Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastUpdatedBy"><span jhiTranslate="crmwebApp.productData.lastUpdatedBy">Last Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantId"><span jhiTranslate="crmwebApp.productData.tenantId">Tenant Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productData of productData ;trackBy: trackId">
+                    <td><a [routerLink]="['/product-data', productData.id, 'view']">{{ productData.id }}</a></td>
+                    <td>{{ productData.dataId }}</td>
+                    <td>{{ productData.productSpecId }}</td>
+                    <td>{{ productData.unit }}</td>
+                    <td>{{ productData.volume }}</td>
+                    <td>{{ productData.dataSlab }}</td>
+                    <td>{{ productData.dataSpeedCategory }}</td>
+                    <td>{{ productData.specicalPackType }}</td>
+                    <td>{{ productData.dataServiceType }}</td>
+                    <td>{{ productData.roamingRegions }}</td>
+                    <td>{{ productData.roamingCountries }}</td>
+                    <td>{{ productData.roamingDayPassType }}</td>
+                    <td>{{ productData.roamingPackValidPeriodType }}</td>
+                    <td>{{ productData.roamingPackPeriod }}</td>
+                    <td>{{ productData.roamingPackTerm }}</td>
+                    <td>{{ productData.minTransferQuota }}</td>
+                    <td>{{ productData.maxTransferQuota }}</td>
+                    <td>{{ productData.minRetentionQuota }}</td>
+                    <td>{{ productData.minTpTransferQuota }}</td>
+                    <td>{{ productData.maxTpTransferQuota }}</td>
+                    <td>{{ productData.minTpRetentionQuota }}</td>
+                    <td>{{ productData.createdDate | date:'medium' }}</td>
+                    <td>{{ productData.createdBy }}</td>
+                    <td>{{ productData.lastUpdatedDate | date:'medium' }}</td>
+                    <td>{{ productData.lastUpdatedBy }}</td>
+                    <td>{{ productData.tenantId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product-data', productData.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product-data', productData.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productData)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="productData?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offerSpecification">
+            <h2><span jhiTranslate="crmwebApp.offerSpecification.detail.title">Offer Specification</span> {{ offerSpecification.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.offerSpecId">Offer Spec Id</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.offerSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.offerId">Offer Id</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.offerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.limitedActivationPeriod">Limited Activation Period</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.limitedActivationPeriod }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.allowedActivationStartDate">Allowed Activation Start Date</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.allowedActivationStartDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.allowedActivationEndDate">Allowed Activation End Date</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.allowedActivationEndDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.isGroupSharingOffer">Is Group Sharing Offer</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.isGroupSharingOffer }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.isMnpOffer">Is Mnp Offer</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.isMnpOffer }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.autoRenewal">Auto Renewal</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.autoRenewal }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.transferAllowed">Transfer Allowed</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.transferAllowed }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.infoSharingAllowed">Info Sharing Allowed</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.infoSharingAllowed }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.infoSharingOptions">Info Sharing Options</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.infoSharingOptions }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.offerPeriod">Offer Period</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.offerPeriod }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.offerPeriodTerm">Offer Period Term</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.offerPeriodTerm }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.paymentType">Payment Type</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.paymentType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerSpecification.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ offerSpecification.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer-specification', offerSpecification.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+{
+  "crmwebApp": {
+    "customer": {
+      "home": {
+        "title": "Customers",
+        "createLabel": "建立一筆新的 Customer",
+        "createOrEditLabel": "建立或編輯 Customer",
+        "notFound": "No Customers found"
+      },
+      "created": "新的 Customer 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Customer 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Customer 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Customer {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Customer"
+      },
+      "custAcctId": "Cust Acct Id",
+      "parentCustAcctId": "Parent Cust Acct Id",
+      "acctStatus": "Acct Status",
+      "acctStartDate": "Acct Start Date",
+      "acctEndDate": "Acct End Date",
+      "cabsAcctId": "Cabs Acct Id",
+      "title": "Title",
+      "givenName": "Given Name",
+      "familyName": "Family Name",
+      "givenNameChi": "Given Name Chi",
+      "familyNameChi": "Family Name Chi",
+      "aliasName": "Alias Name",
+      "gender": "Gender",
+      "birthDate": "Birth Date",
+      "idType": "Id Type",
+      "idNumber": "Id Number",
+      "companyNameEng": "Company Name Eng",
+      "companyNameChi": "Company Name Chi",
+      "unlimitedCompany": "Unlimited Company",
+      "lang": "Lang",
+      "selfCareUserId": "Self Care User Id",
+      "selfCarePassword": "Self Care Password",
+      "ivrPin": "Ivr Pin",
+      "maritialStatus": "Maritial Status",
+      "customerSegment": "Customer Segment",
+      "customerClass": "Customer Class",
+      "billingAcctId": "Billing Acct Id",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "parentCustomer": "Parent Customer",
+      "custDocuments": "Cust Documents",
+      "custCommOptouts": "Cust Comm Optouts",
+      "custContacts": "Cust Contacts",
+      "custAddresses": "Cust Addresses",
+      "subscriptionGroups": "Subscription Groups",
+      "subscriptions": "Subscriptions",
+      "orderMasters": "Order Masters"
+    }
+  }
+}

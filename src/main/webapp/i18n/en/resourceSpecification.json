@@ -1,0 +1,33 @@
+{
+  "crmwebApp": {
+    "resourceSpecification": {
+      "home": {
+        "title": "Resource Specifications",
+        "createLabel": "Create a new Resource Specification",
+        "createOrEditLabel": "Create or edit a Resource Specification",
+        "notFound": "No Resource Specifications found"
+      },
+      "created": "A new Resource Specification is created with identifier {{ param }}",
+      "updated": "A Resource Specification is updated with identifier {{ param }}",
+      "deleted": "A Resource Specification is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resource Specification {{ id }}?"
+      },
+      "detail": {
+        "title": "Resource Specification"
+      },
+      "resourceSpecId": "Resource Spec Id",
+      "resourceType": "Resource Type",
+      "serviceSpecId": "Service Spec Id",
+      "rfs": "Rfs",
+      "rfsParms": "Rfs Parms",
+      "remarks": "Remarks",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "cfsServiceSpec": "Cfs Service Spec"
+    }
+  }
+}

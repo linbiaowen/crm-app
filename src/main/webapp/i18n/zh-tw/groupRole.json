@@ -1,0 +1,9 @@
+{
+  "crmwebApp": {
+    "GroupRole": {
+      "null": "",
+      "ADMIN": "ADMIN",
+      "MEMBER": "MEMBER"
+    }
+  }
+}

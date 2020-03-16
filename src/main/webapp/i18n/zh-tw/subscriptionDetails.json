@@ -1,0 +1,53 @@
+{
+  "crmwebApp": {
+    "subscriptionDetails": {
+      "home": {
+        "title": "Subscription Details",
+        "createLabel": "建立一筆新的 Subscription Details",
+        "createOrEditLabel": "建立或編輯 Subscription Details",
+        "notFound": "No Subscription Details found"
+      },
+      "created": "新的 Subscription Details 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Subscription Details 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Subscription Details 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Subscription Details {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Subscription Details"
+      },
+      "subsDetailId": "Subs Detail Id",
+      "subscriptionId": "Subscription Id",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "orderId": "Order Id",
+      "ssaNbr": "Ssa Nbr",
+      "primaryMsisdn": "Primary Msisdn",
+      "iccid": "Iccid",
+      "imsi": "Imsi",
+      "mnpRequestedDate": "Mnp Requested Date",
+      "lang": "Lang",
+      "baseOfferId": "Base Offer Id",
+      "baseOfferName": "Base Offer Name",
+      "matrixxCatalogId": "Matrixx Catalog Id",
+      "matrixxResourceId": "Matrixx Resource Id",
+      "matrixxObjectId": "Matrixx Object Id",
+      "salesChannel": "Sales Channel",
+      "advancePaymentMonths": "Advance Payment Months",
+      "offerPrice": "Offer Price",
+      "networkType": "Network Type",
+      "serviceType": "Service Type",
+      "offerPlanCode": "Offer Plan Code",
+      "serviceInPerson": "Service In Person",
+      "fcmToken": "Fcm Token",
+      "remarks": "Remarks",
+      "cdVersion": "Cd Version",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "custSubscription": "Cust Subscription"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subsPurchaseControl">
+            <h2><span jhiTranslate="crmwebApp.subsPurchaseControl.detail.title">Subs Purchase Control</span> {{ subsPurchaseControl.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.subscriptionId">Subscription Id</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.subscriptionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.serviceType">Service Type</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.serviceType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.purchaseControlFlag">Purchase Control Flag</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.purchaseControlFlag }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.RecordStatus.' + subsPurchaseControl.status }}">{{ subsPurchaseControl.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.subsPurchaseControl.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ subsPurchaseControl.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subs-purchase-control', subsPurchaseControl.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

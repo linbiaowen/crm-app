@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offerProduct">
+            <h2><span jhiTranslate="crmwebApp.offerProduct.detail.title">Offer Product</span> {{ offerProduct.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.offerProduct.recSeqId">Rec Seq Id</span></dt>
+                <dd>
+                    <span>{{ offerProduct.recSeqId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerProduct.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{ offerProduct.productId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerProduct.offerId">Offer Id</span></dt>
+                <dd>
+                    <span>{{ offerProduct.offerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerProduct.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ offerProduct.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerProduct.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ offerProduct.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerProduct.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ offerProduct.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerProduct.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ offerProduct.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerProduct.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ offerProduct.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.offerProduct.offer">Offer</span></dt>
+                <dd>
+                    <div *ngIf="offerProduct.offer">
+                        <a [routerLink]="['/offer', offerProduct.offer?.id, 'view']">{{ offerProduct.offer?.offerId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer-product', offerProduct.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

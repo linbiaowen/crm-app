@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="product">
+            <h2><span jhiTranslate="crmwebApp.product.detail.title">Product</span> {{ product.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.product.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{ product.productId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.productName">Product Name</span></dt>
+                <dd>
+                    <span>{{ product.productName }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.productNameChi">Product Name Chi</span></dt>
+                <dd>
+                    <span>{{ product.productNameChi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.productDesc">Product Desc</span></dt>
+                <dd>
+                    <span>{{ product.productDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.productDescChi">Product Desc Chi</span></dt>
+                <dd>
+                    <span>{{ product.productDescChi }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.productCate">Product Cate</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.ProductCate.' + product.productCate }}">{{ product.productCate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.productNature">Product Nature</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.ProductNature.' + product.productNature }}">{{ product.productNature }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.productFamily">Product Family</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.ProductFamily.' + product.productFamily }}">{{ product.productFamily }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.productType">Product Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.ProductType.' + product.productType }}">{{ product.productType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.modelCode">Model Code</span></dt>
+                <dd>
+                    <span>{{ product.modelCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ product.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ product.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.independentlyOrderable">Independently Orderable</span></dt>
+                <dd>
+                    <span>{{ product.independentlyOrderable }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.networkProvisionRequired">Network Provision Required</span></dt>
+                <dd>
+                    <span>{{ product.networkProvisionRequired }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.changeEntitlementAllowed">Change Entitlement Allowed</span></dt>
+                <dd>
+                    <span>{{ product.changeEntitlementAllowed }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ product.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ product.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ product.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ product.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ product.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.product.productSpec">Product Spec</span></dt>
+                <dd>
+                    <div *ngIf="product.productSpec">
+                        <a [routerLink]="['/product-specification', product.productSpec?.id, 'view']">{{ product.productSpec?.productSpecId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product', product.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

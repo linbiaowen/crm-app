@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commOptoutType">
+            <h2><span jhiTranslate="crmwebApp.commOptoutType.detail.title">Comm Optout Type</span> {{ commOptoutType.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.optoutTypeId">Optout Type Id</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.optoutTypeId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.optoutType">Optout Type</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.optoutType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.optoutTypeDesc">Optout Type Desc</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.optoutTypeDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commOptoutType.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ commOptoutType.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/comm-optout-type', commOptoutType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

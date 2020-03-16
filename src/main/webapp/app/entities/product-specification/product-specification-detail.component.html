@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productSpecification">
+            <h2><span jhiTranslate="crmwebApp.productSpecification.detail.title">Product Specification</span> {{ productSpecification.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.productSpecification.productSpecId">Product Spec Id</span></dt>
+                <dd>
+                    <span>{{ productSpecification.productSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{ productSpecification.productId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.serviceSpecId">Service Spec Id</span></dt>
+                <dd>
+                    <span>{{ productSpecification.serviceSpecId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.productSpecType">Product Spec Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.ProductSpecType.' + productSpecification.productSpecType }}">{{ productSpecification.productSpecType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.skuType">Sku Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.SkuType.' + productSpecification.skuType }}">{{ productSpecification.skuType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.simType">Sim Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.SimType.' + productSpecification.simType }}">{{ productSpecification.simType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.boxType">Box Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'crmwebApp.BoxType.' + productSpecification.boxType }}">{{ productSpecification.boxType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ productSpecification.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ productSpecification.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ productSpecification.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ productSpecification.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ productSpecification.tenantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.voice">Voice</span></dt>
+                <dd>
+                    <div *ngIf="productSpecification.voice">
+                        <a [routerLink]="['/product-voice', productSpecification.voice?.id, 'view']">{{ productSpecification.voice?.voiceId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.data">Data</span></dt>
+                <dd>
+                    <div *ngIf="productSpecification.data">
+                        <a [routerLink]="['/product-data', productSpecification.data?.id, 'view']">{{ productSpecification.data?.dataId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.sms">Sms</span></dt>
+                <dd>
+                    <div *ngIf="productSpecification.sms">
+                        <a [routerLink]="['/product-sms', productSpecification.sms?.id, 'view']">{{ productSpecification.sms?.smsId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.productSpecification.offer">Offer</span></dt>
+                <dd>
+                    <div *ngIf="productSpecification.offer">
+                        <a [routerLink]="['/offer', productSpecification.offer?.id, 'view']">{{ productSpecification.offer?.offerId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-specification', productSpecification.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

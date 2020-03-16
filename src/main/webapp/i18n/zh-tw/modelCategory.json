@@ -1,0 +1,29 @@
+{
+  "crmwebApp": {
+    "modelCategory": {
+      "home": {
+        "title": "Model Categories",
+        "createLabel": "建立一筆新的 Model Category",
+        "createOrEditLabel": "建立或編輯 Model Category",
+        "notFound": "No Model Categories found"
+      },
+      "created": "新的 Model Category 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Model Category 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Model Category 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Model Category {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Model Category"
+      },
+      "modelCate": "Model Cate",
+      "parentModelCate": "Parent Model Cate",
+      "modelCateDesc": "Model Cate Desc",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

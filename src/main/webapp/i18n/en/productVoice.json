@@ -1,0 +1,35 @@
+{
+  "crmwebApp": {
+    "productVoice": {
+      "home": {
+        "title": "Product Voices",
+        "createLabel": "Create a new Product Voice",
+        "createOrEditLabel": "Create or edit a Product Voice",
+        "notFound": "No Product Voices found"
+      },
+      "created": "A new Product Voice is created with identifier {{ param }}",
+      "updated": "A Product Voice is updated with identifier {{ param }}",
+      "deleted": "A Product Voice is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Voice {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Voice"
+      },
+      "voiceId": "Voice Id",
+      "productSpecId": "Product Spec Id",
+      "unit": "Unit",
+      "volume": "Volume",
+      "roamingFlag": "Roaming Flag",
+      "minTransferQuota": "Min Transfer Quota",
+      "maxTransferQuota": "Max Transfer Quota",
+      "minRetentionQuota": "Min Retention Quota",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id",
+      "productSpec": "Product Spec"
+    }
+  }
+}

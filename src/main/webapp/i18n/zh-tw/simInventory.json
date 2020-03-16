@@ -1,0 +1,36 @@
+{
+  "crmwebApp": {
+    "simInventory": {
+      "home": {
+        "title": "Sim Inventories",
+        "createLabel": "建立一筆新的 Sim Inventory",
+        "createOrEditLabel": "建立或編輯 Sim Inventory",
+        "notFound": "No Sim Inventories found"
+      },
+      "created": "新的 Sim Inventory 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Sim Inventory 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Sim Inventory 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Sim Inventory {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Sim Inventory"
+      },
+      "iccid": "Iccid",
+      "imsi": "Imsi",
+      "ki": "Ki",
+      "k4sno": "K 4 Sno",
+      "opsno": "Opsno",
+      "offerId": "Offer Id",
+      "offerName": "Offer Name",
+      "status": "Status",
+      "offerValidFromDate": "Offer Valid From Date",
+      "offerValidToDate": "Offer Valid To Date",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastUpdatedDate": "Last Updated Date",
+      "lastUpdatedBy": "Last Updated By",
+      "tenantId": "Tenant Id"
+    }
+  }
+}

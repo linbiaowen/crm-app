@@ -1,0 +1,13 @@
+{
+  "crmwebApp": {
+    "OrderType": {
+      "null": "",
+      "PURCHASE_OFFER": "PURCHASE_OFFER",
+      "CANCEL_OFFER": "CANCEL_OFFER",
+      "MODIFY_OFFER": "MODIFY_OFFER",
+      "CHANGE_SERVICE": "CHANGE_SERVICE",
+      "SIM_REPLACEMENT": "SIM_REPLACEMENT",
+      "RESEND_SIM": "RESEND_SIM"
+    }
+  }
+}

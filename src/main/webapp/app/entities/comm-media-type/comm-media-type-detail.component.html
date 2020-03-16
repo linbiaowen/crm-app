@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commMediaType">
+            <h2><span jhiTranslate="crmwebApp.commMediaType.detail.title">Comm Media Type</span> {{ commMediaType.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmwebApp.commMediaType.optoutMediaId">Optout Media Id</span></dt>
+                <dd>
+                    <span>{{ commMediaType.optoutMediaId }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commMediaType.mediaType">Media Type</span></dt>
+                <dd>
+                    <span>{{ commMediaType.mediaType }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commMediaType.mediaTypeDesc">Media Type Desc</span></dt>
+                <dd>
+                    <span>{{ commMediaType.mediaTypeDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commMediaType.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ commMediaType.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commMediaType.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ commMediaType.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commMediaType.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ commMediaType.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commMediaType.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ commMediaType.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commMediaType.lastUpdatedDate">Last Updated Date</span></dt>
+                <dd>
+                    <span>{{ commMediaType.lastUpdatedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commMediaType.lastUpdatedBy">Last Updated By</span></dt>
+                <dd>
+                    <span>{{ commMediaType.lastUpdatedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="crmwebApp.commMediaType.tenantId">Tenant Id</span></dt>
+                <dd>
+                    <span>{{ commMediaType.tenantId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/comm-media-type', commMediaType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
